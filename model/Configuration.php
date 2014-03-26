@@ -1,7 +1,7 @@
 <?php
 class Configuration {
 	// website info
-	public $name = "Tripod";
+	public $name = "Tripode";
     public $description = "A simple WebSite for your photos.";
     public $author = "Author";
     public $lang = "en-en";		// one of the following: "en-en", "it-it", "es-es"
