@@ -1,9 +1,10 @@
 <?php
 require_once("Configuration.php");
+require_once("services/AuthenticationService.php");
+require_once("services/ConfigurationService.php");
+require_once("services/GalleryService.php");
 require_once("services/TopMenuService.php");
 require_once("services/TranslationService.php");
-require_once("services/GalleryService.php");
-require_once("services/AuthenticationService.php");
 
 class Context {
 	public static $instance;
@@ -12,17 +13,19 @@ class Context {
     public $configuration;
     
     // services
+    public $authenticationService;
+    public $configurationService;
+    public $galleryService;
     public $topMenuService;
     public $translationService;
-    public $galleryService;
-    public $authenticationService;
     
     private function __construct() {
 		$this->configuration = new Configuration(); 
+		$this->authenticationService = new AuthenticationService();
+		$this->configurationService = new ConfigurationService();
+		$this->galleryService = new GalleryService();
 		$this->topMenuService = new TopMenuService();
 		$this->translationService = new TranslationService();
-		$this->galleryService = new GalleryService();
-		$this->authenticationService = new AuthenticationService();
 	}
 	
 	public static function getInstance() {

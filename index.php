@@ -6,13 +6,13 @@
 	DispatcherService::dispatch();
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configuration->lang ?>" dir="ltr" lang="<?= Context::getInstance()->configuration->lang ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="author" content="<?= Context::getInstance()->configuration->author ?>">
-		<meta name="description" content="<= Context::getInstance()->configuration->description ?>">
-		<title><?= Context::getInstance()->configuration->name ?></title>
+		<meta name="author" content="<?= Context::getInstance()->configurationService->getConfiguration()->author ?>">
+		<meta name="description" content="<= Context::getInstance()->configurationService->getConfiguration()->description ?>">
+		<title><?= Context::getInstance()->configurationService->getConfiguration()->name ?></title>
 		
 		<link rel="shortcut icon" href="img/favicon.ico">
 		
@@ -36,7 +36,7 @@
 				<header class="header" role="banner">
 					<div class="clearfix">
 						<a class="brand pull-left" href="index.php">
-							<span class="site-title" title="<?= Context::getInstance()->configuration->name ?>"><?= Context::getInstance()->configuration->name ?></span>
+							<span class="site-title" title="<?= Context::getInstance()->configurationService->getConfiguration()->name ?>"><?= Context::getInstance()->configurationService->getConfiguration()->name ?></span>
 						</a>
 						<div class="header-search pull-right"></div>
 					</div>
@@ -106,7 +106,7 @@
 			<div class="container">
 				<hr>
 				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translationService->translate("back_top") ?></a></p>
-				<p>© <?= Context::getInstance()->configuration->name ?> <?php echo date("Y") ?></p>
+				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->name ?> <?php echo date("Y") ?></p>
 			</div>
 		</footer>
 

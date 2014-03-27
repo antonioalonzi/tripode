@@ -6,7 +6,7 @@ class LoginAction {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		
-		if ($email == Context::getInstance()->configuration->accountEmail && $password == Context::getInstance()->configuration->accountPassword) {
+		if ($email == Context::getInstance()->configurationService->getConfiguration()->accountEmail && $password == Context::getInstance()->configurationService->getConfiguration()->accountPassword) {
 			$_REQUEST['MESSAGE'] = "login.loginSuccessful";
 			$_REQUEST['PAGE'] = "home";
 			$_SESSION['USERNAME'] = $email;
