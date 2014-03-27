@@ -9,10 +9,6 @@ require_once("services/TranslationService.php");
 class Context {
 	public static $instance;
 	
-	// beans
-    public $configuration;
-    
-    // services
     public $authenticationService;
     public $configurationService;
     public $galleryService;
@@ -20,7 +16,6 @@ class Context {
     public $translationService;
     
     private function __construct() {
-		$this->configuration = new Configuration(); 
 		$this->authenticationService = new AuthenticationService();
 		$this->configurationService = new ConfigurationService();
 		$this->galleryService = new GalleryService();
