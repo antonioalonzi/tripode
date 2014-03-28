@@ -7307,7 +7307,7 @@ div.editPopup {
 	filter: alpha(opacity=90);
 }
 
-div.editPopup div {
+div.editPopup div.editPopupContainer {
 	padding: 20px;
 	overflow-y: auto;
 }

@@ -1,12 +1,9 @@
 <div class="homePageText">
-	<?php if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) { ?>
-		<a href="#popup-edit-home" class="editable"><img src="img/editIcon.png" class="pull-right" /></a>
-	<?php } ?>
+	<?php Context::getInstance()->pageService->sectionEditable("popup-edit-home") ?>
 	
 	<!-- Include customized home page -->
 	<?php include "home.html" ?>
 	
-	
-	<?php Context::getInstance()->pageService->includePopup("popup-edit-home", "editHome"); ?>
+	<?php Context::getInstance()->pageService->includePopup("popup-edit-home", "homeEdit"); ?>
 	
 </div>

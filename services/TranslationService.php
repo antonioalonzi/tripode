@@ -98,6 +98,26 @@ class TranslationService {
 				'it' => 'Login avvenuto con successo.',
 				'es' => 'Inicio de sesión exitoso.'
 			),
+			'login.adviceChangePassword' => array(
+					'en' => 'You still have the default password, it is advised to change it now clicking on the \'edit\' icon.',
+					'it' => 'Hai ancora la password di default, si consiglia di cambiarla adesso cliccando sull\'icona \'edit\'.',
+					'es' => 'Tienes todavía la contraseña de default, se aconseja de cambiarla ahora haciendo clic en el icono \'edit \'.'
+			),
+			'login.changeEmailAndPassword' => array(
+					'en' => 'Change your email and password:',
+					'it' => 'Cambia la tua email e password:',
+					'es' => 'Cambia tus email y password:'
+			),
+			'login.newPassword' => array(
+					'en' => 'New Passowrd:',
+					'it' => 'Nuova Password:',
+					'es' => 'Nueva Password:'
+			),
+			'login.confirmPassword' => array(
+					'en' => 'Confirm password:',
+					'it' => 'Ripeti password:',
+					'es' => 'Repita password:'
+			),
 			
 			// home
 			'home.text' => array(

@@ -10,14 +10,14 @@ require_once("services/TranslationService.php");
 class Context {
 	public static $instance;
 	
-    public $authenticationService;
-    public $configurationService;
-    public $galleryService;
-    public $pageService;
-    public $topMenuService;
-    public $translationService;
-    
-    private function __construct() {
+	public $authenticationService;
+	public $configurationService;
+	public $galleryService;
+	public $pageService;
+	public $topMenuService;
+	public $translationService;
+	
+	private function __construct() {
 		$this->authenticationService = new AuthenticationService();
 		$this->configurationService = new ConfigurationService();
 		$this->galleryService = new GalleryService();
@@ -33,5 +33,6 @@ class Context {
 		
 		return Context::$instance;
 	}
+	
 }
 ?>

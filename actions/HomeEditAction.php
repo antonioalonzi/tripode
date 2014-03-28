@@ -1,6 +1,6 @@
 <?php
 
-class EditHomeAction {
+class HomeEditAction {
 	
 	public function execute() {
 		

@@ -1,4 +1,4 @@
-<form action="?action=editHome" method="post" class="form-vertical">
+<form action="?action=homeEdit" method="post" class="form-vertical">
 	<div class="control-group">
 		<div class="control-label">
 			<label id="text-lbl" for="text" class="required"><? echo Context::getInstance()->translationService->translate("home.text") ?></label>
