@@ -8,23 +8,7 @@ class LoginEditAction {
 			return;
 		}
 		
-		$email = $_POST['email'];
-		$newPassword = $_POST['password'];
-		$confirmPassword = $_POST['confirmPassword'];
-		
-		if ($newPassword != $confirmPassword) {
-			$_REQUEST['ERROR'] = "login.passwordsDontMatch";
-			$_REQUEST['PAGE'] = "login";
-		} else {
-			// change email and password
-			Context::getInstance()->configurationService->getConfiguration()->accountEmail = $email;
-			Context::getInstance()->configurationService->getConfiguration()->accountPassword = $newPassword;
-			// save configuration
-			Context::getInstance()->configurationService->save();
-			
-			$_SESSION['USERNAME'] = $email;
-			$_REQUEST['MESSAGE'] = "login.accountChanged";
-		}
+		$_REQUEST['ERROR'] = "Operation not allowed in demo mode";
 	}
 	
 }
