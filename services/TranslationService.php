@@ -123,6 +123,11 @@ class TranslationService {
 					'it' => 'Le passwords inserite sono diverse.',
 					'es' => 'Los passwords introducidas no coinciden.'
 			),
+			'login.accountChanged' => array(
+					'en' => 'Account successfully changed.',
+					'it' => 'L\'account è stato cambiato con successo.',
+					'es' => 'La cuenta ha sido cambiada correctamente.'
+			),
 			
 			// home
 			'home.text' => array(

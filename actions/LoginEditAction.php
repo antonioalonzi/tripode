@@ -11,7 +11,14 @@ class LoginEditAction {
 			$_REQUEST['ERROR'] = "login.passwordsDontMatch";
 			$_REQUEST['PAGE'] = "login";
 		} else {
+			// change email and password
+			Context::getInstance()->configurationService->getConfiguration()->accountEmail = $email;
+			Context::getInstance()->configurationService->getConfiguration()->accountPassword = $newPassword;
+			// save configuration
 			Context::getInstance()->configurationService->save();
+			
+			$_SESSION['USERNAME'] = $email;
+			$_REQUEST['MESSAGE'] = "login.accountChanged";
 		}
 	}
 	
