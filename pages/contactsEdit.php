@@ -1,4 +1,4 @@
-<div class="login ">
+<div>
 	<p><?= Context::getInstance()->translationService->translate("contacts.changeContacts") ?></p>
 	<form action="?action=contactsEdit" method="post" class="form-horizontal">
 		<fieldset class="well">

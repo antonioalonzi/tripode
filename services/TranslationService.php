@@ -32,65 +32,6 @@ class TranslationService {
 						'es' => 'Volve arriba' 
 				),
 				
-				// contacts
-				'contacts.name' => array (
-						'en' => 'Name',
-						'it' => 'Nome',
-						'es' => 'Nombre' 
-				),
-				'contacts.surname' => array (
-						'en' => 'Surname',
-						'it' => 'Cognome',
-						'es' => 'Apellido' 
-				),
-				'contacts.address' => array (
-						'en' => 'Address',
-						'it' => 'Indirizzo',
-						'es' => 'Dirección' 
-				),
-				'contacts.city' => array (
-						'en' => 'Town',
-						'it' => 'Città',
-						'es' => 'Ciudad'
-				),
-				'contacts.postcode' => array (
-						'en' => 'PostCode',
-						'it' => 'CAP',
-						'es' => 'código postal'
-				),
-				'contacts.country' => array (
-						'en' => 'Country',
-						'it' => 'Stato',
-						'es' => 'Nación'
-				),
-				'contacts.telephone' => array (
-						'en' => 'Telephone',
-						'it' => 'Telefono',
-						'es' => 'Telefono' 
-				),
-				'contacts.mobile' => array (
-						'en' => 'Mobile',
-						'it' => 'Cellulare',
-						'es' => 'Móvil' 
-				),
-				'contacts.changeContacts' => array (
-						'en' => 'Change information for contacting you.',
-						'it' => 'Cambia le informazioni per contattarti.',
-						'es' => 'Cambie la información para ponerse en contacto con tigo.' 
-				),
-				'contacts.contactsChanged' => array (
-						'en' => 'Contact successfully updated.',
-						'it' => 'Il tuo contatto è stato aggiornato con successo.',
-						'es' => 'Tu contacto ha sido actualizado correctamente.' 
-				),
-				
-				// right-menu
-				'gallery' => array (
-						'en' => 'Gallery',
-						'it' => 'Galleria',
-						'es' => 'Galería' 
-				),
-				
 				// general actions
 				'action.save' => array (
 						'en' => 'Save',
@@ -103,6 +44,30 @@ class TranslationService {
 						'en' => 'You don\'t have sufficient permissions for executing this action.',
 						'it' => 'Non hai permessi sufficienti per eseguire questa azione.',
 						'es' => 'No tienes permisos suficientes para la ejecución de esta acción.' 
+				),
+				
+				// languages
+				'lang.english' => array (
+						'en' => 'English',
+						'it' => 'Inglese',
+						'es' => 'Inglés'
+				),
+				'lang.italian' => array (
+						'en' => 'Italian',
+						'it' => 'Italiano',
+						'es' => 'Italiano'
+				),
+				'lang.spanish' => array (
+						'en' => 'Spanish',
+						'it' => 'Spagnolo',
+						'es' => 'Español'
+				),
+				
+				// right-menu
+				'gallery' => array (
+						'en' => 'Gallery',
+						'it' => 'Galleria',
+						'es' => 'Galería'
 				),
 				
 				// login
@@ -172,7 +137,91 @@ class TranslationService {
 						'en' => 'Home successfully modified.',
 						'it' => 'La Home è stata modificata con successo.',
 						'es' => 'Home modificada corectamente.' 
-				) 
+				),
+				
+				// website
+				'website.changeConfiguration' => array (
+						'en' => 'Change the configuration for your website:',
+						'it' => 'Cambia la configurazione per il tuo sito internet:',
+						'es' => 'Cambia la configuración para tu sitio web:'
+				),
+				'website.name' => array (
+						'en' => 'Name',
+						'it' => 'Nome',
+						'es' => 'Nombre'
+				),
+				'website.description' => array (
+						'en' => 'Description',
+						'it' => 'Descrizione',
+						'es' => 'Descripción'
+				),
+				'website.author' => array (
+						'en' => 'Author',
+						'it' => 'Autore',
+						'es' => 'Autor'
+				),
+				'website.lang' => array (
+						'en' => 'Language',
+						'it' => 'Lingua',
+						'es' => 'Idioma'
+				),
+				'website.configurationChanged' => array (
+						'en' => 'Configuration successfully updated.',
+						'it' => 'La configurazione del sito è stata aggiornata con successo.',
+						'es' => 'Tu configuración de sitio web ha sido actualizado correctamente.'
+				),
+				
+				// contacts
+				'contacts.name' => array (
+						'en' => 'Name',
+						'it' => 'Nome',
+						'es' => 'Nombre'
+				),
+				'contacts.surname' => array (
+						'en' => 'Surname',
+						'it' => 'Cognome',
+						'es' => 'Apellido'
+				),
+				'contacts.address' => array (
+						'en' => 'Address',
+						'it' => 'Indirizzo',
+						'es' => 'Dirección'
+				),
+				'contacts.city' => array (
+						'en' => 'Town',
+						'it' => 'Città',
+						'es' => 'Ciudad'
+				),
+				'contacts.postcode' => array (
+						'en' => 'PostCode',
+						'it' => 'CAP',
+						'es' => 'código postal'
+				),
+				'contacts.country' => array (
+						'en' => 'Country',
+						'it' => 'Stato',
+						'es' => 'Nación'
+				),
+				'contacts.telephone' => array (
+						'en' => 'Telephone',
+						'it' => 'Telefono',
+						'es' => 'Telefono'
+				),
+				'contacts.mobile' => array (
+						'en' => 'Mobile',
+						'it' => 'Cellulare',
+						'es' => 'Móvil'
+				),
+				'contacts.changeContacts' => array (
+						'en' => 'Change information for contacting you.',
+						'it' => 'Cambia le informazioni per contattarti.',
+						'es' => 'Cambie la información para ponerse en contacto con tigo.'
+				),
+				'contacts.contactsChanged' => array (
+						'en' => 'Contact successfully updated.',
+						'it' => 'Il tuo contatto è stato aggiornato con successo.',
+						'es' => 'Tu contacto ha sido actualizado correctamente.'
+				)
 		);
 	}
 	public function translate($word, $lang = null) {
