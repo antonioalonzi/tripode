@@ -4,6 +4,10 @@ class GalleryService {
 	public function getGalleryCategories() {
 		$categories = array();
 		
+		if (!file_exists('gallery')) {
+			mkdir('gallery');
+		}
+		
 		// read all directories
 		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
