@@ -7305,6 +7305,7 @@ div.editPopup {
 	max-height: 75%;
 	opacity: 0.9;
 	filter: alpha(opacity=90);
+	overflow: auto;
 }
 
 div.editPopup div.editPopupContainer {
