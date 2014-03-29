@@ -3,6 +3,11 @@
 class LoginEditAction {
 	
 	public function execute() {
+		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+			$_REQUEST['ERROR'] = "error.permissionDenied";
+			return;
+		}
+		
 		$email = $_POST['email'];
 		$newPassword = $_POST['password'];
 		$confirmPassword = $_POST['confirmPassword'];
