@@ -1,6 +1,6 @@
 <div class="login ">
 	<p><?= Context::getInstance()->translationService->translate("login.changeEmailAndPassword") ?></p>
-	<form action="?action=login" method="post" class="form-horizontal">
+	<form action="?action=loginEdit" method="post" class="form-horizontal">
 		<fieldset class="well">
 			<div class="control-group">
 				<div class="control-label"><label id="username-lbl" for="email" class="required"><? echo Context::getInstance()->translationService->translate("login.email") ?><span class="star">&#160;*</span></label></div>

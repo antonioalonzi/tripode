@@ -1,23 +1,23 @@
 <?php
 class Configuration {
 	// website info
-	public $name = "Tripode";
-	public $description = "A simple WebSite for your photos.";
-	public $author = "Author";
-	public $lang = "en-en";		// one of the following: "en-en", "it-it", "es-es"
+	public $name;
+	public $description;
+	public $author;
+	public $lang;		// one of the following: "en-en", "it-it", "es-es"
 	
 	// account info
-	public $accountEmail = "admin";
-	public $accountPassword = "admin";
+	public $accountEmail;
+	public $accountPassword;
 	
 	// contact info
-	public $contactName = "Site Owner Name";
-	public $contactSurname = "And Surname";
-	public $contactAddress = "Site Owner Address";
-	public $contactCity = "City";
-	public $contactPostcode = "PostCode";
-	public $contactCountry = "Country";
-	public $contactTelephone = "0123456789";
-	public $contactMobile = "00987654321";
+	public $contactName;
+	public $contactSurname;
+	public $contactAddress;
+	public $contactCity;
+	public $contactPostcode;
+	public $contactCountry;
+	public $contactTelephone;
+	public $contactMobile;
 }
 ?>

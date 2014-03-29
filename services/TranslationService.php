@@ -118,6 +118,11 @@ class TranslationService {
 					'it' => 'Ripeti password:',
 					'es' => 'Repita password:'
 			),
+			'login.passwordsDontMatch' => array(
+					'en' => 'The passwords inserted do not match.',
+					'it' => 'Le passwords inserite sono diverse.',
+					'es' => 'Los passwords introducidas no coinciden.'
+			),
 			
 			// home
 			'home.text' => array(
