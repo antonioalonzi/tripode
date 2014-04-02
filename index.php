@@ -110,7 +110,7 @@
 			<div class="container">
 				<hr>
 				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translationService->translate("back_top") ?></a></p>
-				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->name ?> <?php echo date("Y") ?></p>
+				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?> <?php echo date("Y") ?></p>
 			</div>
 		</footer>
 
