@@ -6,7 +6,7 @@
 	DispatcherService::dispatch();
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
