@@ -14,7 +14,7 @@
 				<div class="control-label"><label id="confirm-password-lbl" for="confirmPassword" class=" required"><? echo Context::getInstance()->translationService->translate("login.confirmPassword") ?><span class="star">&#160;*</span></label></div>
 				<div class="controls"><input type="password" name="confirmPassword" id="confirm-password" value="" class="validate-password" size="25" maxlength="99" required aria-required="true" /></div>
 			</div>
-			<div class="controls"><button type="submit" class="btn btn-primary"><? echo Context::getInstance()->translationService->translate("login.enter") ?></button></div>
+			<div class="controls"><button type="submit" class="btn btn-primary"><? echo Context::getInstance()->translationService->translate("action.save") ?></button></div>
 		</fieldset>
 	</form>
 </div>
