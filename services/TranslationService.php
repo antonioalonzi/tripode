@@ -226,7 +226,7 @@ class TranslationService {
 	}
 	public function translate($word, $lang = null) {
 		if ($lang == null) {
-			$lang = substr ( Context::getInstance ()->configurationService->getConfiguration ()->lang, 0, 2 );
+			$lang = substr ( Context::getInstance ()->configurationService->getConfiguration ()->websiteLang, 0, 2 );
 		}
 		
 		// return the key from the array if it is there
