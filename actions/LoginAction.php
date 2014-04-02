@@ -21,7 +21,7 @@ class LoginAction {
 	public function doGet() {
 		$_REQUEST['PAGE'] = "login";
 		
-		$email = "";
+		$_REQUEST['PARAM_EMAIL'] = "";
 		if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
 			$_REQUEST['PARAM_EMAIL'] = $_SESSION['USERNAME'];
 		}

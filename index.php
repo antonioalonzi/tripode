@@ -6,13 +6,13 @@
 	DispatcherService::dispatch();
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->lang ?>">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="author" content="<?= Context::getInstance()->configurationService->getConfiguration()->author ?>">
-		<meta name="description" content="<?= Context::getInstance()->configurationService->getConfiguration()->description ?>">
-		<title><?= Context::getInstance()->configurationService->getConfiguration()->name ?></title>
+		<meta name="author" content="<?= Context::getInstance()->configurationService->getConfiguration()->websiteAuthor ?>">
+		<meta name="description" content="<?= Context::getInstance()->configurationService->getConfiguration()->websiteDescription ?>">
+		<title><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></title>
 		
 		<link rel="shortcut icon" href="img/favicon.ico">
 		
@@ -36,7 +36,7 @@
 				<header class="header" role="banner">
 					<div class="clearfix">
 						<a class="brand pull-left" href="index.php">
-							<span class="site-title" title="<?= Context::getInstance()->configurationService->getConfiguration()->name ?>"><?= Context::getInstance()->configurationService->getConfiguration()->name ?></span>
+							<span class="site-title" title="<?= Context::getInstance()->configurationService->getConfiguration()->name ?>"><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></span>
 						</a>
 						
 						<?php Context::getInstance()->pageService->sectionEditable("popup-edit-website") ?>
