@@ -51,7 +51,7 @@
 							<a href="index.php"><?= Context::getInstance()->translationService->translate("menu.home") ?></a>
 						</li>
 						<li class="<?= Context::getInstance()->topMenuService->isActive("login") ?>">
-							<a href="index.php?page=login"><?= Context::getInstance()->translationService->translate("menu.login") ?></a>
+							<a href="index.php?action=login"><?= Context::getInstance()->translationService->translate("menu.login") ?></a>
 						</li>
 						<?php if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) { ?>
 							<li class="<?= Context::getInstance()->topMenuService->isActive("logout") ?>">

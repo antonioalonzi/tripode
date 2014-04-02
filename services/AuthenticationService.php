@@ -7,7 +7,13 @@ class AuthenticationService {
 		}
 		return false;
 	}
-
+	
+	public function isDefaultPassword() {
+		if (Context::getInstance()->configurationService->getConfiguration()->accountEmail == "admin" && Context::getInstance()->configurationService->getConfiguration()->accountPassword == "admin") {
+			return true;
+		}
+		return false;
+	}
 }
 ?>
 
