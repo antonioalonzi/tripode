@@ -2,7 +2,7 @@
 
 class WebsiteEditAction {
 	
-	public function execute() {
+	public function doPost() {
 		
 		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
@@ -21,6 +21,9 @@ class WebsiteEditAction {
 		$_REQUEST['MESSAGE'] = "website.configurationChanged";
 	}
 	
+	public function doGet() {
+		$_REQUEST['PAGE'] = "home";
+	}
 }
 
 ?>

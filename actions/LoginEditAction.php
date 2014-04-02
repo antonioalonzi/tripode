@@ -2,7 +2,7 @@
 
 class LoginEditAction {
 	
-	public function execute() {
+	public function doPost() {
 		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
@@ -27,6 +27,9 @@ class LoginEditAction {
 		}
 	}
 	
+	public function doGet() {
+		$_REQUEST['PAGE'] = "login";
+	}
 }
 
 ?>

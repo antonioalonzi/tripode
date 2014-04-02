@@ -18,7 +18,13 @@ class DispatcherService {
 				require_once($fileActionName);
 				
 				$actionClass = new $action();
-				$actionClass->execute();
+				
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					$actionClass->doPost();
+				} else {
+					$actionClass->doGet();
+				}
+				
 			} else {
 				$_REQUEST['ERROR'] = "Action $action does not exist.";
 			}
