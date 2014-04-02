@@ -2,7 +2,7 @@
 
 class LogoutAction {
 	
-	public function execute() {
+	public function doPost() {
 		session_start();
 		session_unset();
 		session_destroy();
@@ -11,6 +11,9 @@ class LogoutAction {
 		exit();
 	}
 	
+	public function doGet() {
+		$this->doPost();
+	}
 }
 
 ?>

@@ -2,7 +2,7 @@
 
 class LoginAction {
 	
-	public function execute() {
+	public function doPost() {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		
@@ -18,6 +18,9 @@ class LoginAction {
 		
 	}
 	
+	public function doGet() {
+		$_REQUEST['PAGE'] = "login";
+	}
 }
 
 ?>

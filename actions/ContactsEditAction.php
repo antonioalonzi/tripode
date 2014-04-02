@@ -2,7 +2,7 @@
 
 class ContactsEditAction {
 	
-	public function execute() {
+	public function doPost() {
 		
 		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
@@ -26,6 +26,9 @@ class ContactsEditAction {
 		$_REQUEST['MESSAGE'] = "contacts.contactsChanged";
 	}
 	
+	public function doGet() {
+		$_REQUEST['PAGE'] = "contacts";
+	}
 }
 
 ?>
