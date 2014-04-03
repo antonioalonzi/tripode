@@ -9,7 +9,7 @@ class HomeEditAction {
 			return;
 		}
 		
-		file_put_contents('pages/home.html', $_POST['text']);
+		file_put_contents('pages/home.html', $_REQUEST['text']);
 		$_REQUEST['MESSAGE'] = "home.message.homeModified";
 	}
 	

@@ -10,10 +10,10 @@ class WebsiteEditAction {
 		}
 		
 		// change configuration
-		Context::getInstance()->configurationService->getConfiguration()->websiteName = $_POST['name'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteDescription = $_POST['description'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteAuthor = $_POST['author'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = $_POST['lang'];
+		Context::getInstance()->configurationService->getConfiguration()->websiteName = $_REQUEST['name'];
+		Context::getInstance()->configurationService->getConfiguration()->websiteDescription = $_REQUEST['description'];
+		Context::getInstance()->configurationService->getConfiguration()->websiteAuthor = $_REQUEST['author'];
+		Context::getInstance()->configurationService->getConfiguration()->websiteLang = $_REQUEST['lang'];
 		
 		// save configuration
 		Context::getInstance()->configurationService->save();

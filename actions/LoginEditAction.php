@@ -8,9 +8,9 @@ class LoginEditAction {
 			return;
 		}
 		
-		$email = $_POST['email'];
-		$newPassword = $_POST['password'];
-		$confirmPassword = $_POST['confirmPassword'];
+		$email = $_REQUEST['email'];
+		$newPassword = $_REQUEST['password'];
+		$confirmPassword = $_REQUEST['confirmPassword'];
 		
 		if ($newPassword != $confirmPassword) {
 			$_REQUEST['ERROR'] = "login.passwordsDontMatch";

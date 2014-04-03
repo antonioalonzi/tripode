@@ -3,8 +3,8 @@
 class LoginAction {
 	
 	public function doPost() {
-		$email = $_POST['email'];
-		$password = $_POST['password'];
+		$email = $_REQUEST['email'];
+		$password = $_REQUEST['password'];
 		
 		if ($email == Context::getInstance()->configurationService->getConfiguration()->accountEmail && $password == Context::getInstance()->configurationService->getConfiguration()->accountPassword) {
 			$_REQUEST['MESSAGE'] = "login.loginSuccessful";

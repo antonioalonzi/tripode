@@ -42,7 +42,7 @@ class GalleryService {
 	}
 	
 	public function includeCategoryIndex() {
-		$fileIndex = "gallery/".$_GET['category']."/index.html";
+		$fileIndex = "gallery/".$_REQUEST['category']."/index.html";
 		if (!file_exists($fileIndex)) {
 			file_put_contents($fileIndex, Context::getInstance()->translationService->translate("gallery.defaultIndexMessage"));
 		}

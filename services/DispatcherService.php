@@ -10,8 +10,8 @@ class DispatcherService {
 	}
 	
 	private static function executeAction() {
-		if (isset($_GET['action'])) {
-			$action = ucfirst($_GET['action']."Action");
+		if (isset($_REQUEST['action'])) {
+			$action = ucfirst($_REQUEST['action']."Action");
 			
 			$fileActionName = "actions/".$action.".php";
 			if (file_exists($fileActionName)) {
@@ -33,8 +33,8 @@ class DispatcherService {
 	
 	private static function defineView() {
 		$page = 'home';
-		if (isset($_GET['page'])) {
-			$page = $_GET['page'];
+		if (isset($_REQUEST['page'])) {
+			$page = $_REQUEST['page'];
 		}
 		
 		// override the page with the one set by the action if any
