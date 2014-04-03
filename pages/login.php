@@ -1,7 +1,7 @@
 <div class="login ">
 	<form action="?action=login" method="post" class="form-horizontal">
 		<fieldset class="well">
-			<?php Context::getInstance()->pageService->sectionEditable("popup-login-edit") ?>
+			<?php Context::getInstance()->pageService->sectionEditable("loginEdit") ?>
 			<div class="control-group">
 				<div class="control-label"><label id="username-lbl" for="email" class="required"><?= Context::getInstance()->translationService->translate("login.email") ?><span class="star">&#160;*</span></label></div>
 				<div class="controls"><input type="text" name="email" id="email" value="<?= $_REQUEST['PARAM_EMAIL'] ?>" class="validate-username" size="25" required aria-required="true" /></div>
@@ -18,5 +18,5 @@
 		<strong><?= Context::getInstance()->translationService->translate("login.adviceChangePassword") ?></strong>
 	<?php } ?>
 	
-	<?php Context::getInstance()->pageService->includePopup("popup-login-edit", "loginEdit"); ?>
+	<?php Context::getInstance()->pageService->includePopup("loginEdit"); ?>
 </div>

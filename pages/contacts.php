@@ -1,6 +1,6 @@
 <div class="contact">
 	
-	<?php Context::getInstance()->pageService->sectionEditable("popup-edit-contacts") ?>
+	<?php Context::getInstance()->pageService->sectionEditable("contactsEdit") ?>
 	
 	<div class="page-header">
 		<h2><span class="contact-name"><?= Context::getInstance()->configurationService->getConfiguration()->contactName ?> <?= Context::getInstance()->configurationService->getConfiguration()->contactSurname ?></span></h2>
@@ -21,5 +21,5 @@
 		</dl>
 	</div>
 	
-	<?php Context::getInstance()->pageService->includePopup("popup-edit-contacts", "contactsEdit"); ?> 
+	<?php Context::getInstance()->pageService->includePopup("contactsEdit"); ?> 
 </div>

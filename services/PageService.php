@@ -1,13 +1,13 @@
 <?php
 class PageService {
 
-	public function sectionEditable($popupId) {
+	public function sectionEditable($popupName) {
 		if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) { 
-			echo '<a href="#'.$popupId.'" class="editable"><img src="img/editIcon.png" class="pull-right" /></a>';
+			echo '<a href="#popup-'.$popupName.'" class="editable"><img src="img/editIcon.png" class="pull-right" /></a>';
 		}
 	}
 	
-	public function includePopup($popupId, $popupName) {
+	public function includePopup($popupName) {
 		include "pages/popup.php";
 	}
 

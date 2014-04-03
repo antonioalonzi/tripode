@@ -39,7 +39,7 @@
 							<span class="site-title" title="<?= Context::getInstance()->configurationService->getConfiguration()->name ?>"><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></span>
 						</a>
 						
-						<?php Context::getInstance()->pageService->sectionEditable("popup-edit-website") ?>
+						<?php Context::getInstance()->pageService->sectionEditable("websiteEdit") ?>
 						
 						<div class="header-search pull-right"></div>
 					</div>
@@ -86,26 +86,25 @@
 					</main>
 					
 					<div id="aside" class="span3">
-						
-						<!-- Begin Right Sidebar -->
 						<div class="well _menu">
-							<h3 class="page-header"><?= Context::getInstance()->translationService->translate("gallery") ?></h3>
+							<h3 class="page-header">
+								<?= Context::getInstance()->translationService->translate("gallery") ?>
+								<?php Context::getInstance()->pageService->sectionEditable("galleryMenuEdit") ?>
+							</h3>
 							<ul class="nav menu">
 							<?php foreach (Context::getInstance()->galleryService->getGalleryCategories() as $category) { ?>
 								<li><a href="index.php?page=gallery&category=<?php echo $category ?>"><?php echo $category ?></a></li>
 							<?php } ?>
 							</ul>
 						</div>
-						<!-- End Right Sidebar -->
-						
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<?php Context::getInstance()->pageService->includePopup("popup-edit-website", "websiteEdit"); ?>
+		<?php Context::getInstance()->pageService->includePopup("websiteEdit"); ?>
+		<?php Context::getInstance()->pageService->includePopup("galleryMenuEdit"); ?>
 		
-		<!-- Footer -->
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
