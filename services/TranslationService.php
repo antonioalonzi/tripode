@@ -74,6 +74,16 @@ class TranslationService {
 						'it' => 'Inserisci la descrizione per la categoria.',
 						'es' => 'Introduces la descripción de la categoría.'
 				),
+				'gallery.editCategories' => array (
+						'en' => 'Manage your categories:',
+						'it' => 'Gestisci le tue categorie:',
+						'es' => 'Administras tus categorías:'
+				),
+				'gallery.actionHide' => array (
+						'en' => 'Hide',
+						'it' => 'Nascondi',
+						'es' => 'Oculta'
+				),
 				
 				// login
 				'login.email' => array (

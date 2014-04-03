@@ -89,11 +89,11 @@
 						<div class="well _menu">
 							<h3 class="page-header">
 								<?= Context::getInstance()->translationService->translate("gallery") ?>
-								<?php Context::getInstance()->pageService->sectionEditable("galleryMenuEdit") ?>
+								<?php Context::getInstance()->pageService->sectionEditable("galleryCategoriesEdit") ?>
 							</h3>
 							<ul class="nav menu">
 							<?php foreach (Context::getInstance()->galleryService->getGalleryCategories() as $category) { ?>
-								<li><a href="index.php?page=gallery&category=<?php echo $category ?>"><?php echo $category ?></a></li>
+								<li><a href="index.php?page=gallery&category=<?= $category ?>"><?= $category ?></a></li>
 							<?php } ?>
 							</ul>
 						</div>
@@ -103,13 +103,13 @@
 		</div>
 		
 		<?php Context::getInstance()->pageService->includePopup("websiteEdit"); ?>
-		<?php Context::getInstance()->pageService->includePopup("galleryMenuEdit"); ?>
+		<?php Context::getInstance()->pageService->includePopup("galleryCategoriesEdit"); ?>
 		
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
 				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translationService->translate("back_top") ?></a></p>
-				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?> <?php echo date("Y") ?></p>
+				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?> <?= date("Y") ?></p>
 			</div>
 		</footer>
 

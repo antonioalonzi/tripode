@@ -1,7 +1,7 @@
 <?php
 class GalleryService {
 	
-	public function getGalleryCategories() {
+	public function getGalleryCategories($includeHidden = false) {
 		$categories = array();
 		
 		if (!file_exists('gallery')) {
@@ -45,6 +45,10 @@ class GalleryService {
 			file_put_contents($fileIndex, Context::getInstance()->translationService->translate("gallery.defaultIndexMessage"));
 		}
 		include $fileIndex;
+	}
+	
+	public function hide($category) {
+		rename("gallery/".$category, "gallery/.".$category);
 	}
 }
 ?>
