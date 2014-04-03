@@ -11,9 +11,11 @@ class GalleryService {
 		// read all directories
 		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($file = readdir($handle))) {
-				if (!in_array($file, $blacklist)) {
-					$categories[] = $file;
+			while (false !== ($category = readdir($handle))) {
+				if (!in_array($category, $blacklist)) {
+					if ($includeHidden || (!$includeHidden && !$this->isHidden($category))) {
+						$categories[] = $category;
+					}
 				}
 			}
 			closedir($handle);
@@ -49,6 +51,14 @@ class GalleryService {
 	
 	public function hide($category) {
 		rename("gallery/".$category, "gallery/.".$category);
+	}
+	
+	public function show($category) {
+		rename("gallery/".$category, "gallery/".substr($category, 1));
+	}
+	
+	public function isHidden($file) {
+		return strpos($file, ".") === 0;
 	}
 }
 ?>

@@ -19,6 +19,10 @@ class GalleryAction {
 	private function hide() {
 		Context::getInstance()->galleryService->hide($_GET['category']);
 	}
+	
+	private function show() {
+		Context::getInstance()->galleryService->show($_GET['category']);
+	}
 }
 
 ?>

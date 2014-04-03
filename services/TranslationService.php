@@ -84,6 +84,11 @@ class TranslationService {
 						'it' => 'Nascondi',
 						'es' => 'Oculta'
 				),
+				'gallery.actionShow' => array (
+						'en' => 'Show',
+						'it' => 'Mostra',
+						'es' => 'Mostra'
+				),
 				
 				// login
 				'login.email' => array (
