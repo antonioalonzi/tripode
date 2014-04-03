@@ -8,9 +8,9 @@
 					<td><?= $category ?></td>
 					<td>
 						<?php if (!Context::getInstance()->galleryService->isHidden($category)) { ?>
-							<a href="?action=gallery&galleryAction=hide&category=<?= $category?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" /></a>
+							<a class="methodPost" href="?action=gallery&galleryAction=hide&category=<?= $category?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" /></a>
 						<?php } else { ?>
-							<a href="?action=gallery&galleryAction=show&category=<?= $category?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" /></a>
+							<a class="methodPost" href="?action=gallery&galleryAction=show&category=<?= $category?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" /></a>
 						<?php } ?>
 					</td>
 				</tr>
