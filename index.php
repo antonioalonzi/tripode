@@ -67,7 +67,7 @@
 				<?php if (Context::getInstance()->topMenuService->hasCurrentPage()) { ?>
 					<div class="moduletable">
 						<div class="custom">
-							<p><img src="img/blue-flower.jpg" alt="" width="100%"></p>
+							<p><img src="img/banners/blue-flower.jpg" alt="" width="100%"></p>
 						</div>
 					</div>
 				<?php } ?>
