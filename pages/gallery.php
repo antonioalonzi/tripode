@@ -1,6 +1,6 @@
 <h2><a href="index.php?page=gallery&category=<?php echo $_GET['category'] ?>"><?php echo $_GET['category'] ?></a></h2>
 
-<div class="gallery_text"><?php include "gallery/".$_GET['category']."/index.html" ?></div>
+<div class="gallery_text"><?php Context::getInstance()->galleryService->includeCategoryIndex($_GET['category']) ?></div>
 
 <ul class="sige">
 	

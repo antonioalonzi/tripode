@@ -69,6 +69,11 @@ class TranslationService {
 						'it' => 'Galleria',
 						'es' => 'Galería'
 				),
+				'gallery.defaultIndexMessage' => array (
+						'en' => 'Insert category description.',
+						'it' => 'Inserisci la descrizione per la categoria.',
+						'es' => 'Introduces la descripción de la categoría.'
+				),
 				
 				// login
 				'login.email' => array (

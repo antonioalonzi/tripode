@@ -39,5 +39,12 @@ class GalleryService {
 		return $images;
 	}
 	
+	public function includeCategoryIndex() {
+		$fileIndex = "gallery/".$_GET['category']."/index.html";
+		if (!file_exists($fileIndex)) {
+			file_put_contents($fileIndex, Context::getInstance()->translationService->translate("gallery.defaultIndexMessage"));
+		}
+		include $fileIndex;
+	}
 }
 ?>
