@@ -6,6 +6,9 @@ class GalleryAction {
 		if (isset($_REQUEST['galleryAction'])) {
 			$galleryAction = $_REQUEST['galleryAction'];
 			$this->$galleryAction();
+			
+			// this is in order to open the popup as soon the page is reloaded
+			$_REQUEST['OPEN_DEFAULT_POPUP'] = "galleryCategoriesEdit";
 		}
 		
 		$_REQUEST['PAGE'] = "home";

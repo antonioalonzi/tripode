@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	if ($('#openDefaultPopup').length) {
+		$($('#openDefaultPopup').attr('href')).fadeIn();
+	}
+	
 	$('a.editable').click(function() {
 		$($(this).attr('href')).fadeIn();
 	});

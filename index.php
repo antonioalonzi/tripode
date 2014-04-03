@@ -105,6 +105,10 @@
 		<?php Context::getInstance()->pageService->includePopup("websiteEdit"); ?>
 		<?php Context::getInstance()->pageService->includePopup("galleryCategoriesEdit"); ?>
 		
+		<?php if (isset($_REQUEST['OPEN_DEFAULT_POPUP'])) { ?>
+			<a id="openDefaultPopup" style="display:none" href="#popup-<?= $_REQUEST['OPEN_DEFAULT_POPUP'] ?>"></a>
+		<?php } ?>
+		
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
