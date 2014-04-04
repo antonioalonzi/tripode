@@ -6,7 +6,7 @@ class GalleryItem {
 	
 	public function __construct($name) {
 		$newName = $this->setHiddenFromName($name);
-		$this->order = 0;
+		$newName = $this->setOrderFromName($newName);
 		$this->name = $newName;
 	}
 	
@@ -29,7 +29,11 @@ class GalleryItem {
 			$uriParameter = "";
 		}
 		
-		$uriParameter = $uriParameter.$this->name;
+		if (ctype_digit($this->order)) {
+			$uriParameter .= "[".$this->order."]";
+		}
+		
+		$uriParameter .= $this->name;
 		
 		return $uriParameter;
 	}
@@ -40,6 +44,25 @@ class GalleryItem {
 			return substr($name, 1);
 		} else {
 			$this->hidden = false;
+			return $name;
+		}
+	}
+	
+	private function setOrderFromName($name) {
+		if (strpos($name, "[") === 0) {
+			
+			$closeParentesis = strpos($name, "]");
+			if ($closeParentesis > 0) {
+				$orderString = substr($name, 1, $closeParentesis-1);
+				if (ctype_digit($orderString)) {
+					$this->order = $orderString;
+					return substr($name, $closeParentesis+1);
+				}
+			}
+			
+			return $name;
+		} else {
+			$this->order = 0;
 			return $name;
 		}
 	}
