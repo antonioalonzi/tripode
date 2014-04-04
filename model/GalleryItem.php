@@ -6,6 +6,7 @@ class GalleryItem {
 	
 	public function __construct($name) {
 		$newName = $this->setHiddenFromName($name);
+		$this->order = 0;
 		$this->name = $newName;
 	}
 	

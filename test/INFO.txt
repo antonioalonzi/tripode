@@ -1,0 +1,3 @@
+In order to run test cases you need to install phpunit
+and run the following command from the base directory:
+    phpunit test/*
