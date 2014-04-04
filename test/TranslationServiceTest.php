@@ -80,10 +80,10 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		// Given
 		$keyToTranslate = "key.not.existing";
 		Context::getInstance()->configurationService->getConfiguration()->websiteLang = null;
-	
+		
 		// when
 		$translation = Context::getInstance()->translationService->translate($keyToTranslate);
-	
+		
 		// Assert
 		$this->assertEquals("key.not.existing", $translation);
 	}
