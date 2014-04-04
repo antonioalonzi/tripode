@@ -18,12 +18,12 @@ class GalleryAction {
 		$_REQUEST['PAGE'] = "home";
 	}
 	
-	private function hide() {
-		Context::getInstance()->galleryService->hide($_REQUEST['category']);
+	private function hideCategory() {
+		Context::getInstance()->galleryService->hideCategory($_REQUEST['category']);
 	}
 	
-	private function show() {
-		Context::getInstance()->galleryService->show($_REQUEST['category']);
+	private function showCategory() {
+		Context::getInstance()->galleryService->showCategory($_REQUEST['category']);
 	}
 }
 

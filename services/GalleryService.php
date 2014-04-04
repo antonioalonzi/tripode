@@ -53,12 +53,12 @@ class GalleryService {
 		include $fileIndex;
 	}
 	
-	public function hide($category) {
+	public function hideCategory($category) {
 		rename("gallery/".$category, "gallery/.".$category);
 	}
 	
-	public function show($category) {
-		rename("gallery/.".$category, "gallery/".$category);
+	public function showCategory($category) {
+		rename("gallery/".$category, "gallery/".substr($category, 1));
 	}
 	
 	private function filterOutHidden($galleryItems) {

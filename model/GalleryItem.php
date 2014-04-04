@@ -21,6 +21,18 @@ class GalleryItem {
 		return $this->hidden;
 	}
 	
+	public function getFileName() {
+		if ($this->hidden) {
+			$uriParameter = ".";
+		} else {
+			$uriParameter = "";
+		}
+		
+		$uriParameter = $uriParameter.$this->name;
+		
+		return $uriParameter;
+	}
+	
 	private function setHiddenFromName($name) {
 		if (strpos($name, ".") === 0) {
 			$this->hidden = true;
