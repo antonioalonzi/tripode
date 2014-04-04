@@ -1,4 +1,6 @@
 <?php
+require_once('model/GalleryItem.php');
+
 class GalleryService {
 	
 	public function getGalleryCategories($includeHidden = false) {
@@ -14,7 +16,7 @@ class GalleryService {
 			while (false !== ($category = readdir($handle))) {
 				if (!in_array($category, $blacklist)) {
 					if ($includeHidden || (!$includeHidden && !$this->isHidden($category))) {
-						$categories[] = $category;
+						$categories[] = new GalleryItem($category);
 					}
 				}
 			}
