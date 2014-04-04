@@ -1,12 +1,27 @@
 <?php
+
+/**
+ * The filename contains hidden, position and itemName information with the following format:
+ *    <hidden>[<position>]<name>
+ *
+ *    - hidden is represented as a "." at the beginning of the file;
+ *    - position is a positive integer number between square brackets;
+ *    - name is the rest of the string
+ *
+ *     examples:
+ *        [1]myItem                 ->   not hidden item with name "myItem" at position 1
+ *        .[2]myHiddenItem          ->   hidden item with name "myHiddenItem" at position 2
+ *
+ * See GalleryItemTest for more examples and tests.
+ */
 class GalleryItem {
 	private $name;
-	private $order;
+	private $position;
 	private $hidden;
 	
 	public function __construct($name) {
 		$newName = $this->setHiddenFromName($name);
-		$newName = $this->setOrderFromName($newName);
+		$newName = $this->setPositionFromName($newName);
 		$this->name = $newName;
 	}
 	
@@ -14,8 +29,8 @@ class GalleryItem {
 		return $this->name;
 	}
 	
-	public function getOrder() {
-		return $this->order;
+	public function getPosition() {
+		return $this->position;
 	}
 	
 	public function isHidden() {
@@ -29,8 +44,8 @@ class GalleryItem {
 			$uriParameter = "";
 		}
 		
-		if (ctype_digit($this->order)) {
-			$uriParameter .= "[".$this->order."]";
+		if (ctype_digit($this->position)) {
+			$uriParameter .= "[".$this->position."]";
 		}
 		
 		$uriParameter .= $this->name;
@@ -48,21 +63,20 @@ class GalleryItem {
 		}
 	}
 	
-	private function setOrderFromName($name) {
+	private function setPositionFromName($name) {
 		if (strpos($name, "[") === 0) {
 			
 			$closeParentesis = strpos($name, "]");
 			if ($closeParentesis > 0) {
-				$orderString = substr($name, 1, $closeParentesis-1);
-				if (ctype_digit($orderString)) {
-					$this->order = $orderString;
+				$positionString = substr($name, 1, $closeParentesis-1);
+				if (ctype_digit($positionString)) {
+					$this->position = $positionString;
 					return substr($name, $closeParentesis+1);
 				}
 			}
 			
 			return $name;
 		} else {
-			$this->order = 0;
 			return $name;
 		}
 	}
