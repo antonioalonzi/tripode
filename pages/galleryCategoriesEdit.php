@@ -7,7 +7,7 @@
 				<tr>
 					<td><?= $categoryItem->getName() ?></td>
 					<td>
-						<?php if (!Context::getInstance()->galleryService->isHidden($categoryItem->getName())) { ?>
+						<?php if (!$categoryItem->isHidden()) { ?>
 							<a class="methodPost" href="?action=gallery&galleryAction=hide&category=<?= $categoryItem->getName() ?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" /></a>
 						<?php } else { ?>
 							<a class="methodPost" href="?action=gallery&galleryAction=show&category=<?= $categoryItem->getName() ?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" /></a>

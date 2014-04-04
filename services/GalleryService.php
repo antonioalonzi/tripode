@@ -15,12 +15,14 @@ class GalleryService {
 			$blacklist = array('.', '..');
 			while (false !== ($category = readdir($handle))) {
 				if (!in_array($category, $blacklist)) {
-					if ($includeHidden || (!$includeHidden && !$this->isHidden($category))) {
-						$categories[] = new GalleryItem($category);
-					}
+					$categories[] = new GalleryItem($category);
 				}
 			}
 			closedir($handle);
+		}
+		
+		if (!$includeHidden) {
+			$categories = $this->filterOutHidden($categories);
 		}
 		
 		return $categories;
@@ -56,11 +58,19 @@ class GalleryService {
 	}
 	
 	public function show($category) {
-		rename("gallery/".$category, "gallery/".substr($category, 1));
+		rename("gallery/.".$category, "gallery/".$category);
 	}
 	
-	public function isHidden($file) {
-		return strpos($file, ".") === 0;
+	private function filterOutHidden($galleryItems) {
+		$filteredItems = array();
+		
+		foreach ($galleryItems as $item) {
+			if (!$item->isHidden()) {
+				$filteredItems[] = $item;
+			}
+		}
+		
+		return $filteredItems;
 	}
 }
 ?>
