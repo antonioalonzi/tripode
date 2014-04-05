@@ -89,6 +89,16 @@ class TranslationService {
 						'it' => 'Mostra',
 						'es' => 'Mostra'
 				),
+				'gallery.actionUp' => array (
+						'en' => 'Move up',
+						'it' => 'Sposta su',
+						'es' => 'Mueve arriba'
+				),
+				'gallery.actionDown' => array (
+						'en' => 'Move down',
+						'it' => 'Sposta giù',
+						'es' => 'Mueve abajo'
+				),
 				
 				// login
 				'login.email' => array (
