@@ -3,7 +3,6 @@ class DispatcherService {
 	
 	public static function dispatch() {
 		DispatcherService::executeAction();
-		
 		DispatcherService::defineView();
 	}
 	

@@ -10,15 +10,15 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 	protected function setUp() {
 		$this->dispatcherService = new DispatcherService();
 		
-		// create a mock for the filesystem
 		$this->fileSystemMockAdaptor = new FileSystemMockAdaptor($this);
 	}
 	
-	public function testDispatchReturnHomePageIfNoPageDefined() {
+	public function testDispatchReturnsHomePageIfNoPageDefined() {
 		// Given
 		unset($_REQUEST['page']);
 		
 		$this->fileSystemMockAdaptor->stateThatFileExists('pages/home.php');
+		$this->fileSystemMockAdaptor->build();
 		
 		// when
 		$this->dispatcherService->dispatch();
@@ -29,12 +29,12 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->assertFalse(isset($_REQUEST['ERROR']));
 	}
 	
-	public function testDispatchReturnHomePageIfInexistentPageDefinedWithAnError() {
+	public function testDispatchReturnsHomePageIfInexistentPageDefinedWithAnError() {
 		// Given
 		$_REQUEST['page'] = 'inexistentPage';
 		
-		// homepage exists
 		$this->fileSystemMockAdaptor->stateThatFileDoesNotExist('pages/inexistentPage.php');
+		$this->fileSystemMockAdaptor->build();
 		
 		// when
 		$this->dispatcherService->dispatch();
@@ -43,6 +43,31 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('home', $_REQUEST['PAGE']);
 		$this->assertEquals('pages/home.php', $_REQUEST['PAGE_FILE']);
 		$this->assertEquals('Page inexistentPage does not exist.', $_REQUEST['ERROR']);
+	}
+	
+	public function testDispatchExecutesDoGetOnAnActionIfDefined() {
+		
+	}
+	
+	public function testDispatchExecutesDoPostOnAnActionIfDefined() {
+		
+	}
+	
+	public function testDispatchShowsTheHomePageWithAnErrorIfActionNotValid() {
+		// Given
+		$_REQUEST['action'] = 'inexistent';
+		
+		$this->fileSystemMockAdaptor->stateThatFileDoesNotExist('actions/InexistentAction.php');
+		$this->fileSystemMockAdaptor->stateThatFileExists('pages/home.php');
+		$this->fileSystemMockAdaptor->build();
+		
+		// When
+		$this->dispatcherService->dispatch();
+		
+		// Assert
+		$this->assertEquals('home', $_REQUEST['PAGE']);
+		$this->assertEquals('pages/home.php', $_REQUEST['PAGE_FILE']);
+		$this->assertEquals('Action InexistentAction does not exist.', $_REQUEST['ERROR']);
 	}
 }
 ?>
