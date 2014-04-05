@@ -1,13 +1,13 @@
 <?php
 require_once("Configuration.php");
-require_once("services/AuthenticationService.php");
-require_once("services/ConfigurationService.php");
-require_once("services/DispatcherService.php");
-require_once("services/FileSystemService.php");
-require_once("services/GalleryService.php");
-require_once("services/PageService.php");
-require_once("services/TopMenuService.php");
-require_once("services/TranslationService.php");
+require_once("model/AuthenticationService.php");
+require_once("model/ConfigurationService.php");
+require_once("model/DispatcherService.php");
+require_once("model/FileSystemService.php");
+require_once("model/GalleryService.php");
+require_once("model/PageService.php");
+require_once("model/TopMenuService.php");
+require_once("model/TranslationService.php");
 
 /**
  * Define a context where all the singleton are stored.
