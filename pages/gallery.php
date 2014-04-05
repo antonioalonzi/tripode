@@ -1,4 +1,5 @@
-<h2><a href="index.php?page=gallery&category=<?php echo $_REQUEST['category'] ?>"><?php echo $_REQUEST['category'] ?></a></h2>
+<?php $galleryItem = new GalleryItem($_REQUEST['category']) ?>
+<h2><a href="index.php?page=gallery&category=<?= $_REQUEST['category'] ?>"><?= $galleryItem->getName() ?></a></h2>
 
 <div class="gallery_text"><?php Context::getInstance()->galleryService->includeCategoryIndex($_REQUEST['category']) ?></div>
 
