@@ -8,9 +8,13 @@
 					<td><?= $categoryItem->getName() ?></td>
 					<td>
 						<?php if (!$categoryItem->isHidden()) { ?>
-							<a class="methodPost" href="?action=gallery&galleryAction=hideCategory&category=<?= $categoryItem->getFileName() ?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" /></a>
+							<a class="methodPost" href="?action=gallery&galleryAction=hideCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>">
+								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" src="img/hide.png" />
+							</a>
 						<?php } else { ?>
-							<a class="methodPost" href="?action=gallery&galleryAction=showCategory&category=<?= $categoryItem->getFileName() ?>"><img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" /></a>
+							<a class="methodPost" href="?action=gallery&galleryAction=showCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>">
+								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" src="img/show.png" />
+							</a>
 						<?php } ?>
 					</td>
 				</tr>

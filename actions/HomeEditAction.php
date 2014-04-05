@@ -3,7 +3,6 @@
 class HomeEditAction {
 	
 	public function doPost() {
-		
 		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
