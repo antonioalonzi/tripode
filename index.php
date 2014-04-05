@@ -1,7 +1,7 @@
 <?php
 	session_start();
-
-	require_once("services/DispatcherService.php");
+	
+	require_once("model/Context.php");
 	
 	DispatcherService::dispatch();
 ?>

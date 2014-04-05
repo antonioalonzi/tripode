@@ -1,6 +1,4 @@
 <?php
-require_once("model/Context.php");
-
 class DispatcherService {
 	
 	public static function dispatch() {
@@ -14,8 +12,8 @@ class DispatcherService {
 			$action = ucfirst($_REQUEST['action']."Action");
 			
 			$fileActionName = "actions/".$action.".php";
-			if (file_exists($fileActionName)) {
-				require_once($fileActionName);
+			if (Context::getInstance()->fileSystemService->fileExists($fileActionName)) {
+				Context::getInstance()->fileSystemService->requireOnce($fileActionName);
 				
 				$actionClass = new $action();
 				
@@ -43,7 +41,7 @@ class DispatcherService {
 		}
 		$pageFile = "pages/$page.php";
 			
-		if (!file_exists($pageFile)) {
+		if (!Context::getInstance()->fileSystemService->fileExists($pageFile)) {
 			$_REQUEST['ERROR'] = "Page $page does not exist.";
 			$page = "home";
 			$pageFile = "pages/$page.php";
