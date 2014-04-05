@@ -1,5 +1,5 @@
 <?php
-require_once('model/GalleryItem.php');
+require_once('beans/GalleryItem.php');
 
 class GalleryService {
 	

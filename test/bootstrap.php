@@ -1,3 +1,3 @@
 <?php
-require_once("model/Context.php");
+require_once("beans/Context.php");
 ?>
