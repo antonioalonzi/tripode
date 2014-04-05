@@ -48,18 +48,18 @@
 				<nav class="navigation" role="navigation">
 					<ul class="nav menu nav-pills">
 						<li class="<?= Context::getInstance()->topMenuService->isActive("home") ?>">
-							<a href="index.php"><?= Context::getInstance()->translationService->translate("menu.home") ?></a>
+							<a href="index.php"><?= Context::getInstance()->translator->translate("menu.home") ?></a>
 						</li>
 						<li class="<?= Context::getInstance()->topMenuService->isActive("login") ?>">
-							<a href="index.php?action=login"><?= Context::getInstance()->translationService->translate("menu.login") ?></a>
+							<a href="index.php?action=login"><?= Context::getInstance()->translator->translate("menu.login") ?></a>
 						</li>
 						<?php if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) { ?>
 							<li class="<?= Context::getInstance()->topMenuService->isActive("logout") ?>">
-								<a href="index.php?action=logout"><?= Context::getInstance()->translationService->translate("menu.logout") ?></a>
+								<a href="index.php?action=logout"><?= Context::getInstance()->translator->translate("menu.logout") ?></a>
 							</li>
 						<?php } ?>
 						<li class="<?= Context::getInstance()->topMenuService->isActive("contacts") ?>">
-							<a href="index.php?page=contacts"><?= Context::getInstance()->translationService->translate("menu.contacts") ?></a>
+							<a href="index.php?page=contacts"><?= Context::getInstance()->translator->translate("menu.contacts") ?></a>
 						</li>
 					</ul>
 				</nav>
@@ -75,11 +75,11 @@
 				<div class="row-fluid">
 					<main id="content" role="main" class="span9">
 						<?php if ( isset($_REQUEST['ERROR']) ) { ?>
-							<div class="alert alert-error"><?= Context::getInstance()->translationService->translate($_REQUEST['ERROR']) ?></div>
+							<div class="alert alert-error"><?= Context::getInstance()->translator->translate($_REQUEST['ERROR']) ?></div>
 						<?php } ?>
 						
 						<?php if ( isset($_REQUEST['MESSAGE']) ) { ?>
-							<div class="alert alert-success"><?= Context::getInstance()->translationService->translate($_REQUEST['MESSAGE']) ?></div>
+							<div class="alert alert-success"><?= Context::getInstance()->translator->translate($_REQUEST['MESSAGE']) ?></div>
 						<?php } ?>
 						
 						<?php include $_REQUEST['PAGE_FILE'] ?>
@@ -88,7 +88,7 @@
 					<div id="aside" class="span3">
 						<div class="well _menu">
 							<h3 class="page-header">
-								<?= Context::getInstance()->translationService->translate("gallery") ?>
+								<?= Context::getInstance()->translator->translate("gallery") ?>
 								<?php Context::getInstance()->pageService->sectionEditable("galleryCategoriesEdit") ?>
 							</h3>
 							<ul class="nav menu">
@@ -112,7 +112,7 @@
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
-				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translationService->translate("back_top") ?></a></p>
+				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translator->translate("back_top") ?></a></p>
 				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?> <?= date("Y") ?></p>
 			</div>
 		</footer>

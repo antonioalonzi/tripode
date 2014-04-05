@@ -1,5 +1,5 @@
 <?php
-class TranslationService {
+class Translator {
 	private $translations;
 	public function __construct() {
 		$this->translations = array (

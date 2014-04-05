@@ -7,7 +7,7 @@ require_once("beans/FileSystemService.php");
 require_once("beans/GalleryService.php");
 require_once("beans/PageService.php");
 require_once("beans/TopMenuService.php");
-require_once("beans/TranslationService.php");
+require_once("beans/Translator.php");
 
 /**
  * Define a context where all the singleton are stored.
@@ -21,7 +21,7 @@ class Context {
 	public $galleryService;
 	public $pageService;
 	public $topMenuService;
-	public $translationService;
+	public $translator;
 	
 	private function __construct() {
 		$this->authenticationService = new AuthenticationService();
@@ -30,7 +30,7 @@ class Context {
 		$this->galleryService = new GalleryService();
 		$this->pageService = new PageService();
 		$this->topMenuService = new TopMenuService();
-		$this->translationService = new TranslationService();
+		$this->translator = new Translator();
 	}
 	
 	/**

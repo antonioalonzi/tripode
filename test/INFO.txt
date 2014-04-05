@@ -4,4 +4,4 @@ and run the following command from the base directory:
 	phpunit test
 	
 	# to run a particular test
-	phpunit test/TranslationServiceTest.php
+	phpunit test/TranslatorTest.php

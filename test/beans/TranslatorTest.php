@@ -1,7 +1,7 @@
 <?php
 require_once("test/bootstrap.php");
 
-class TranslationServiceTest extends PHPUnit_Framework_TestCase {
+class TranslatorTest extends PHPUnit_Framework_TestCase {
 
 	public function testTranslateContactsUsingItalianIfPassedIntoTheTranslateMethod() {
 		// Given
@@ -10,7 +10,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		Context::getInstance()->configurationService->getConfiguration()->websiteLang = "en";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate, $lang);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
 		
 		// Assert
 		$this->assertEquals("Contatti", $translation);
@@ -22,7 +22,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		Context::getInstance()->configurationService->getConfiguration()->websiteLang = "en";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate);
 		
 		// Assert
 		$this->assertEquals("Contacts", $translation);
@@ -34,7 +34,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		$lang = "IT";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate, $lang);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
 		
 		// Assert
 		$this->assertEquals("Contatti", $translation);
@@ -46,7 +46,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		$lang = "italian";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate, $lang);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
 		
 		// Assert
 		$this->assertEquals("Contatti", $translation);
@@ -58,7 +58,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		$lang = "nd";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate, $lang);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
 		
 		// Assert
 		$this->assertEquals("menu.contacts", $translation);
@@ -70,7 +70,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		$lang = "it";
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate, $lang);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
 		
 		// Assert
 		$this->assertEquals("key.not.existing", $translation);
@@ -82,7 +82,7 @@ class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 		Context::getInstance()->configurationService->getConfiguration()->websiteLang = null;
 		
 		// when
-		$translation = Context::getInstance()->translationService->translate($keyToTranslate);
+		$translation = Context::getInstance()->translator->translate($keyToTranslate);
 		
 		// Assert
 		$this->assertEquals("key.not.existing", $translation);

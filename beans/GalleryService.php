@@ -50,7 +50,7 @@ class GalleryService {
 	public function includeCategoryIndex() {
 		$fileIndex = "gallery/".$_REQUEST['category']."/index.html";
 		if (!file_exists($fileIndex)) {
-			file_put_contents($fileIndex, Context::getInstance()->translationService->translate("gallery.defaultIndexMessage"));
+			file_put_contents($fileIndex, Context::getInstance()->translator->translate("gallery.defaultIndexMessage"));
 		}
 		include $fileIndex;
 	}
