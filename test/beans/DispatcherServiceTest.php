@@ -1,6 +1,6 @@
 <?php
-require_once("model/Context.php");
-require_once("test/FileSystemMockAdaptor.php");
+require_once("test/bootstrap.php");
+require_once("test/utils/FileSystemMockAdaptor.php");
 
 class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 	

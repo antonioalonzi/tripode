@@ -1,5 +1,5 @@
 <?php
-require_once("model/Context.php");
+require_once("test/bootstrap.php");
 
 class TranslationServiceTest extends PHPUnit_Framework_TestCase {
 
