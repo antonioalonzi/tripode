@@ -30,6 +30,14 @@ class GalleryAction {
 	private function showCategory() {
 		Context::getInstance()->galleryService->showCategory($_REQUEST['category']);
 	}
+	
+	private function downCategory() {
+		Context::getInstance()->galleryService->moveCategory($_REQUEST['category'], 'down');
+	}
+	
+	private function upCategory() {
+		Context::getInstance()->galleryService->moveCategory($_REQUEST['category'], 'up');
+	}
 }
 
 ?>

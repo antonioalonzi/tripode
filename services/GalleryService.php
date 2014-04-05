@@ -25,6 +25,8 @@ class GalleryService {
 			$categories = $this->filterOutHidden($categories);
 		}
 		
+		$categories = $this->orderByPosition($categories);
+		
 		return $categories;
 	}
 	
@@ -53,15 +55,41 @@ class GalleryService {
 		include $fileIndex;
 	}
 	
-	public function hideCategory($category) {
-		rename("gallery/".$category, "gallery/.".$category);
+	public function hideCategory($categoryFilename) {
+		rename("gallery/".$categoryFilename, "gallery/.".$categoryFilename);
 	}
 	
-	public function showCategory($category) {
-		rename("gallery/".$category, "gallery/".substr($category, 1));
+	public function showCategory($categoryFilename) {
+		rename("gallery/".$categoryFilename, "gallery/".substr($categoryFilename, 1));
 	}
 	
-	private function filterOutHidden($galleryItems) {
+	public function moveCategory($categoryFilename, $upOrDown) {
+		$categories = $this->getGalleryCategories(true);
+		$categoryItem = $this->getGalleryItemByFilename($categories, $categoryFilename);
+		if ($upOrDown == "up") {
+			$categoryItem->decreasePosition();
+		} elseif ($upOrDown == "down") {
+			$categoryItem->increasePosition();
+		} 
+		rename("gallery/".$categoryFilename, "gallery/".$categoryItem->getFileName());
+	}
+	
+	/**
+	 * Orders the gallery items by position
+	 * @param array $galleryItems
+	 * @return array
+	 */
+	public function orderByPosition($galleryItems) {
+		usort($galleryItems, array('GalleryItem','positionComparator'));
+		return $galleryItems;
+	}
+	
+	/**
+	 * Filters out all hidden items from a list
+	 * @param array $galleryItems
+	 * @return array
+	 */
+	public function filterOutHidden($galleryItems) {
 		$filteredItems = array();
 		
 		foreach ($galleryItems as $item) {
@@ -71,6 +99,20 @@ class GalleryService {
 		}
 		
 		return $filteredItems;
+	}
+	
+	/**
+	 * Find a galleryItem into a list by filename
+	 * @param array $items
+	 * @param string $itemName
+	 * @return GalleryItem
+	 */
+	public function getGalleryItemByFilename($items, $itemFilename) {
+		foreach ($items as $item) {
+			if ($item->getFilename() == $itemFilename) {
+				return $item;
+			}
+		}
 	}
 }
 ?>

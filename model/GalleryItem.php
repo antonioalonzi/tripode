@@ -25,6 +25,16 @@ class GalleryItem {
 		$this->name = $newName;
 	}
 	
+	public function increasePosition() {
+		$this->position++;
+	}
+	
+	public function decreasePosition() {
+		if ($this->position > 0) {
+			$this->position--;
+		}
+	}
+	
 	public function getName() {
 		return $this->name;
 	}
@@ -44,7 +54,7 @@ class GalleryItem {
 			$uriParameter = "";
 		}
 		
-		if (ctype_digit($this->position)) {
+		if (is_int($this->position)) {
 			$uriParameter .= "[".$this->position."]";
 		}
 		
@@ -70,7 +80,7 @@ class GalleryItem {
 			if ($closeParentesis > 0) {
 				$positionString = substr($name, 1, $closeParentesis-1);
 				if (ctype_digit($positionString)) {
-					$this->position = $positionString;
+					$this->position = intval($positionString);
 					return substr($name, $closeParentesis+1);
 				}
 			}
@@ -79,6 +89,10 @@ class GalleryItem {
 		} else {
 			return $name;
 		}
+	}
+	
+	public static function positionComparator($a, $b) {
+		return strcmp($a->position, $b->position);
 	}
 }
 ?>
