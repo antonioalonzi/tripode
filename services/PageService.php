@@ -3,7 +3,7 @@ class PageService {
 
 	public function sectionEditable($popupName) {
 		if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) { 
-			echo '<a href="#popup-'.$popupName.'" class="editable"><img src="img/editIcon.png" class="pull-right" /></a>';
+			echo '<a href="#popup-'.$popupName.'" class="editable"><img src="img/icons/edit.png" class="pull-right" /></a>';
 		}
 	}
 	

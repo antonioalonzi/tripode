@@ -9,11 +9,11 @@
 					<td>
 						<?php if (!$categoryItem->isHidden()) { ?>
 							<a class="methodPost" href="?action=gallery&galleryAction=hideCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>">
-								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" src="img/hide.png" />
+								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionHide") ?>" src="img/icons/hide.png" />
 							</a>
 						<?php } else { ?>
 							<a class="methodPost" href="?action=gallery&galleryAction=showCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>">
-								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" src="img/show.png" />
+								<img alt="<?= Context::getInstance()->translationService->translate("gallery.actionShow") ?>" src="img/icons/show.png" />
 							</a>
 						<?php } ?>
 					</td>
