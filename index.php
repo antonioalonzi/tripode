@@ -3,7 +3,7 @@
 	
 	require_once("beans/Context.php");
 	
-	DispatcherService::dispatch();
+	Dispatcher::dispatch();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>">

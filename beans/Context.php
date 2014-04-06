@@ -2,7 +2,7 @@
 require_once("Configuration.php");
 require_once("beans/AuthenticationService.php");
 require_once("beans/ConfigurationService.php");
-require_once("beans/DispatcherService.php");
+require_once("beans/Dispatcher.php");
 require_once("beans/FileSystemService.php");
 require_once("beans/GalleryService.php");
 require_once("beans/PageService.php");

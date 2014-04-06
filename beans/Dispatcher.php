@@ -1,9 +1,9 @@
 <?php
-class DispatcherService {
+class Dispatcher {
 	
 	public static function dispatch() {
-		DispatcherService::executeAction();
-		DispatcherService::defineView();
+		Dispatcher::executeAction();
+		Dispatcher::defineView();
 	}
 	
 	private static function executeAction() {

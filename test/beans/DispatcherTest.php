@@ -2,13 +2,13 @@
 require_once("test/bootstrap.php");
 require_once("test/utils/FileSystemMockAdaptor.php");
 
-class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
+class DispatcherTest extends PHPUnit_Framework_TestCase {
 	
-	private $dispatcherService;
+	private $dispatcher;
 	private $fileSystemMockAdaptor;
 	
 	protected function setUp() {
-		$this->dispatcherService = new DispatcherService();
+		$this->dispatcher = new Dispatcher();
 		
 		$this->fileSystemMockAdaptor = new FileSystemMockAdaptor($this);
 	}
@@ -21,7 +21,7 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->fileSystemMockAdaptor->build();
 		
 		// when
-		$this->dispatcherService->dispatch();
+		$this->dispatcher->dispatch();
 		
 		// Assert
 		$this->assertEquals('home', $_REQUEST['PAGE']);
@@ -37,7 +37,7 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->fileSystemMockAdaptor->build();
 		
 		// when
-		$this->dispatcherService->dispatch();
+		$this->dispatcher->dispatch();
 		
 		// Assert
 		$this->assertEquals('home', $_REQUEST['PAGE']);
@@ -57,7 +57,7 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->fileSystemMockAdaptor->build();
 		
 		// when
-		$this->dispatcherService->dispatch();
+		$this->dispatcher->dispatch();
 		
 		// Assert
 		$this->assertEquals('home', $_REQUEST['PAGE']);
@@ -77,7 +77,7 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->fileSystemMockAdaptor->build();
 		
 		// when
-		$this->dispatcherService->dispatch();
+		$this->dispatcher->dispatch();
 		
 		// Assert
 		$this->assertEquals('post', $_REQUEST['PAGE']);
@@ -94,7 +94,7 @@ class DispatcherServiceTest extends PHPUnit_Framework_TestCase {
 		$this->fileSystemMockAdaptor->build();
 		
 		// When
-		$this->dispatcherService->dispatch();
+		$this->dispatcher->dispatch();
 		
 		// Assert
 		$this->assertEquals('home', $_REQUEST['PAGE']);
