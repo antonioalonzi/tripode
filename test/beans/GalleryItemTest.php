@@ -1,68 +1,128 @@
 <?php
 require_once("test/bootstrap.php");
 
-class GalleryManagerTest extends PHPUnit_Framework_TestCase {
+class GalleryItemTest extends PHPUnit_Framework_TestCase {
 
-	public function testOrderByPosition() {
+	public function testConstructorPassingSimpleFilename() {
 		// Given
-		$galleryList = array(
-				new GalleryItem('[5]e'),
-				new GalleryItem('[3]c'),
-				new GalleryItem('[2]b'),
-				new GalleryItem('[3]c'),
-				new GalleryItem('a'),
-				new GalleryItem('[8]g'),
-				new GalleryItem('.[4]d'),
-				new GalleryItem('[6]f')
-		);
+		$filename = "filename";
 		
 		// when
-		$newGalleryList = Context::getInstance()->galleryManager->orderByPosition($galleryList);
+		$galleryItem = new GalleryItem($filename);
 		
 		// Assert
-		$this->assertEquals(8, count($newGalleryList));
-		$this->assertEquals("a", $newGalleryList[0]->getName());
-		$this->assertEquals("b", $newGalleryList[1]->getName());
-		$this->assertEquals("c", $newGalleryList[2]->getName());
-		$this->assertEquals("c", $newGalleryList[3]->getName());
-		$this->assertEquals("d", $newGalleryList[4]->getName());
-		$this->assertEquals("e", $newGalleryList[5]->getName());
-		$this->assertEquals("f", $newGalleryList[6]->getName());
-	}
-	
-	public function testFilterOutHidden() {
-		// Given
-		$galleryList = array(
-				new GalleryItem('.[1]firstItem'),
-				new GalleryItem('[2]secondItem'),
-				new GalleryItem('[3]thirdItem')
-		);
-		
-		// when
-		$newGalleryList = Context::getInstance()->galleryManager->filterOutHidden($galleryList);
-		
-		// Assert
-		$this->assertEquals(2, count($newGalleryList));
-		$this->assertEquals("secondItem", $newGalleryList[0]->getName());
-		$this->assertEquals("thirdItem", $newGalleryList[1]->getName());
-	}
-	
-	public function testGetGalleryItemByFilename() {
-		// Given
-		$galleryList = array(
-				new GalleryItem('.[1]firstItem'),
-				new GalleryItem('[2]secondItem'),
-				new GalleryItem('[3]thirdItem')
-		);
-		
-		// when
-		$galleryItem = Context::getInstance()->galleryManager->getGalleryItemByFilename($galleryList, '[2]secondItem');
-		
-		// Assert
-		$this->assertEquals("secondItem", $galleryItem->getName());
+		$this->assertEquals("filename", $galleryItem->getName());
 		$this->assertFalse($galleryItem->isHidden());
+		$this->assertEquals(0, $galleryItem->getPosition());
+		$this->assertEquals("filename", $galleryItem->getFileName());
+	}
+	
+	public function testConstructorPassingHiddenFilename() {
+		// Given
+		$filename = ".filename";
+		
+		// When
+		$galleryItem = new GalleryItem($filename);
+		
+		// Then
+		$this->assertEquals("filename", $galleryItem->getName());
+		$this->assertTrue($galleryItem->isHidden());
+		$this->assertEquals(0, $galleryItem->getPosition());
+		$this->assertEquals(".filename", $galleryItem->getFileName());
+	}
+	
+	public function testConstructorPassingFilenameWithPosition() {
+		// Given
+		$filename = "[1]filename";
+		
+		// When
+		$galleryItem = new GalleryItem($filename);
+		
+		// Then
+		$this->assertEquals("filename", $galleryItem->getName());
+		$this->assertFalse($galleryItem->isHidden());
+		$this->assertEquals(1, $galleryItem->getPosition());
+		$this->assertEquals("[1]filename", $galleryItem->getFileName());
+	}
+	
+	public function testConstructorPassingFilenameWithBigNumberForPosition() {
+		// Given
+		$filename = "[9876]filename";
+		
+		// When
+		$galleryItem = new GalleryItem($filename);
+		
+		// Then
+		$this->assertEquals("filename", $galleryItem->getName());
+		$this->assertFalse($galleryItem->isHidden());
+		$this->assertEquals(9876, $galleryItem->getPosition());
+		$this->assertEquals("[9876]filename", $galleryItem->getFileName());
+	}
+	
+	public function testConstructorPassingHiddenFilenameWithPosition() {
+		// Given
+		$filename = ".[1]filename";
+		
+		// When
+		$galleryItem = new GalleryItem($filename);
+		
+		// Then
+		$this->assertEquals("filename", $galleryItem->getName());
+		$this->assertTrue($galleryItem->isHidden());
+		$this->assertEquals(1, $galleryItem->getPosition());
+		$this->assertEquals(".[1]filename", $galleryItem->getFileName());
+	}
+	
+	public function testIncreaseWhenPositionNotSet() {
+		// Given
+		$filename = "filename";
+		$galleryItem = new GalleryItem($filename);
+		
+		// When
+		$galleryItem->increasePosition();
+		
+		// Then
+		$this->assertEquals(1, $galleryItem->getPosition());
+		$this->assertEquals("[1]filename", $galleryItem->getFileName());
+	}
+	
+	public function testIncreaseWhenPositionIsSet() {
+		// Given
+		$filename = "[3]filename";
+		$galleryItem = new GalleryItem($filename);
+		
+		// When
+		$galleryItem->increasePosition();
+		
+		// Then
+		$this->assertEquals(4, $galleryItem->getPosition());
+		$this->assertEquals("[4]filename", $galleryItem->getFileName());
+	}
+	
+	public function testDecreaseWhenPositionIsGreaterThanZero() {
+		// Given
+		$filename = "[3]filename";
+		$galleryItem = new GalleryItem($filename);
+		
+		// When
+		$galleryItem->decreasePosition();
+		
+		// Then
 		$this->assertEquals(2, $galleryItem->getPosition());
-		$this->assertEquals("[2]secondItem", $galleryItem->getFileName());
+		$this->assertEquals("[2]filename", $galleryItem->getFileName());
+	}
+	
+	public function testDecreaseWhenPositionIsZeroShouldNotWork() {
+		// Given
+		$filename = "[0]filename";
+		$galleryItem = new GalleryItem($filename);
+		
+		// When
+		$galleryItem->decreasePosition();
+		
+		// Then
+		$this->assertEquals(0, $galleryItem->getPosition());
+		$this->assertEquals("[0]filename", $galleryItem->getFileName());
 	}
 }
 ?>
