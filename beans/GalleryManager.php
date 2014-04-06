@@ -114,5 +114,19 @@ class GalleryManager {
 			}
 		}
 	}
+	
+	/**
+	 * Find a galleryItem into a list by filename
+	 * @param array $items
+	 * @param int $position
+	 * @return GalleryItem
+	 */
+	public function getGalleryItemByPosition($items, $position) {
+		foreach ($items as $item) {
+			if ($item->getPosition() == $position) {
+				return $item;
+			}
+		}
+	}
 }
 ?>

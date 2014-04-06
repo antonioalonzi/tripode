@@ -64,5 +64,23 @@ class GalleryManagerTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(2, $galleryItem->getPosition());
 		$this->assertEquals("[2]secondItem", $galleryItem->getFileName());
 	}
+	
+	public function testGetGalleryItemByPosition() {
+		// Given
+		$galleryList = array(
+				new GalleryItem('.[1]firstItem'),
+				new GalleryItem('[2]secondItem'),
+				new GalleryItem('[3]thirdItem')
+		);
+		
+		// when
+		$galleryItem = Context::getInstance()->galleryManager->getGalleryItemByPosition($galleryList, 2);
+		
+		// Assert
+		$this->assertEquals("secondItem", $galleryItem->getName());
+		$this->assertFalse($galleryItem->isHidden());
+		$this->assertEquals(2, $galleryItem->getPosition());
+		$this->assertEquals("[2]secondItem", $galleryItem->getFileName());
+	}
 }
 ?>
