@@ -6,7 +6,7 @@ require_once("beans/Dispatcher.php");
 require_once("beans/FileSystemAdaptor.php");
 require_once("beans/GalleryManager.php");
 require_once("beans/PageService.php");
-require_once("beans/TopMenuService.php");
+require_once("beans/TopMenuManager.php");
 require_once("beans/Translator.php");
 
 /**
@@ -20,7 +20,7 @@ class Context {
 	public $fileSystemAdaptor;
 	public $galleryManager;
 	public $pageService;
-	public $topMenuService;
+	public $topMenuManager;
 	public $translator;
 	
 	private function __construct() {
@@ -29,7 +29,7 @@ class Context {
 		$this->fileSystemAdaptor = new FileSystemAdaptor();
 		$this->galleryManager = new GalleryManager();
 		$this->pageService = new PageService();
-		$this->topMenuService = new TopMenuService();
+		$this->topMenuManager = new TopMenuManager();
 		$this->translator = new Translator();
 	}
 	

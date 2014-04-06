@@ -47,24 +47,24 @@
 				
 				<nav class="navigation" role="navigation">
 					<ul class="nav menu nav-pills">
-						<li class="<?= Context::getInstance()->topMenuService->isActive("home") ?>">
+						<li class="<?= Context::getInstance()->topMenuManager->isActive("home") ?>">
 							<a href="index.php"><?= Context::getInstance()->translator->translate("menu.home") ?></a>
 						</li>
-						<li class="<?= Context::getInstance()->topMenuService->isActive("login") ?>">
+						<li class="<?= Context::getInstance()->topMenuManager->isActive("login") ?>">
 							<a href="index.php?action=login"><?= Context::getInstance()->translator->translate("menu.login") ?></a>
 						</li>
 						<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
-							<li class="<?= Context::getInstance()->topMenuService->isActive("logout") ?>">
+							<li class="<?= Context::getInstance()->topMenuManager->isActive("logout") ?>">
 								<a href="index.php?action=logout"><?= Context::getInstance()->translator->translate("menu.logout") ?></a>
 							</li>
 						<?php } ?>
-						<li class="<?= Context::getInstance()->topMenuService->isActive("contacts") ?>">
+						<li class="<?= Context::getInstance()->topMenuManager->isActive("contacts") ?>">
 							<a href="index.php?page=contacts"><?= Context::getInstance()->translator->translate("menu.contacts") ?></a>
 						</li>
 					</ul>
 				</nav>
 				
-				<?php if (Context::getInstance()->topMenuService->hasCurrentPage()) { ?>
+				<?php if (Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
 					<div class="moduletable">
 						<div class="custom">
 							<p><img src="img/banners/blue-flower.jpg" alt="" width="100%"></p>
