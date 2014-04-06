@@ -4,7 +4,7 @@
  * This class is used to wrap all interaction with the filesystem.
  * In this way it is easy to mock any action with the filesystem for testing.
  */
-class FileSystemService {
+class FileSystemAdaptor {
 
 	public function fileExists($filename) {
 		return file_exists($filename);

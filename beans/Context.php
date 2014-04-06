@@ -3,7 +3,7 @@ require_once("Configuration.php");
 require_once("beans/AuthenticationService.php");
 require_once("beans/ConfigurationService.php");
 require_once("beans/Dispatcher.php");
-require_once("beans/FileSystemService.php");
+require_once("beans/FileSystemAdaptor.php");
 require_once("beans/GalleryService.php");
 require_once("beans/PageService.php");
 require_once("beans/TopMenuService.php");
@@ -17,7 +17,7 @@ class Context {
 	
 	public $authenticationService;
 	public $configurationService;
-	public $fileSystemService;
+	public $fileSystemAdaptor;
 	public $galleryService;
 	public $pageService;
 	public $topMenuService;
@@ -26,7 +26,7 @@ class Context {
 	private function __construct() {
 		$this->authenticationService = new AuthenticationService();
 		$this->configurationService = new ConfigurationService();
-		$this->fileSystemService = new FileSystemService();
+		$this->fileSystemAdaptor = new FileSystemAdaptor();
 		$this->galleryService = new GalleryService();
 		$this->pageService = new PageService();
 		$this->topMenuService = new TopMenuService();

@@ -9,7 +9,7 @@ class FileSystemMockAdaptor {
 	public function __construct($classToTest) {
 		$this->classToTest = $classToTest;
 		
-		Context::getInstance()->fileSystemService = $this->classToTest->getMock('FileSystemService');
+		Context::getInstance()->fileSystemAdaptor = $this->classToTest->getMock('FileSystemAdaptor');
 	}
 	
 	public function stateThatFileExists($filename) {
@@ -21,7 +21,7 @@ class FileSystemMockAdaptor {
 	}
 	
 	public function build() {
-		Context::getInstance()->fileSystemService
+		Context::getInstance()->fileSystemAdaptor
 				->expects($this->classToTest->any())
 				->method('fileExists')
 				->will($this->classToTest->returnValueMap($this->mapFileExistsExpectations));
