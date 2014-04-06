@@ -70,7 +70,7 @@ class GalleryManager {
 			$categoryItem->decreasePosition();
 		} elseif ($upOrDown == "down") {
 			$categoryItem->increasePosition();
-		} 
+		}
 		rename("gallery/".$categoryFilename, "gallery/".$categoryItem->getFileName());
 	}
 	

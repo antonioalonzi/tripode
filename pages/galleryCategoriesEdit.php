@@ -37,6 +37,12 @@
 					<?php $i++ ?>
 				</tr>
 				<?php } ?>
+				
+				<tr>
+					<td></td>
+					<td><a title=""><img alt="" src="img/icons/add.png" /></a></td>
+					<td></td>
+				</tr>
 			</tbody>
 		</table>
 	</form>
