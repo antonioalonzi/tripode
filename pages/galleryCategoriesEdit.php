@@ -4,7 +4,7 @@
 		<table class="table table-striped table-bordered">
 			<tbody>
 				<?php $i = 0 ?>
-				<?php $categories = Context::getInstance()->galleryService->getGalleryCategories(true) ?>
+				<?php $categories = Context::getInstance()->galleryManager->getGalleryCategories(true) ?>
 				<?php foreach ($categories as $categoryItem) { ?>
 				<tr>
 					<td width="10%"><?= $categoryItem->getPosition() ?></td>

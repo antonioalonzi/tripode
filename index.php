@@ -92,7 +92,7 @@
 								<?php Context::getInstance()->pageService->sectionEditable("galleryCategoriesEdit") ?>
 							</h3>
 							<ul class="nav menu">
-							<?php foreach (Context::getInstance()->galleryService->getGalleryCategories() as $categoryItem) { ?>
+							<?php foreach (Context::getInstance()->galleryManager->getGalleryCategories() as $categoryItem) { ?>
 								<li><a href="index.php?page=gallery&category=<?= $categoryItem->getFilename() ?>"><?= $categoryItem->getName() ?></a></li>
 							<?php } ?>
 							</ul>

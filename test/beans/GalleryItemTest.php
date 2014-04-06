@@ -1,7 +1,7 @@
 <?php
 require_once("test/bootstrap.php");
 
-class GalleryServiceTest extends PHPUnit_Framework_TestCase {
+class GalleryManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testOrderByPosition() {
 		// Given
@@ -17,7 +17,7 @@ class GalleryServiceTest extends PHPUnit_Framework_TestCase {
 		);
 		
 		// when
-		$newGalleryList = Context::getInstance()->galleryService->orderByPosition($galleryList);
+		$newGalleryList = Context::getInstance()->galleryManager->orderByPosition($galleryList);
 		
 		// Assert
 		$this->assertEquals(8, count($newGalleryList));
@@ -39,7 +39,7 @@ class GalleryServiceTest extends PHPUnit_Framework_TestCase {
 		);
 		
 		// when
-		$newGalleryList = Context::getInstance()->galleryService->filterOutHidden($galleryList);
+		$newGalleryList = Context::getInstance()->galleryManager->filterOutHidden($galleryList);
 		
 		// Assert
 		$this->assertEquals(2, count($newGalleryList));
@@ -56,7 +56,7 @@ class GalleryServiceTest extends PHPUnit_Framework_TestCase {
 		);
 		
 		// when
-		$galleryItem = Context::getInstance()->galleryService->getGalleryItemByFilename($galleryList, '[2]secondItem');
+		$galleryItem = Context::getInstance()->galleryManager->getGalleryItemByFilename($galleryList, '[2]secondItem');
 		
 		// Assert
 		$this->assertEquals("secondItem", $galleryItem->getName());

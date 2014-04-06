@@ -1,7 +1,7 @@
 <?php
 require_once('beans/GalleryItem.php');
 
-class GalleryService {
+class GalleryManager {
 	
 	public function getGalleryCategories($includeHidden = false) {
 		$categories = array();
