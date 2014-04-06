@@ -14,7 +14,7 @@
 		<meta name="description" content="<?= Context::getInstance()->configurationService->getConfiguration()->websiteDescription ?>">
 		<title><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></title>
 		
-		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="img/favicons/tripode.ico">
 		
 		<link rel="stylesheet" type="text/css" href="css/template.css" />
 		
