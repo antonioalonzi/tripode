@@ -14,7 +14,7 @@
 		</fieldset>
 	</form>
 	
-	<?php if (Context::getInstance()->authenticationService->isAdminUserLoggedIn() && Context::getInstance()->authenticationService->isDefaultPassword()) { ?>
+	<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn() && Context::getInstance()->authenticationManager->isDefaultPassword()) { ?>
 		<strong><?= Context::getInstance()->translator->translate("login.adviceChangePassword") ?></strong>
 	<?php } ?>
 	

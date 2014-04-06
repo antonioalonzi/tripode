@@ -1,5 +1,5 @@
 <?php
-class AuthenticationService {
+class AuthenticationManager {
 
 	public function authenticate($email, $password) {
 		if ($email == Context::getInstance()->configurationService->getConfiguration()->accountEmail && $password == Context::getInstance()->configurationService->getConfiguration()->accountPassword) {

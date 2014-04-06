@@ -3,7 +3,7 @@
 class GalleryAction {
 	
 	public function doPost() {
-		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+		if (!Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
 		}
