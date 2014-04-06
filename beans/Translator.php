@@ -256,7 +256,7 @@ class Translator {
 	}
 	public function translate($word, $lang = null) {
 		if ($lang == null) {
-			$lang = Context::getInstance ()->configurationService->getConfiguration()->websiteLang;
+			$lang = Context::getInstance ()->configurationManager->getConfiguration()->websiteLang;
 		}
 		$lang = strtolower(substr($lang, 0, 2));
 		

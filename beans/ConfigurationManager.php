@@ -1,5 +1,5 @@
 <?php
-class ConfigurationService {
+class ConfigurationManager {
 
 	private static $FILENAME = "data/configuration.txt";
 	private $configuration;
@@ -13,11 +13,11 @@ class ConfigurationService {
 	}
 
 	public function save() {
-		file_put_contents(ConfigurationService::$FILENAME, (serialize($this->configuration)));
+		file_put_contents(ConfigurationManager::$FILENAME, (serialize($this->configuration)));
 	}
 
 	private function load() {
-		$datain = file_get_contents(ConfigurationService::$FILENAME);
+		$datain = file_get_contents(ConfigurationManager::$FILENAME);
 		return unserialize($datain);
 	}
 }

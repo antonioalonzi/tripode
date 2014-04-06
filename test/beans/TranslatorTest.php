@@ -7,7 +7,7 @@ class TranslatorTest extends PHPUnit_Framework_TestCase {
 		// Given
 		$keyToTranslate = "menu.contacts";
 		$lang = "it";
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = "en";
+		Context::getInstance()->configurationManager->getConfiguration()->websiteLang = "en";
 		
 		// when
 		$translation = Context::getInstance()->translator->translate($keyToTranslate, $lang);
@@ -19,7 +19,7 @@ class TranslatorTest extends PHPUnit_Framework_TestCase {
 	public function testTranslateContactsUsingLanguageFromConfiguration() {
 		// Given
 		$keyToTranslate = "menu.contacts";
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = "en";
+		Context::getInstance()->configurationManager->getConfiguration()->websiteLang = "en";
 		
 		// when
 		$translation = Context::getInstance()->translator->translate($keyToTranslate);
@@ -79,7 +79,7 @@ class TranslatorTest extends PHPUnit_Framework_TestCase {
 	public function testTranslateContactsReturnsTheKeyIfLanguageNotSpecified() {
 		// Given
 		$keyToTranslate = "key.not.existing";
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = null;
+		Context::getInstance()->configurationManager->getConfiguration()->websiteLang = null;
 		
 		// when
 		$translation = Context::getInstance()->translator->translate($keyToTranslate);

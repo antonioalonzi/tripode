@@ -17,10 +17,10 @@ class LoginEditAction {
 			$_REQUEST['PAGE'] = "login";
 		} else {
 			// change email and password
-			Context::getInstance()->configurationService->getConfiguration()->accountEmail = $email;
-			Context::getInstance()->configurationService->getConfiguration()->accountPassword = $newPassword;
+			Context::getInstance()->configurationManager->getConfiguration()->accountEmail = $email;
+			Context::getInstance()->configurationManager->getConfiguration()->accountPassword = $newPassword;
 			// save configuration
-			Context::getInstance()->configurationService->save();
+			Context::getInstance()->configurationManager->save();
 			
 			$_SESSION['USERNAME'] = $email;
 			$_REQUEST['MESSAGE'] = "login.accountChanged";

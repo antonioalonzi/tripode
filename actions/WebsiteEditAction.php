@@ -9,13 +9,13 @@ class WebsiteEditAction {
 		}
 		
 		// change configuration
-		Context::getInstance()->configurationService->getConfiguration()->websiteName = $_REQUEST['name'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteDescription = $_REQUEST['description'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteAuthor = $_REQUEST['author'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = $_REQUEST['lang'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteName = $_REQUEST['name'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteDescription = $_REQUEST['description'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteAuthor = $_REQUEST['author'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteLang = $_REQUEST['lang'];
 		
 		// save configuration
-		Context::getInstance()->configurationService->save();
+		Context::getInstance()->configurationManager->save();
 		
 		$_REQUEST['MESSAGE'] = "website.configurationChanged";
 	}

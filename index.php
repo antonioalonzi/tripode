@@ -6,13 +6,13 @@
 	Dispatcher::dispatch();
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationService->getConfiguration()->websiteLang ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= Context::getInstance()->configurationManager->getConfiguration()->websiteLang ?>" dir="ltr" lang="<?= Context::getInstance()->configurationManager->getConfiguration()->websiteLang ?>">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="author" content="<?= Context::getInstance()->configurationService->getConfiguration()->websiteAuthor ?>">
-		<meta name="description" content="<?= Context::getInstance()->configurationService->getConfiguration()->websiteDescription ?>">
-		<title><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></title>
+		<meta name="author" content="<?= Context::getInstance()->configurationManager->getConfiguration()->websiteAuthor ?>">
+		<meta name="description" content="<?= Context::getInstance()->configurationManager->getConfiguration()->websiteDescription ?>">
+		<title><?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?></title>
 		
 		<link rel="shortcut icon" href="img/favicons/tripode.ico">
 		
@@ -36,7 +36,7 @@
 				<header class="header" role="banner">
 					<div class="clearfix">
 						<a class="brand pull-left" href="index.php">
-							<span class="site-title" title="<?= Context::getInstance()->configurationService->getConfiguration()->name ?>"><?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?></span>
+							<span class="site-title" title="<?= Context::getInstance()->configurationManager->getConfiguration()->name ?>"><?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?></span>
 						</a>
 						
 						<?php Context::getInstance()->pageService->sectionEditable("websiteEdit") ?>
@@ -113,7 +113,7 @@
 			<div class="container">
 				<hr>
 				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translator->translate("back_top") ?></a></p>
-				<p>© <?= Context::getInstance()->configurationService->getConfiguration()->websiteName ?> <?= date("Y") ?></p>
+				<p>© <?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?> <?= date("Y") ?></p>
 			</div>
 		</footer>
 
