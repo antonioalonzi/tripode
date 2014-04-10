@@ -10,8 +10,20 @@ class FileSystemAdaptor {
 		return file_exists($filename);
 	}
 	
-	public function requireOnce($fileActionName) {
-		require_once($fileActionName);
+	public function requireOnce($filename) {
+		require_once($filename);
+	}
+	
+	public function openDir($path) {
+		return opendir($path);
+	}
+	
+	public function readDir($handle) {
+		return readdir($handle);
+	}
+	
+	public function closeDir($handle) {
+		return closedir($handle);
 	}
 
 }

@@ -1,8 +1,31 @@
 <?php
 require_once("test/bootstrap.php");
+require_once("test/utils/FileSystemMockAdaptor.php");
 
 class GalleryManagerTest extends PHPUnit_Framework_TestCase {
 
+	private $fileSystemMockAdaptor;
+	
+	protected function setUp() {
+		$this->fileSystemMockAdaptor = new FileSystemMockAdaptor($this);
+	}
+	
+	public function testGetGalleryCategoriesWithoutHidden() {
+		// Given
+		$this->fileSystemMockAdaptor->stateThatFileExists('gallery');
+		$this->fileSystemMockAdaptor->stateThatDirContains('gallery', array('[1]London', '[2]Rome', '[3]Madrid'));
+		$this->fileSystemMockAdaptor->build();
+		
+		// When
+		$categoryList = Context::getInstance()->galleryManager->getGalleryCategories();
+		
+		// Assert
+		$this->assertEquals(count($categoryList), 3);
+		$this->assertEquals("London", $categoryList[0]->getName());
+		$this->assertEquals("Rome", $categoryList[1]->getName());
+		$this->assertEquals("Madrid", $categoryList[2]->getName());
+	}
+	
 	public function testOrderByPosition() {
 		// Given
 		$galleryList = array(

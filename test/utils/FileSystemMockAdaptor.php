@@ -20,12 +20,27 @@ class FileSystemMockAdaptor {
 		$this->mapFileExistsExpectations[] = array($filename, false);
 	}
 	
+	public function stateThatDirContains($dir, $files) {
+		$files[] = false;
+		
+		Context::getInstance()->fileSystemAdaptor
+				->expects($this->classToTest->any())
+				->method('openDir')
+				->with($dir)
+				->will($this->classToTest->returnValue('galleryHandle'));
+		
+		Context::getInstance()->fileSystemAdaptor
+				->expects($this->classToTest->any())
+				->method('readDir')
+				->with('galleryHandle')
+				->will(new PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls($files));
+	}
+	
 	public function build() {
 		Context::getInstance()->fileSystemAdaptor
 				->expects($this->classToTest->any())
 				->method('fileExists')
 				->will($this->classToTest->returnValueMap($this->mapFileExistsExpectations));
 	}
-
 }
 ?>

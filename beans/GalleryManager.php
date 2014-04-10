@@ -3,22 +3,27 @@ require_once('beans/GalleryItem.php');
 
 class GalleryManager {
 	
+	/**
+	 * returns a list of categories from the filesystem
+	 * @param boolean $includeHidden
+	 * @return array
+	 */
 	public function getGalleryCategories($includeHidden = false) {
 		$categories = array();
 		
-		if (!file_exists('gallery')) {
+		if (!Context::getInstance()->fileSystemAdaptor->fileExists('gallery')) {
 			mkdir('gallery');
 		}
 		
 		// read all directories
-		if ($handle = opendir('gallery')) {
+		if ($handle = Context::getInstance()->fileSystemAdaptor->openDir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($category = readdir($handle))) {
+			while (false !== ($category = Context::getInstance()->fileSystemAdaptor->readDir($handle))) {
 				if (!in_array($category, $blacklist)) {
 					$categories[] = new GalleryItem($category);
 				}
 			}
-			closedir($handle);
+			$handle = Context::getInstance()->fileSystemAdaptor->closedir($handle);
 		}
 		
 		if (!$includeHidden) {
@@ -116,7 +121,7 @@ class GalleryManager {
 	}
 	
 	/**
-	 * Find a galleryItem into a list by filename
+	 * Find a galleryItem into a list by position
 	 * @param array $items
 	 * @param int $position
 	 * @return GalleryItem
