@@ -17,8 +17,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase {
 		// Given
 		unset($_REQUEST['page']);
 		
-		$this->fileSystemMockAdaptor->stateThatFileExists('pages/home.php');
-		$this->fileSystemMockAdaptor->build();
+		$this->fileSystemMockAdaptor->stateThatFilesExist(array('pages/home.php'));
 		
 		// when
 		$this->dispatcher->dispatch();
@@ -32,9 +31,6 @@ class DispatcherTest extends PHPUnit_Framework_TestCase {
 	public function testDispatchReturnsHomePageIfInexistentPageDefinedWithAnError() {
 		// Given
 		$_REQUEST['page'] = 'inexistentPage';
-		
-		$this->fileSystemMockAdaptor->stateThatFileDoesNotExist('pages/inexistentPage.php');
-		$this->fileSystemMockAdaptor->build();
 		
 		// when
 		$this->dispatcher->dispatch();
@@ -52,9 +48,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase {
 		
 		// TestAction defined at the end of the file
 		
-		$this->fileSystemMockAdaptor->stateThatFileExists('actions/TestAction.php');
-		$this->fileSystemMockAdaptor->stateThatFileExists('pages/home.php');
-		$this->fileSystemMockAdaptor->build();
+		$this->fileSystemMockAdaptor->stateThatFilesExist(array('actions/TestAction.php', 'pages/home.php'));
 		
 		// when
 		$this->dispatcher->dispatch();
@@ -72,9 +66,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase {
 		
 		// TestAction defined at the end of the file
 		
-		$this->fileSystemMockAdaptor->stateThatFileExists('actions/TestAction.php');
-		$this->fileSystemMockAdaptor->stateThatFileExists('pages/post.php');
-		$this->fileSystemMockAdaptor->build();
+		$this->fileSystemMockAdaptor->stateThatFilesExist(array('actions/TestAction.php', 'pages/post.php'));
 		
 		// when
 		$this->dispatcher->dispatch();
@@ -89,9 +81,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase {
 		// Given
 		$_REQUEST['action'] = 'inexistent';
 		
-		$this->fileSystemMockAdaptor->stateThatFileDoesNotExist('actions/InexistentAction.php');
-		$this->fileSystemMockAdaptor->stateThatFileExists('pages/home.php');
-		$this->fileSystemMockAdaptor->build();
+		$this->fileSystemMockAdaptor->stateThatFilesExist(array('pages/home.php'));
 		
 		// When
 		$this->dispatcher->dispatch();

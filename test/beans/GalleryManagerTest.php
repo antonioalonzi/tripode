@@ -12,9 +12,8 @@ class GalleryManagerTest extends PHPUnit_Framework_TestCase {
 	
 	public function testGetGalleryCategoriesWithoutHidden() {
 		// Given
-		$this->fileSystemMockAdaptor->stateThatFileExists('gallery');
+		$this->fileSystemMockAdaptor->stateThatFilesExist(array('gallery'));
 		$this->fileSystemMockAdaptor->stateThatDirContains('gallery', array('[1]London', '[2]Rome', '[3]Madrid'));
-		$this->fileSystemMockAdaptor->build();
 		
 		// When
 		$categoryList = Context::getInstance()->galleryManager->getGalleryCategories();
