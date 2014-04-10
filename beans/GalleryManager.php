@@ -12,7 +12,7 @@ class GalleryManager {
 		$categories = array();
 		
 		if (!Context::getInstance()->fileSystemAdaptor->fileExists('gallery')) {
-			mkdir('gallery');
+			Context::getInstance()->fileSystemAdaptor->mkdir('gallery');
 		}
 		
 		// read all directories

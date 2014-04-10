@@ -25,6 +25,10 @@ class FileSystemAdaptor {
 	public function closeDir($handle) {
 		return closedir($handle);
 	}
+	
+	public function mkdir($path) {
+		return mkdir($path);
+	}
 
 }
 ?>
