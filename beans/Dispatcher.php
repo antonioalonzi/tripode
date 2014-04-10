@@ -1,21 +1,18 @@
 <?php
-require_once("model/Context.php");
-
-class DispatcherService {
+class Dispatcher {
 	
 	public static function dispatch() {
-		DispatcherService::executeAction();
-		
-		DispatcherService::defineView();
+		Dispatcher::executeAction();
+		Dispatcher::defineView();
 	}
 	
 	private static function executeAction() {
-		if (isset($_GET['action'])) {
-			$action = ucfirst($_GET['action']."Action");
+		if (isset($_REQUEST['action'])) {
+			$action = ucfirst($_REQUEST['action']."Action");
 			
 			$fileActionName = "actions/".$action.".php";
-			if (file_exists($fileActionName)) {
-				require_once($fileActionName);
+			if (Context::getInstance()->fileSystemAdaptor->fileExists($fileActionName)) {
+				Context::getInstance()->fileSystemAdaptor->requireOnce($fileActionName);
 				
 				$actionClass = new $action();
 				
@@ -33,8 +30,8 @@ class DispatcherService {
 	
 	private static function defineView() {
 		$page = 'home';
-		if (isset($_GET['page'])) {
-			$page = $_GET['page'];
+		if (isset($_REQUEST['page'])) {
+			$page = $_REQUEST['page'];
 		}
 		
 		// override the page with the one set by the action if any
@@ -43,7 +40,7 @@ class DispatcherService {
 		}
 		$pageFile = "pages/$page.php";
 			
-		if (!file_exists($pageFile)) {
+		if (!Context::getInstance()->fileSystemAdaptor->fileExists($pageFile)) {
 			$_REQUEST['ERROR'] = "Page $page does not exist.";
 			$page = "home";
 			$pageFile = "pages/$page.php";

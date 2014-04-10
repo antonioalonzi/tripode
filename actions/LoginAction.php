@@ -3,18 +3,15 @@
 class LoginAction {
 	
 	public function doPost() {
-		$email = $_POST['email'];
-		$password = $_POST['password'];
+		$email = $_REQUEST['email'];
+		$password = $_REQUEST['password'];
 		
-		if ($email == Context::getInstance()->configurationService->getConfiguration()->accountEmail && $password == Context::getInstance()->configurationService->getConfiguration()->accountPassword) {
-			$_REQUEST['MESSAGE'] = "login.loginSuccessful";
+		if (Context::getInstance()->authenticationManager->authenticate($email, $password)) {
 			$_REQUEST['PAGE'] = "home";
-			$_SESSION['USERNAME'] = $email;
 			
 		} else {
-			$_REQUEST['ERROR'] = "login.loginError";
 			$_REQUEST['PAGE'] = "login";
-			$_REQUEST['PARAM_EMAIL'] = $_SESSION['USERNAME'];
+			$_REQUEST['PARAM_EMAIL'] = $email;
 		}
 	}
 	
@@ -22,7 +19,7 @@ class LoginAction {
 		$_REQUEST['PAGE'] = "login";
 		
 		$_REQUEST['PARAM_EMAIL'] = "";
-		if (Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+		if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) {
 			$_REQUEST['PARAM_EMAIL'] = $_SESSION['USERNAME'];
 		}
 	}

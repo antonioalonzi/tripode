@@ -1,5 +1,5 @@
 <?php
-class TopMenuService {
+class TopMenuManager {
 	
 	public $PAGES = array("home", "contacts", "login", "logout");
 	

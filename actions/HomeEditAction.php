@@ -3,13 +3,12 @@
 class HomeEditAction {
 	
 	public function doPost() {
-		
-		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+		if (!Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
 		}
 		
-		file_put_contents('pages/home.html', $_POST['text']);
+		file_put_contents('pages/home.html', $_REQUEST['text']);
 		$_REQUEST['MESSAGE'] = "home.message.homeModified";
 	}
 	

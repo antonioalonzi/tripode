@@ -1,0 +1,7 @@
+In order to run test cases you need to install phpunit (http://phpunit.de/getting-started.html)
+and run the following command from the base directory:
+	# to run all tests
+	phpunit test
+	
+	# to run a particular test
+	phpunit test/TranslatorTest.php

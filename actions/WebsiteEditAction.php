@@ -3,20 +3,19 @@
 class WebsiteEditAction {
 	
 	public function doPost() {
-		
-		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+		if (!Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
 		}
 		
 		// change configuration
-		Context::getInstance()->configurationService->getConfiguration()->websiteName = $_POST['name'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteDescription = $_POST['description'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteAuthor = $_POST['author'];
-		Context::getInstance()->configurationService->getConfiguration()->websiteLang = $_POST['lang'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteName = $_REQUEST['name'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteDescription = $_REQUEST['description'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteAuthor = $_REQUEST['author'];
+		Context::getInstance()->configurationManager->getConfiguration()->websiteLang = $_REQUEST['lang'];
 		
 		// save configuration
-		Context::getInstance()->configurationService->save();
+		Context::getInstance()->configurationManager->save();
 		
 		$_REQUEST['MESSAGE'] = "website.configurationChanged";
 	}

@@ -1,17 +1,18 @@
-<h2><a href="index.php?page=gallery&category=<?php echo $_GET['category'] ?>"><?php echo $_GET['category'] ?></a></h2>
+<?php $galleryItem = new GalleryItem($_REQUEST['category']) ?>
+<h2><a href="index.php?page=gallery&category=<?= $_REQUEST['category'] ?>"><?= $galleryItem->getName() ?></a></h2>
 
-<div class="gallery_text"><?php include "gallery/".$_GET['category']."/index.html" ?></div>
+<div class="gallery_text"><?php Context::getInstance()->galleryManager->includeCategoryIndex($_REQUEST['category']) ?></div>
 
 <ul class="sige">
 	
-	<?php foreach (Context::getInstance()->galleryService->getImagesWithinCategory($_GET['category']) as $image) { ?>
+	<?php foreach (Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category']) as $image) { ?>
 		<li class="sige_cont_0">
 			<span class="sige_thumb">
-				<a href="gallery/<?php echo $_GET['category'] ?>/<?php echo $image ?>" rel="lightbox-cat" title="<?php echo $image ?>" >
-					<img alt="<?php echo $image ?>" title="<?php echo $image ?>" src="gallery/<?php echo $_GET['category'] ?>/thumbs/<?php echo $image ?>" />
+				<a href="gallery/<?= $_REQUEST['category'] ?>/<?= $image ?>" rel="lightbox-cat" title="<?= $image ?>" >
+					<img alt="<?= $image ?>" title="<?= $image ?>" src="gallery/<?= $_REQUEST['category'] ?>/thumbs/<?= $image ?>" />
 				</a>
 			</span>
-			<span class="sige_caption"><?php echo $image ?></span>
+			<span class="sige_caption"><?= $image ?></span>
 		</li>
 	<?php } ?>
 	

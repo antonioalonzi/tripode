@@ -3,24 +3,23 @@
 class ContactsEditAction {
 	
 	public function doPost() {
-		
-		if (!Context::getInstance()->authenticationService->isAdminUserLoggedIn()) {
+		if (!Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) {
 			$_REQUEST['ERROR'] = "error.permissionDenied";
 			return;
 		}
 		
 		// change configuration
-		Context::getInstance()->configurationService->getConfiguration()->contactName = $_POST['contactName'];
-		Context::getInstance()->configurationService->getConfiguration()->contactSurname = $_POST['contactSurname'];
-		Context::getInstance()->configurationService->getConfiguration()->contactAddress = $_POST['contactAddress'];
-		Context::getInstance()->configurationService->getConfiguration()->contactCity = $_POST['contactCity'];
-		Context::getInstance()->configurationService->getConfiguration()->contactPostcode = $_POST['contactPostcode'];
-		Context::getInstance()->configurationService->getConfiguration()->contactCountry = $_POST['contactCountry'];
-		Context::getInstance()->configurationService->getConfiguration()->contactTelephone = $_POST['contactTelephone'];
-		Context::getInstance()->configurationService->getConfiguration()->contactMobile = $_POST['contactMobile'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactName = $_REQUEST['contactName'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactSurname = $_REQUEST['contactSurname'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactAddress = $_REQUEST['contactAddress'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactCity = $_REQUEST['contactCity'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactPostcode = $_REQUEST['contactPostcode'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactCountry = $_REQUEST['contactCountry'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactTelephone = $_REQUEST['contactTelephone'];
+		Context::getInstance()->configurationManager->getConfiguration()->contactMobile = $_REQUEST['contactMobile'];
 		
 		// save configuration
-		Context::getInstance()->configurationService->save();
+		Context::getInstance()->configurationManager->save();
 		
 		$_REQUEST['PAGE'] = "contacts";
 		$_REQUEST['MESSAGE'] = "contacts.contactsChanged";

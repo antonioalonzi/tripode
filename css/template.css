@@ -7285,8 +7285,8 @@ div.editPopup {
 	top: 10%;
 	left: 50%;
 	z-index: 1050;
-	width: 560px;
-	margin-left: -280px;
+	min-width: 600px;
+	margin-left: -300px;
 	background-color: #fff;
 	border: 1px solid #999;
 	border: 1px solid rgba(0,0,0,0.3);
@@ -7303,8 +7303,8 @@ div.editPopup {
 	outline: none;
 	min-height: 100px;
 	max-height: 75%;
-	opacity: 0.9;
-	filter: alpha(opacity=90);
+	opacity: 0.95;
+	filter: alpha(opacity=95);
 	overflow: auto;
 }
 
