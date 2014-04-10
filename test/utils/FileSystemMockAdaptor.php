@@ -33,8 +33,16 @@ class FileSystemMockAdaptor {
 		Context::getInstance()->fileSystemAdaptor
 				->expects($this->classToTest->any())
 				->method('readDir')
-				->with('galleryHandle')
+				->with($dir.'Handle')
 				->will(new PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls($files));
+	}
+	
+	public function stateThatDirIsClosed($dir) {
+		Context::getInstance()->fileSystemAdaptor
+				->expects($this->classToTest->any())
+				->method('closeDir')
+				->with($dir.'Handle')
+				->will($this->classToTest->returnValue(true));
 	}
 
 }
