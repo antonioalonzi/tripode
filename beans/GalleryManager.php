@@ -79,6 +79,10 @@ class GalleryManager {
 		rename("gallery/".$categoryFilename, "gallery/".$categoryItem->getFileName());
 	}
 	
+	public function addCategory($category) {
+		Context::getInstance()->fileSystemAdaptor->mkdir('gallery/'.$category->getFilename());
+	}
+	
 	/**
 	 * Orders the gallery items by position
 	 * @param array $galleryItems

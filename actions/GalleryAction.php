@@ -38,6 +38,11 @@ class GalleryAction {
 	private function upCategory() {
 		Context::getInstance()->galleryManager->moveCategory($_REQUEST['category'], 'up');
 	}
+	
+	private function addCategory() {
+		$category = new GalleryItem($_REQUEST['position'].$_REQUEST['categoryName']);
+		Context::getInstance()->galleryManager->addCategory($category);
+	}
 }
 
 ?>

@@ -38,6 +38,41 @@ class Translator {
 						'it' => 'Salva',
 						'es' => 'Guarda' 
 				),
+				'general.hide' => array (
+						'en' => 'Hide',
+						'it' => 'Nascondi',
+						'es' => 'Oculta'
+				),
+				'general.show' => array (
+						'en' => 'Show',
+						'it' => 'Mostra',
+						'es' => 'Mostra'
+				),
+				'general.actionUp' => array (
+						'en' => 'Move up',
+						'it' => 'Sposta su',
+						'es' => 'Mueve arriba'
+				),
+				'general.actionDown' => array (
+						'en' => 'Move down',
+						'it' => 'Sposta giù',
+						'es' => 'Mueve abajo'
+				),
+				'general.add' => array (
+						'en' => 'Add',
+						'it' => 'Aggiungi',
+						'es' => 'Añada'
+				),
+				'general.ok' => array (
+						'en' => 'OK',
+						'it' => 'OK',
+						'es' => 'OK'
+				),
+				'general.cancel' => array (
+						'en' => 'Cancel',
+						'it' => 'Cancella',
+						'es' => 'Anula'
+				),
 				
 				// general messages
 				'error.permissionDenied' => array (
@@ -78,26 +113,6 @@ class Translator {
 						'en' => 'Manage your categories:',
 						'it' => 'Gestisci le tue categorie:',
 						'es' => 'Administras tus categorías:'
-				),
-				'gallery.actionHide' => array (
-						'en' => 'Hide',
-						'it' => 'Nascondi',
-						'es' => 'Oculta'
-				),
-				'gallery.actionShow' => array (
-						'en' => 'Show',
-						'it' => 'Mostra',
-						'es' => 'Mostra'
-				),
-				'gallery.actionUp' => array (
-						'en' => 'Move up',
-						'it' => 'Sposta su',
-						'es' => 'Mueve arriba'
-				),
-				'gallery.actionDown' => array (
-						'en' => 'Move down',
-						'it' => 'Sposta giù',
-						'es' => 'Mueve abajo'
 				),
 				
 				// login
