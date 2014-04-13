@@ -83,6 +83,10 @@ class GalleryManager {
 		Context::getInstance()->fileSystemAdaptor->mkdir('gallery/'.$category->getFilename());
 	}
 	
+	public function changeCategoryDescription($category, $text) {
+		file_put_contents('gallery/'.$category.'/index.html', $text);
+	}
+	
 	/**
 	 * Orders the gallery items by position
 	 * @param array $galleryItems
