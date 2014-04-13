@@ -250,7 +250,7 @@ class Translator {
 				'contacts.postcode' => array (
 						'en' => 'PostCode',
 						'it' => 'CAP',
-						'es' => 'código postal'
+						'es' => 'Código postal'
 				),
 				'contacts.country' => array (
 						'en' => 'Country',
