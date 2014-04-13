@@ -11,19 +11,19 @@ class GalleryManager {
 	public function getGalleryCategories($includeHidden = false) {
 		$categories = array();
 		
-		if (!Context::getInstance()->fileSystemAdaptor->fileExists('gallery')) {
-			Context::getInstance()->fileSystemAdaptor->mkdir('gallery');
+		if (!file_exists('gallery')) {
+			mkdir('gallery');
 		}
 		
 		// read all directories
-		if ($handle = Context::getInstance()->fileSystemAdaptor->openDir('gallery')) {
+		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($category = Context::getInstance()->fileSystemAdaptor->readDir($handle))) {
+			while (false !== ($category = readdir($handle))) {
 				if (!in_array($category, $blacklist)) {
 					$categories[] = new GalleryItem($category);
 				}
 			}
-			$handle = Context::getInstance()->fileSystemAdaptor->closedir($handle);
+			$handle = closedir($handle);
 		}
 		
 		if (!$includeHidden) {
@@ -80,7 +80,7 @@ class GalleryManager {
 	}
 	
 	public function addCategory($category) {
-		Context::getInstance()->fileSystemAdaptor->mkdir('gallery/'.$category->getFilename());
+		mkdir('gallery/'.$category->getFilename());
 	}
 	
 	public function changeCategoryDescription($category, $text) {
