@@ -18,33 +18,38 @@ class GalleryAction {
 		$_REQUEST['PAGE'] = "home";
 	}
 	
-	private function hideCategory() {
+	public function hideCategory() {
 		Context::getInstance()->galleryManager->hideCategory($_REQUEST['category']);
 		$this->reopenGalleryEditPopup();
 	}
 	
-	private function showCategory() {
+	public function showCategory() {
 		Context::getInstance()->galleryManager->showCategory($_REQUEST['category']);
 		$this->reopenGalleryEditPopup();
 	}
 	
-	private function downCategory() {
+	public function downCategory() {
 		Context::getInstance()->galleryManager->moveCategory($_REQUEST['category'], 'down');
 		$this->reopenGalleryEditPopup();
 	}
 	
-	private function upCategory() {
+	public function upCategory() {
 		Context::getInstance()->galleryManager->moveCategory($_REQUEST['category'], 'up');
 		$this->reopenGalleryEditPopup();
 	}
 	
-	private function addCategory() {
+	public function addCategory() {
 		$category = new GalleryItem($_REQUEST['position'].$_REQUEST['categoryName']);
 		Context::getInstance()->galleryManager->addCategory($category);
 		$this->reopenGalleryEditPopup();
 	}
 	
-	private function categoryTextEdit() {
+	public function deleteCategory() {
+		Context::getInstance()->galleryManager->deleteCategory($_REQUEST['category']);
+		$this->reopenGalleryEditPopup();
+	}
+	
+	public function categoryTextEdit() {
 		Context::getInstance()->galleryManager->changeCategoryDescription($_REQUEST['category'], $_REQUEST['text']);
 		$this->showGalleryCategory();
 	}

@@ -73,6 +73,16 @@ class Translator {
 						'it' => 'Cancella',
 						'es' => 'Anula'
 				),
+				'general.delete' => array (
+						'en' => 'Delete',
+						'it' => 'Rimuove',
+						'es' => 'Borra'
+				),
+				'general.confirmationMessage' => array (
+						'en' => 'Are you sure?',
+						'it' => 'Sei sicuro?',
+						'es' => '¿Estás seguro?'
+				),
 				
 				// general messages
 				'error.permissionDenied' => array (

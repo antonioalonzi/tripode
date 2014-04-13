@@ -83,6 +83,10 @@ class GalleryManager {
 		mkdir('gallery/'.$category->getFilename());
 	}
 	
+	public function deleteCategory($category) {
+		$this->deleteDirectory('gallery/'.$category);
+	}
+	
 	public function changeCategoryDescription($category, $text) {
 		file_put_contents('gallery/'.$category.'/index.html', $text);
 	}
@@ -140,6 +144,16 @@ class GalleryManager {
 				return $item;
 			}
 		}
+	}
+	
+	private function deleteDirectory($dir) {
+		if (!file_exists($dir)) return true;
+		if (!is_dir($dir)) return unlink($dir);
+		foreach (scandir($dir) as $item) {
+			if ($item == '.' || $item == '..') continue;
+			if (!$this->deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) return false;
+		}
+		return rmdir($dir);
 	}
 }
 ?>

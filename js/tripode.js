@@ -19,6 +19,16 @@ $(document).ready(function() {
 			.submit();
 	});
 	
+	$('a.methodPostConfirm').click(function(event) {
+		event.preventDefault();
+		
+		if (confirm($(this).attr('confirmationMessage'))) {
+			$('<form action="'+$(this).attr('href')+'" method="POST"/>')
+				.appendTo($(document.body))
+				.submit();
+		}
+	});
+	
 	
 	// gallery
 	$('#addCategoryButton').click(function() {
@@ -26,6 +36,7 @@ $(document).ready(function() {
 		$('#addCategoryPosition').show();
 		$('#addCategoryForm').show();
 		$('#addCategoryCancel').show();
+		$('#categoryName').focus();
 	});
 	
 	$('#addCategoryCancel').click(function() {
@@ -35,3 +46,7 @@ $(document).ready(function() {
 		$('#addCategoryButton').show();
 	});
 });
+
+function postMeSubmit() {
+	
+}

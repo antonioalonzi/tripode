@@ -9,7 +9,7 @@
 				<tr>
 					<td width="10%"><?= $categoryItem->getPosition() ?></td>
 					<td width="*"><?= $categoryItem->getName() ?></td>
-					<td width="80px">
+					<td width="100px">
 						<!-- Up Icon -->
 						<?php if ($categoryItem->getPosition() > 0) { ?>
 							<a class="methodPost" href="?action=gallery&galleryAction=upCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionUp") ?>">
@@ -33,11 +33,18 @@
 								<img alt="<?= Context::getInstance()->translator->translate("general.show") ?>" src="img/icons/show.png" />
 							</a>
 						<?php } ?>
+						
+						<!-- Delete -->
+						<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=gallery&galleryAction=deleteCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
+							<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
+						</a>
+						
 					</td>
 					<?php $i++ ?>
 				</tr>
 				<?php } ?>
 				
+				<?php $i++ ?>
 				<tr id="addCategoryRow">
 					<td><span id="addCategoryPosition" style="display: none"><?= $i ?></span></td>
 					<td>
@@ -47,7 +54,7 @@
 						<div id="addCategoryForm" style="display: none">
 							<input type="hidden" name="position" value="[<?= $i ?>]" />
 							<input type="hidden" name="galleryAction" value="addCategory" />
-							<input type="text" name="categoryName" value="" required aria-required="true" />
+							<input type="text" id="categoryName" name="categoryName" value="" required aria-required="true" />
 							<input type="submit" value="<?= Context::getInstance()->translator->translate("general.ok") ?>" class="btn btn-primary" />
 						</div>
 					</td>
