@@ -35,18 +35,12 @@ $(document).ready(function() {
 		$('#addCategoryButton').hide();
 		$('#addCategoryPosition').show();
 		$('#addCategoryForm').show();
-		$('#addCategoryCancel').show();
 		$('#categoryName').focus();
 	});
 	
-	$('#addCategoryCancel').click(function() {
+	$('#addCategoryCancelButton').click(function() {
 		$('#addCategoryPosition').hide();
 		$('#addCategoryForm').hide();
-		$('#addCategoryCancel').hide();
 		$('#addCategoryButton').show();
 	});
 });
-
-function postMeSubmit() {
-	
-}
