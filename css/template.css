@@ -7284,7 +7284,7 @@ div.editPopup {
 	top: 10%;
 	left: 50%;
 	z-index: 1050;
-	min-width: 600px;
+	min-width: 640px;
 	margin-left: -300px;
 	background-color: #fff;
 	border: 1px solid #999;
