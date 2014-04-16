@@ -44,6 +44,12 @@ class GalleryAction {
 		$this->reopenGalleryEditPopup();
 	}
 	
+	public function renameCategory() {
+		$category = new GalleryItem($_REQUEST['oldFilename']);
+		Context::getInstance()->galleryManager->renameCategory($category, $_REQUEST['newCategoryName']);
+		$this->reopenGalleryEditPopup();
+	}
+	
 	public function deleteCategory() {
 		Context::getInstance()->galleryManager->deleteCategory($_REQUEST['category']);
 		$this->reopenGalleryEditPopup();

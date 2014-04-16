@@ -43,4 +43,14 @@ $(document).ready(function() {
 		$('#addCategoryForm').hide();
 		$('#addCategoryButton').show();
 	});
+	
+	$('.renameCategoryButton').click(function() {
+		var categoryIndex = $(this).attr('href').substr(1);
+		$('#category' + categoryIndex + 'Name').hide();
+		$('#category' + categoryIndex + 'Form').show();
+		$('#category' + categoryIndex + 'Form [type=reset]').click(function() {
+			$('#category' + categoryIndex + 'Name').show();
+			$('#category' + categoryIndex + 'Form').hide();
+		});
+	});
 });

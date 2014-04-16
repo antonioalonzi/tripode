@@ -78,6 +78,11 @@ class Translator {
 						'it' => 'Rimuove',
 						'es' => 'Borra'
 				),
+				'general.rename' => array (
+						'en' => 'Rename',
+						'it' => 'Rinomina',
+						'es' => 'Cambia nombre'
+				),
 				'general.confirmationMessage' => array (
 						'en' => 'Are you sure?',
 						'it' => 'Sei sicuro?',

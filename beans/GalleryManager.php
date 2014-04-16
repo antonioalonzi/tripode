@@ -83,6 +83,14 @@ class GalleryManager {
 		mkdir('gallery/'.$category->getFilename());
 	}
 	
+	public function renameCategory($category, $newCategoryName) {
+		if ($category->getName() != $newCategoryName) {
+			$oldFilename = $category->getFilename();
+			$category->setName($newCategoryName);
+			rename('gallery/'.$oldFilename, 'gallery/'.$category->getFilename());
+		}
+	}
+	
 	public function deleteCategory($category) {
 		$this->deleteDirectory('gallery/'.$category);
 	}

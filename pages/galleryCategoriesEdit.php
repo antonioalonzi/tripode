@@ -7,8 +7,19 @@
 			<?php foreach ($categories as $categoryItem) { ?>
 			<tr>
 				<td width="24px"><?= $categoryItem->getPosition() ?></td>
-				<td width="*"><?= $categoryItem->getName() ?></td>
-				<td width="100px">
+				<td width="*">
+					<div id="category<?= $i ?>Name"><?= $categoryItem->getName() ?></div>
+					<div id="category<?= $i ?>Form" style="display:none">
+						<form action="?action=gallery" method="post">
+							<input type="hidden" name="galleryAction" value="renameCategory" />
+							<input type="hidden" name="oldFilename" value="<?= $categoryItem->getFilename() ?>" />
+							<input type="text" id="newCategoryName" name="newCategoryName" value="<?= $categoryItem->getName() ?>" required aria-required="true" />
+							<input type="submit" value="<?= Context::getInstance()->translator->translate("general.ok") ?>" class="btn btn-primary" />
+							<input type="reset" id="addCategoryCancelButton" value="<?= Context::getInstance()->translator->translate("general.cancel") ?>" class="btn btn-primary" />
+						</form>
+					</div>
+				</td>
+				<td width="120px">
 					<!-- Up Icon -->
 					<?php if ($categoryItem->getPosition() > 0) { ?>
 						<a class="methodPost" href="?action=gallery&galleryAction=upCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionUp") ?>">
@@ -33,7 +44,12 @@
 						</a>
 					<?php } ?>
 					
-					<!-- Delete -->
+					<!-- Rename Icon -->
+					<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.actionRename") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.actionRename") ?>" src="img/icons/rename.png" />
+					</a>
+					
+					<!-- Delete Icon -->
 					<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=gallery&galleryAction=deleteCategory&category=<?= $categoryItem->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
 						<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
 					</a>
