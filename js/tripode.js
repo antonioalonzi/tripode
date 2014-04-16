@@ -5,6 +5,7 @@ $(document).ready(function() {
 	}
 	
 	$('a.editable').click(function() {
+		$('a.closePopup').trigger('click');
 		$($(this).attr('href')).fadeIn();
 	});
 	
