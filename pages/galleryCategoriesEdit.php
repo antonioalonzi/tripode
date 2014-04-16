@@ -45,8 +45,8 @@
 					<?php } ?>
 					
 					<!-- Rename Icon -->
-					<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.actionRename") ?>">
-						<img alt="<?= Context::getInstance()->translator->translate("general.actionRename") ?>" src="img/icons/rename.png" />
+					<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
 					</a>
 					
 					<!-- Delete Icon -->
