@@ -11,8 +11,8 @@ class Dispatcher {
 			$action = ucfirst($_REQUEST['action']."Action");
 			
 			$fileActionName = "actions/".$action.".php";
-			if (Context::getInstance()->fileSystemAdaptor->fileExists($fileActionName)) {
-				Context::getInstance()->fileSystemAdaptor->requireOnce($fileActionName);
+			if (file_exists($fileActionName)) {
+				require_once($fileActionName);
 				
 				$actionClass = new $action();
 				
@@ -40,7 +40,7 @@ class Dispatcher {
 		}
 		$pageFile = "pages/$page.php";
 			
-		if (!Context::getInstance()->fileSystemAdaptor->fileExists($pageFile)) {
+		if (!file_exists($pageFile)) {
 			$_REQUEST['ERROR'] = "Page $page does not exist.";
 			$page = "home";
 			$pageFile = "pages/$page.php";

@@ -3,7 +3,6 @@ require_once("Configuration.php");
 require_once("beans/AuthenticationManager.php");
 require_once("beans/ConfigurationManager.php");
 require_once("beans/Dispatcher.php");
-require_once("beans/FileSystemAdaptor.php");
 require_once("beans/GalleryManager.php");
 require_once("beans/PageService.php");
 require_once("beans/TopMenuManager.php");
@@ -17,7 +16,6 @@ class Context {
 	
 	public $authenticationManager;
 	public $configurationManager;
-	public $fileSystemAdaptor;
 	public $galleryManager;
 	public $pageService;
 	public $topMenuManager;
@@ -26,7 +24,6 @@ class Context {
 	private function __construct() {
 		$this->authenticationManager = new AuthenticationManager();
 		$this->configurationManager = new ConfigurationManager();
-		$this->fileSystemAdaptor = new FileSystemAdaptor();
 		$this->galleryManager = new GalleryManager();
 		$this->pageService = new PageService();
 		$this->topMenuManager = new TopMenuManager();

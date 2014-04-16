@@ -19,10 +19,10 @@ class GalleryItem {
 	private $position;
 	private $hidden;
 	
-	public function __construct($name) {
-		$newName = $this->setHiddenFromName($name);
-		$newName = $this->setPositionFromName($newName);
-		$this->name = $newName;
+	public function __construct($filename) {
+		$newFilename = $this->setHiddenFromFilename($filename);
+		$newFilename = $this->setPositionFromFilename($newFilename);
+		$this->name = $newFilename;
 	}
 	
 	public function increasePosition() {
@@ -37,6 +37,10 @@ class GalleryItem {
 	
 	public function getName() {
 		return $this->name;
+	}
+	
+	public function setName($name) {
+		$this->name = $name;
 	}
 	
 	public function getPosition() {
@@ -63,31 +67,31 @@ class GalleryItem {
 		return $uriParameter;
 	}
 	
-	private function setHiddenFromName($name) {
-		if (strpos($name, ".") === 0) {
+	private function setHiddenFromFilename($filename) {
+		if (strpos($filename, ".") === 0) {
 			$this->hidden = true;
-			return substr($name, 1);
+			return substr($filename, 1);
 		} else {
 			$this->hidden = false;
-			return $name;
+			return $filename;
 		}
 	}
 	
-	private function setPositionFromName($name) {
-		if (strpos($name, "[") === 0) {
+	private function setPositionFromFilename($filename) {
+		if (strpos($filename, "[") === 0) {
 			
-			$closeParentesis = strpos($name, "]");
+			$closeParentesis = strpos($filename, "]");
 			if ($closeParentesis > 0) {
-				$positionString = substr($name, 1, $closeParentesis-1);
+				$positionString = substr($filename, 1, $closeParentesis-1);
 				if (ctype_digit($positionString)) {
 					$this->position = intval($positionString);
-					return substr($name, $closeParentesis+1);
+					return substr($filename, $closeParentesis+1);
 				}
 			}
 			
-			return $name;
+			return $filename;
 		} else {
-			return $name;
+			return $filename;
 		}
 	}
 	

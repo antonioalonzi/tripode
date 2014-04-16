@@ -73,6 +73,21 @@ class Translator {
 						'it' => 'Cancella',
 						'es' => 'Anula'
 				),
+				'general.delete' => array (
+						'en' => 'Delete',
+						'it' => 'Rimuove',
+						'es' => 'Borra'
+				),
+				'general.rename' => array (
+						'en' => 'Rename',
+						'it' => 'Rinomina',
+						'es' => 'Cambia nombre'
+				),
+				'general.confirmationMessage' => array (
+						'en' => 'Are you sure?',
+						'it' => 'Sei sicuro?',
+						'es' => '¿Estás seguro?'
+				),
 				
 				// general messages
 				'error.permissionDenied' => array (
@@ -240,7 +255,7 @@ class Translator {
 				'contacts.postcode' => array (
 						'en' => 'PostCode',
 						'it' => 'CAP',
-						'es' => 'código postal'
+						'es' => 'Código postal'
 				),
 				'contacts.country' => array (
 						'en' => 'Country',

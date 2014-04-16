@@ -1,7 +1,10 @@
 <?php $galleryItem = new GalleryItem($_REQUEST['category']) ?>
 <h2><a href="index.php?page=gallery&category=<?= $_REQUEST['category'] ?>"><?= $galleryItem->getName() ?></a></h2>
 
-<div class="gallery_text"><?php Context::getInstance()->galleryManager->includeCategoryIndex($_REQUEST['category']) ?></div>
+<div class="gallery_text">
+	<?php Context::getInstance()->galleryManager->includeCategoryIndex($_REQUEST['category']) ?>
+	<?php Context::getInstance()->pageService->sectionEditable("categoryTextEdit") ?>
+</div>
 
 <ul class="sige">
 	
@@ -18,3 +21,4 @@
 	
 </ul>
 
+<?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>

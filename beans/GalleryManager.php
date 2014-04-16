@@ -11,19 +11,19 @@ class GalleryManager {
 	public function getGalleryCategories($includeHidden = false) {
 		$categories = array();
 		
-		if (!Context::getInstance()->fileSystemAdaptor->fileExists('gallery')) {
-			Context::getInstance()->fileSystemAdaptor->mkdir('gallery');
+		if (!file_exists('gallery')) {
+			mkdir('gallery');
 		}
 		
 		// read all directories
-		if ($handle = Context::getInstance()->fileSystemAdaptor->openDir('gallery')) {
+		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($category = Context::getInstance()->fileSystemAdaptor->readDir($handle))) {
+			while (false !== ($category = readdir($handle))) {
 				if (!in_array($category, $blacklist)) {
 					$categories[] = new GalleryItem($category);
 				}
 			}
-			$handle = Context::getInstance()->fileSystemAdaptor->closedir($handle);
+			$handle = closedir($handle);
 		}
 		
 		if (!$includeHidden) {
@@ -80,7 +80,23 @@ class GalleryManager {
 	}
 	
 	public function addCategory($category) {
-		Context::getInstance()->fileSystemAdaptor->mkdir('gallery/'.$category->getFilename());
+		mkdir('gallery/'.$category->getFilename());
+	}
+	
+	public function renameCategory($category, $newCategoryName) {
+		if ($category->getName() != $newCategoryName) {
+			$oldFilename = $category->getFilename();
+			$category->setName($newCategoryName);
+			rename('gallery/'.$oldFilename, 'gallery/'.$category->getFilename());
+		}
+	}
+	
+	public function deleteCategory($category) {
+		$this->deleteDirectory('gallery/'.$category);
+	}
+	
+	public function changeCategoryDescription($category, $text) {
+		file_put_contents('gallery/'.$category.'/index.html', $text);
 	}
 	
 	/**
@@ -136,6 +152,16 @@ class GalleryManager {
 				return $item;
 			}
 		}
+	}
+	
+	private function deleteDirectory($dir) {
+		if (!file_exists($dir)) return true;
+		if (!is_dir($dir)) return unlink($dir);
+		foreach (scandir($dir) as $item) {
+			if ($item == '.' || $item == '..') continue;
+			if (!$this->deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) return false;
+		}
+		return rmdir($dir);
 	}
 }
 ?>
