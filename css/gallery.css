@@ -84,3 +84,13 @@
 	float: left;
 	display: inline-block;
 }
+
+.galleryEditPhoto {
+	position: relative;
+	width: 120px;
+	height: 0px;
+	top: 10px;
+	left: 20px;
+	z-index: 1;
+}
+

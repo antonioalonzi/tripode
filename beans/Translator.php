@@ -58,6 +58,16 @@ class Translator {
 						'it' => 'Sposta giù',
 						'es' => 'Mueve abajo'
 				),
+				'general.actionLeft' => array (
+						'en' => 'Move Left',
+						'it' => 'Sposta a sinistra',
+						'es' => 'Mueve hacia la izquierda'
+				),
+				'general.actionRight' => array (
+						'en' => 'Move right',
+						'it' => 'Sposta a destra',
+						'es' => 'Mueve hacia la derecha'
+				),
 				'general.add' => array (
 						'en' => 'Add',
 						'it' => 'Aggiungi',

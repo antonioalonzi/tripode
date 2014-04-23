@@ -8,14 +8,55 @@
 
 <ul class="sige">
 	
-	<?php foreach (Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category']) as $image) { ?>
+	<?php $i = 0 ?>
+	<?php $images = Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category']) ?>
+	<?php foreach ($images as $image) { ?>
 		<li class="sige_cont_0">
+			
+			<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
+			<div class="galleryEditPhoto">
+				<!-- Left Icon -->
+				<?php if ($image->getPosition() > 0) { ?>
+					<a class="methodPost" href="?action=gallery&galleryAction=leftImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionLeft") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.actionLeft") ?>" src="img/icons/left.png" />
+					</a>
+				<?php } else {?>
+					<img src="img/icons/empty.png" />
+				<?php }?>
+				<!-- Rigth Icon -->
+				<a class="methodPost" href="?action=gallery&galleryAction=rightImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionRight") ?>">
+					<img alt="<?= Context::getInstance()->translator->translate("general.actionRight") ?>" src="img/icons/right.png" />
+				</a>
+				
+				<!-- Hide/Show Icon -->
+				<?php if (!$image->isHidden()) { ?>
+					<a class="methodPost" href="?action=gallery&galleryAction=hideImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.hide") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.hide") ?>" src="img/icons/hide.png" />
+					</a>
+				<?php } else { ?>
+					<a class="methodPost" href="?action=gallery&galleryAction=showImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.show") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.show") ?>" src="img/icons/show.png" />
+					</a>
+				<?php } ?>
+				
+				<!-- Rename Icon -->
+				<a class="renameImageButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+					<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
+				</a>
+				
+				<!-- Delete Icon -->
+				<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=gallery&galleryAction=deleteImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
+					<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
+				</a>
+			</div>
+			<?php } ?>
+			
 			<span class="sige_thumb">
-				<a href="gallery/<?= $_REQUEST['category'] ?>/<?= $image ?>" rel="lightbox-cat" title="<?= $image ?>" >
-					<img alt="<?= $image ?>" title="<?= $image ?>" src="gallery/<?= $_REQUEST['category'] ?>/thumbs/<?= $image ?>" />
+				<a href="gallery/<?= $_REQUEST['category'] ?>/<?= $image->getFilename() ?>" rel="lightbox-cat" title="<?= $image->getName() ?>" >
+					<img alt="<?= $image->getName() ?>" title="<?= $image->getName() ?>" src="gallery/<?= $_REQUEST['category'] ?>/thumbs/<?= $image->getFilename() ?>" />
 				</a>
 			</span>
-			<span class="sige_caption"><?= $image ?></span>
+			<span class="sige_caption"><?= $image->getName() ?></span>
 		</li>
 	<?php } ?>
 	

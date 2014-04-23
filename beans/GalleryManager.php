@@ -18,9 +18,9 @@ class GalleryManager {
 		// read all directories
 		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($category = readdir($handle))) {
-				if (!in_array($category, $blacklist)) {
-					$categories[] = new GalleryItem($category);
+			while (false !== ($directory = readdir($handle))) {
+				if (!in_array($directory, $blacklist)) {
+					$categories[] = new GalleryItem($directory);
 				}
 			}
 			$handle = closedir($handle);
@@ -35,7 +35,13 @@ class GalleryManager {
 		return $categories;
 	}
 	
-	public function getImagesWithinCategory($category) {
+	/**
+	 * returns a list of images within a category from the filesystem
+	 * @param category category to browse
+	 * @param boolean $includeHidden
+	 * @return array
+	 */
+	public function getImagesWithinCategory($category, $includeHidden = false) {
 		$images = array();
 		
 		// read all directories
@@ -43,11 +49,17 @@ class GalleryManager {
 			$blacklist = array('.', '..', 'thumbs', 'index.html');
 			while (false !== ($file = readdir($handle))) {
 				if (!in_array($file, $blacklist)) {
-					$images[] = $file;
+					$images[] = new GalleryItem($file);
 				}
 			}
 			closedir($handle);
 		}
+		
+		if (!$includeHidden) {
+			$images = $this->filterOutHidden($images);
+		}
+		
+		$images = $this->orderByPosition($images);
 		
 		return $images;
 	}
