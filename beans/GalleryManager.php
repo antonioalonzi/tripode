@@ -91,6 +91,19 @@ class GalleryManager {
 		rename("gallery/".$categoryFilename, "gallery/".$categoryItem->getFileName());
 	}
 	
+	public function moveImage($category, $imageFilename, $rightOrLeft) {
+		$images = $this->getImagesWithinCategory($category, true);
+		$imageItem = $this->getGalleryItemByFilename($images, $imageFilename);
+		if ($rightOrLeft == "left") {
+			$imageItem->decreasePosition();
+		} elseif ($rightOrLeft == "right") {
+			$imageItem->increasePosition();
+		}
+		
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/".$imageItem->getFileName());
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".$imageItem->getFileName());
+	}
+	
 	public function addCategory($category) {
 		mkdir('gallery/'.$category->getFilename());
 	}

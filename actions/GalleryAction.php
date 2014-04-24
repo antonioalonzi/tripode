@@ -18,6 +18,9 @@ class GalleryAction {
 		$_REQUEST['PAGE'] = "home";
 	}
 	
+	
+	
+	// categories
 	public function hideCategory() {
 		Context::getInstance()->galleryManager->hideCategory($_REQUEST['category']);
 		$this->reopenGalleryEditPopup();
@@ -67,6 +70,19 @@ class GalleryAction {
 	}
 	
 	private function showGalleryCategory() {
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	
+	
+	// images
+	public function rightImage() {
+		Context::getInstance()->galleryManager->moveImage($_REQUEST['category'], $_REQUEST['image'], 'right');
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function leftImage() {
+		Context::getInstance()->galleryManager->moveImage($_REQUEST['category'], $_REQUEST['image'], 'left');
 		$_REQUEST['PAGE'] = "gallery";
 	}
 }

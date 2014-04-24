@@ -15,16 +15,20 @@
 			
 			<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
 			<div class="galleryEditPhoto">
+				<!-- Position -->
+				<?php if ($image->getPosition() > 0) { ?>
+					<span><?= $image->getPosition() ?>.&nbsp;</span>
+				<?php } ?>
+				
 				<!-- Left Icon -->
 				<?php if ($image->getPosition() > 0) { ?>
-					<a class="methodPost" href="?action=gallery&galleryAction=leftImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionLeft") ?>">
+					<a class="methodPost" href="?action=gallery&galleryAction=leftImage&category=<?= $_REQUEST['category']?>&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionLeft") ?>">
 						<img alt="<?= Context::getInstance()->translator->translate("general.actionLeft") ?>" src="img/icons/left.png" />
 					</a>
-				<?php } else {?>
-					<img src="img/icons/empty.png" />
 				<?php }?>
+				
 				<!-- Rigth Icon -->
-				<a class="methodPost" href="?action=gallery&galleryAction=rightImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionRight") ?>">
+				<a class="methodPost" href="?action=gallery&galleryAction=rightImage&category=<?= $_REQUEST['category']?>&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.actionRight") ?>">
 					<img alt="<?= Context::getInstance()->translator->translate("general.actionRight") ?>" src="img/icons/right.png" />
 				</a>
 				
