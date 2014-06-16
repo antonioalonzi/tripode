@@ -88,3 +88,9 @@
 .galleryEditPhoto {
 	margin-left: 10px;
 }
+
+.hiddenImage {
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	background-color: #000;
+}

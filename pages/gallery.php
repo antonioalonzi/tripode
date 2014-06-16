@@ -56,7 +56,8 @@
 			</div>
 			<?php } ?>
 			
-			<span class="sige_thumb">
+			<?php $imageClass = $image->isHidden() ? "hiddenImage" : "" ?>
+			<span class="sige_thumb <?= $imageClass ?>">
 				<a href="gallery/<?= $_REQUEST['category'] ?>/<?= $image->getFilename() ?>" rel="lightbox-cat" title="<?= $image->getName() ?>" >
 					<img alt="<?= $image->getName() ?>" title="<?= $image->getName() ?>" src="gallery/<?= $_REQUEST['category'] ?>/thumbs/<?= $image->getFilename() ?>" />
 				</a>
