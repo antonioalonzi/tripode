@@ -85,6 +85,16 @@ class GalleryAction {
 		Context::getInstance()->galleryManager->moveImage($_REQUEST['category'], $_REQUEST['image'], 'left');
 		$_REQUEST['PAGE'] = "gallery";
 	}
+	
+	public function hideImage() {
+		Context::getInstance()->galleryManager->hideImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function showImage() {
+		Context::getInstance()->galleryManager->showImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
 }
 
 ?>

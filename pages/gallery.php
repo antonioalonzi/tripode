@@ -9,7 +9,8 @@
 <ul class="sige">
 	
 	<?php $i = 0 ?>
-	<?php $images = Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category']) ?>
+	<?php $userLoggedIn = Context::getInstance()->authenticationManager->isAdminUserLoggedIn() ?>
+	<?php $images = Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category'], $userLoggedIn) ?>
 	<?php foreach ($images as $image) { ?>
 		<li class="sige_cont_0">
 			
@@ -34,11 +35,11 @@
 				
 				<!-- Hide/Show Icon -->
 				<?php if (!$image->isHidden()) { ?>
-					<a class="methodPost" href="?action=gallery&galleryAction=hideImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.hide") ?>">
+					<a class="methodPost" href="?action=gallery&galleryAction=hideImage&category=<?= $_REQUEST['category']?>&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.hide") ?>">
 						<img alt="<?= Context::getInstance()->translator->translate("general.hide") ?>" src="img/icons/hide.png" />
 					</a>
 				<?php } else { ?>
-					<a class="methodPost" href="?action=gallery&galleryAction=showImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.show") ?>">
+					<a class="methodPost" href="?action=gallery&galleryAction=showImage&category=<?= $_REQUEST['category']?>&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.show") ?>">
 						<img alt="<?= Context::getInstance()->translator->translate("general.show") ?>" src="img/icons/show.png" />
 					</a>
 				<?php } ?>

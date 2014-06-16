@@ -104,6 +104,16 @@ class GalleryManager {
 		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".$imageItem->getFileName());
 	}
 	
+	public function hideImage($category, $imageFilename) {
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/.".$imageFilename);
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/.".$imageFilename);
+	}
+	
+	public function showImage($category, $imageFilename) {
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/".substr($imageFilename, 1));
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".substr($imageFilename, 1));
+	}
+	
 	public function addCategory($category) {
 		mkdir('gallery/'.$category->getFilename());
 	}
