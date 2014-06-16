@@ -95,6 +95,11 @@ class GalleryAction {
 		Context::getInstance()->galleryManager->showImage($_REQUEST['category'], $_REQUEST['image']);
 		$_REQUEST['PAGE'] = "gallery";
 	}
+	
+	public function deleteImage() {
+		Context::getInstance()->galleryManager->deleteImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
 }
 
 ?>

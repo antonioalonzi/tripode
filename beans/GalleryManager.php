@@ -114,6 +114,11 @@ class GalleryManager {
 		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".substr($imageFilename, 1));
 	}
 	
+	public function deleteImage($category, $imageFilename) {
+		unlink("gallery/".$category."/".$imageFilename);
+		unlink("gallery/".$category."/thumbs/".$imageFilename);
+	}
+	
 	public function addCategory($category) {
 		mkdir('gallery/'.$category->getFilename());
 	}

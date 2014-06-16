@@ -50,7 +50,7 @@
 				</a>
 				
 				<!-- Delete Icon -->
-				<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=gallery&galleryAction=deleteImage&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
+				<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=gallery&galleryAction=deleteImage&category=<?= $_REQUEST['category']?>&image=<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
 					<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
 				</a>
 			</div>
