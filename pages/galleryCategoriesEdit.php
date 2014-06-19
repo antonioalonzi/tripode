@@ -76,8 +76,6 @@
 						</div>
 					</form>
 				</td>
-				<td>
-				</td>
 			</tr>
 		</tbody>
 	</table>
