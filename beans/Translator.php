@@ -139,6 +139,21 @@ class Translator {
 						'it' => 'Gestisci le tue categorie:',
 						'es' => 'Administras tus categorías:'
 				),
+				'gallery.renameImage.rename' => array (
+						'en' => 'Rename',
+						'it' => 'Renomina',
+						'es' => 'Renombre'
+				),
+				'gallery.renameImage.to' => array (
+						'en' => 'to',
+						'it' => 'come',
+						'es' => 'a'
+				),
+				'gallery.renameImage.newName' => array (
+						'en' => 'New name:',
+						'it' => 'Nuovo nome:',
+						'es' => 'Nuevo nombre:'
+				),
 				
 				// login
 				'login.email' => array (

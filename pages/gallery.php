@@ -8,7 +8,6 @@
 
 <ul class="sige">
 	
-	<?php $i = 0 ?>
 	<?php $userLoggedIn = Context::getInstance()->authenticationManager->isAdminUserLoggedIn() ?>
 	<?php $images = Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category'], $userLoggedIn) ?>
 	<?php foreach ($images as $image) { ?>
@@ -45,7 +44,7 @@
 				<?php } ?>
 				
 				<!-- Rename Icon -->
-				<a class="renameImageButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+				<a class="renameImageButton" href="#<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
 					<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
 				</a>
 				
@@ -69,3 +68,26 @@
 </ul>
 
 <?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>
+
+<div id="popup-renameGalleryImage" class="editPopup" style="display: none">
+	<a href="#popup-renameGalleryImage" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
+	<div class="editPopupContainer">
+		<?= Context::getInstance()->translator->translate("gallery.renameImage.rename") ?>
+		<span id="fileName"></span>
+		<?= Context::getInstance()->translator->translate("gallery.renameImage.to") ?>:
+		<form action="?action=contactsEdit" method="post" class="form-horizontal">
+			<fieldset class="well">
+				<input type="hidden" name="oldName" id="oldName" value="" />
+				
+				<div class="control-group">
+					<div class="control-label"><label id="newName-lbl" for="newName"><?= Context::getInstance()->translator->translate("gallery.renameImage.newName") ?></label></div>
+					<div class="controls"><input type="text" name="newName" id="newName" value="" size="25" /></div>
+				</div>
+				
+				<div class="controls">
+					<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
