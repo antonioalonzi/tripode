@@ -94,3 +94,7 @@
 	filter: alpha(opacity=40);
 	background-color: #000;
 }
+
+#renameFileName {
+	font-weight: bold;
+}

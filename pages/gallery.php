@@ -44,7 +44,7 @@
 				<?php } ?>
 				
 				<!-- Rename Icon -->
-				<a class="renameImageButton" href="#<?= $image->getFileName() ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+				<a class="renameImageButton" href="#<?= $image->getFileName() ?>|<?= $image->getName() ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
 					<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
 				</a>
 				
@@ -73,15 +73,15 @@
 	<a href="#popup-renameGalleryImage" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
 	<div class="editPopupContainer">
 		<?= Context::getInstance()->translator->translate("gallery.renameImage.rename") ?>
-		<span id="fileName"></span>
+		<span id="renameFileName"></span>
 		<?= Context::getInstance()->translator->translate("gallery.renameImage.to") ?>:
 		<form action="?action=contactsEdit" method="post" class="form-horizontal">
 			<fieldset class="well">
-				<input type="hidden" name="oldName" id="oldName" value="" />
+				<input type="hidden" name="renameOldFileName" id="renameOldFileName" value="" />
 				
 				<div class="control-group">
-					<div class="control-label"><label id="newName-lbl" for="newName"><?= Context::getInstance()->translator->translate("gallery.renameImage.newName") ?></label></div>
-					<div class="controls"><input type="text" name="newName" id="newName" value="" size="25" /></div>
+					<div class="control-label"><label id="renameNewName-lbl" for="renameNewName"><?= Context::getInstance()->translator->translate("gallery.renameImage.newName") ?></label></div>
+					<div class="controls"><input type="text" name="renameNewName" id="renameNewName" value="" size="25" /></div>
 				</div>
 				
 				<div class="controls">

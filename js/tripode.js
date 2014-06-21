@@ -57,7 +57,11 @@ $(document).ready(function() {
 	
 	$('.renameImageButton').click(function(event) {
 		event.preventDefault();
-		var imageFilename = $(this).attr('href').substr(1);
+		var imageFilename = $(this).attr('href').substr(1).split("|")[0];
+		$('#renameOldFileName').val(imageFilename);
+		var imageName = $(this).attr('href').substr(1).split("|")[1];
+		$('#renameFileName').text(imageName);
+		$('#renameNewName').val(imageName);
 		$('#popup-renameGalleryImage').show();
 	})
 });
