@@ -65,6 +65,16 @@
 		</li>
 	<?php } ?>
 	
+	<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
+	<li class="sige_cont_0">
+		<span class="sige_thumb">
+			<a id="uploadPhotos" href="#uploadPhotos" rel="lightbox-cat" title="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>" >
+				<img alt="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>Photos" title="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>" src="img/icons/addPhotos.png" />
+			</a>
+		</span>
+	</li>
+<?php } ?>
+	
 </ul>
 
 <?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>

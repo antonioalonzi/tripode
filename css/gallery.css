@@ -98,3 +98,8 @@
 #renameFileName {
 	font-weight: bold;
 }
+
+#uploadPhotos img {
+	top: 40px;
+	left: 80px;
+}

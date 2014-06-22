@@ -154,6 +154,11 @@ class Translator {
 						'it' => 'Nuovo nome:',
 						'es' => 'Nuevo nombre:'
 				),
+				'gallery.uploadPhotos.uploadAction' => array (
+						'en' => 'Upload photos',
+						'it' => 'Carica fotografie',
+						'es' => 'Subir fotos'
+				),
 				
 				// login
 				'login.email' => array (
