@@ -111,6 +111,18 @@
 <div id="popup-uploadPhotos" class="editPopup" style="display: none">
 	<a href="#popup-uploadPhotos" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
 	<div class="editPopupContainer">
-		Upload Photos
+		<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosMessage") ?>
+		<form action="?action=gallery&galleryAction=uploadPhotos&category=<?= $_REQUEST['category']?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<fieldset class="well">
+				<div class="control-group">
+					<div class="control-label"><label id="uploadPhotos-lbl" for="uploadPhotos"><?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosPhotoLabel") ?></label></div>
+					<div class="controls"><input type="file" name="uploadPhotos[]" id="uploadPhotos" value="" multiple="multiple" /></div>
+				</div>
+				
+				<div class="controls">
+					<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>
+				</div>
+			</fieldset>
+		</form>
 	</div>
 </div>

@@ -159,6 +159,16 @@ class Translator {
 						'it' => 'Carica fotografie',
 						'es' => 'Subir fotos'
 				),
+				'gallery.uploadPhotos.uploadPhotosMessage' => array (
+						'en' => 'Choose photos to upload (multiple photos can be selected):',
+						'it' => 'Scegli le fotografie da caricare (può essere selezionata più di una foto):',
+						'es' => 'Eliges las fotos para subir (puedes selecionar mas de una foto):'
+				),
+				'gallery.uploadPhotos.uploadPhotosPhotoLabel' => array (
+						'en' => 'Photos:',
+						'it' => 'Fotos:',
+						'es' => 'Fotos:'
+				),
 				
 				// login
 				'login.email' => array (

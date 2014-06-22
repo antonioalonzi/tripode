@@ -1,6 +1,11 @@
 <?php
 require_once('beans/GalleryItem.php');
 
+/**
+ * The width of the image is no bigger than 1200px.
+ * @author antonio
+ *
+ */
 class GalleryManager {
 	
 	/**
