@@ -64,4 +64,9 @@ $(document).ready(function() {
 		$('#renameNewName').val(imageName);
 		$('#popup-renameGalleryImage').show();
 	})
+	
+	$('#uploadPhotos').click(function(event) {
+		event.preventDefault();
+		$('#popup-uploadPhotos').show();
+	})
 });

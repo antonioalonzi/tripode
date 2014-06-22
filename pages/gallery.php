@@ -68,7 +68,7 @@
 	<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
 	<li class="sige_cont_0">
 		<span class="sige_thumb">
-			<a id="uploadPhotos" href="#uploadPhotos" rel="lightbox-cat" title="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>" >
+			<a id="uploadPhotos" href="#uploadPhotos" title="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>" >
 				<img alt="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>Photos" title="<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadAction") ?>" src="img/icons/addPhotos.png" />
 			</a>
 		</span>
@@ -77,7 +77,11 @@
 	
 </ul>
 
+
+
 <?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>
+
+
 
 <div id="popup-renameGalleryImage" class="editPopup" style="display: none">
 	<a href="#popup-renameGalleryImage" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
@@ -99,5 +103,14 @@
 				</div>
 			</fieldset>
 		</form>
+	</div>
+</div>
+
+
+
+<div id="popup-uploadPhotos" class="editPopup" style="display: none">
+	<a href="#popup-uploadPhotos" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
+	<div class="editPopupContainer">
+		Upload Photos
 	</div>
 </div>
