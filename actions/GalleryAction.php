@@ -100,6 +100,12 @@ class GalleryAction {
 		Context::getInstance()->galleryManager->deleteImage($_REQUEST['category'], $_REQUEST['image']);
 		$_REQUEST['PAGE'] = "gallery";
 	}
+	
+	public function renameImage() {
+		$filename = new GalleryItem($_REQUEST['renameOldFileName']);
+		Context::getInstance()->galleryManager->renameImage($_REQUEST['category'], $filename, $_REQUEST['renameNewName']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
 }
 
 ?>

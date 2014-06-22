@@ -119,6 +119,15 @@ class GalleryManager {
 		unlink("gallery/".$category."/thumbs/".$imageFilename);
 	}
 	
+	public function renameImage($category, $image, $newImageName) {
+		if ($image->getName() != $newImageName) {
+			$oldFilename = $image->getFilename();
+			$image->setName($newImageName);
+			rename('gallery/'.$category.'/'.$oldFilename, 'gallery/'.$category.'/'.$image->getFilename());
+			rename('gallery/'.$category.'/thumbs/'.$oldFilename, 'gallery/'.$category.'/thumbs/'.$image->getFilename());
+		}
+	}
+	
 	public function addCategory($category) {
 		mkdir('gallery/'.$category->getFilename());
 	}

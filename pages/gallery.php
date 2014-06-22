@@ -75,7 +75,7 @@
 		<?= Context::getInstance()->translator->translate("gallery.renameImage.rename") ?>
 		<span id="renameFileName"></span>
 		<?= Context::getInstance()->translator->translate("gallery.renameImage.to") ?>:
-		<form action="?action=contactsEdit" method="post" class="form-horizontal">
+		<form action="?action=gallery&galleryAction=renameImage&category=<?= $_REQUEST['category']?>" method="post" class="form-horizontal">
 			<fieldset class="well">
 				<input type="hidden" name="renameOldFileName" id="renameOldFileName" value="" />
 				
