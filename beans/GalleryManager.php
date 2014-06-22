@@ -133,6 +133,10 @@ class GalleryManager {
 		}
 	}
 	
+	public function moveUploadedPhoto($tmpName, $category, $filename) {
+		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
+	}
+	
 	public function addCategory($category) {
 		mkdir('gallery/'.$category->getFilename());
 	}
