@@ -135,6 +135,9 @@ class GalleryManager {
 	
 	public function moveUploadedPhoto($tmpName, $category, $filename) {
 		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
+		$this->resizeImage('gallery/'.$category.'/'.$filename, 1200);
+		copy('gallery/'.$category.'/'.$filename, 'gallery/'.$category.'/thumbs/'.$filename);
+		$this->resizeImage('gallery/'.$category.'/thumbs/'.$filename, 180);
 	}
 	
 	public function addCategory($category) {
@@ -220,6 +223,20 @@ class GalleryManager {
 			if (!$this->deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) return false;
 		}
 		return rmdir($dir);
+	}
+	
+	private function resizeImage($imagePath, $maxWidth) {
+		require_once ("lib/Zebra_Image.php");
+		
+		$image = new Zebra_Image();
+		$image->source_path = $imagePath;
+		$image->target_path = $imagePath;
+		$image->jpeg_quality = 95;
+		$image->preserve_aspect_ratio = true;
+		$image->enlarge_smaller_images = true;
+		$image->preserve_time = true;
+		
+		$image->resize ($maxWidth, 0, ZEBRA_IMAGE_CROP_CENTER);
 	}
 }
 ?>
