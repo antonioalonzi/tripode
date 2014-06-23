@@ -18,6 +18,9 @@ class GalleryAction {
 		$_REQUEST['PAGE'] = "home";
 	}
 	
+	
+	
+	// categories
 	public function hideCategory() {
 		Context::getInstance()->galleryManager->hideCategory($_REQUEST['category']);
 		$this->reopenGalleryEditPopup();
@@ -67,6 +70,48 @@ class GalleryAction {
 	}
 	
 	private function showGalleryCategory() {
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	
+	
+	// images
+	public function rightImage() {
+		Context::getInstance()->galleryManager->moveImage($_REQUEST['category'], $_REQUEST['image'], 'right');
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function leftImage() {
+		Context::getInstance()->galleryManager->moveImage($_REQUEST['category'], $_REQUEST['image'], 'left');
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function hideImage() {
+		Context::getInstance()->galleryManager->hideImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function showImage() {
+		Context::getInstance()->galleryManager->showImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function deleteImage() {
+		Context::getInstance()->galleryManager->deleteImage($_REQUEST['category'], $_REQUEST['image']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function renameImage() {
+		$filename = new GalleryItem($_REQUEST['renameOldFileName']);
+		Context::getInstance()->galleryManager->renameImage($_REQUEST['category'], $filename, $_REQUEST['renameNewName']);
+		$_REQUEST['PAGE'] = "gallery";
+	}
+	
+	public function uploadPhotos() {
+		for($i = 0; $i < count($_FILES['uploadPhotos']['name']); $i++) {
+			Context::getInstance()->galleryManager->moveUploadedPhoto($_FILES['uploadPhotos']['tmp_name'][$i], $_REQUEST['category'], $_FILES["uploadPhotos"]['name'][$i]);
+		}
+		
 		$_REQUEST['PAGE'] = "gallery";
 	}
 }

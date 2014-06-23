@@ -1,6 +1,11 @@
 <?php
 require_once('beans/GalleryItem.php');
 
+/**
+ * The width of the image is no bigger than 1200px.
+ * @author antonio
+ *
+ */
 class GalleryManager {
 	
 	/**
@@ -18,9 +23,9 @@ class GalleryManager {
 		// read all directories
 		if ($handle = opendir('gallery')) {
 			$blacklist = array('.', '..');
-			while (false !== ($category = readdir($handle))) {
-				if (!in_array($category, $blacklist)) {
-					$categories[] = new GalleryItem($category);
+			while (false !== ($directory = readdir($handle))) {
+				if (!in_array($directory, $blacklist)) {
+					$categories[] = new GalleryItem($directory);
 				}
 			}
 			$handle = closedir($handle);
@@ -35,7 +40,13 @@ class GalleryManager {
 		return $categories;
 	}
 	
-	public function getImagesWithinCategory($category) {
+	/**
+	 * returns a list of images within a category from the filesystem
+	 * @param category category to browse
+	 * @param boolean $includeHidden
+	 * @return array
+	 */
+	public function getImagesWithinCategory($category, $includeHidden = false) {
 		$images = array();
 		
 		// read all directories
@@ -43,11 +54,17 @@ class GalleryManager {
 			$blacklist = array('.', '..', 'thumbs', 'index.html');
 			while (false !== ($file = readdir($handle))) {
 				if (!in_array($file, $blacklist)) {
-					$images[] = $file;
+					$images[] = new GalleryItem($file);
 				}
 			}
 			closedir($handle);
 		}
+		
+		if (!$includeHidden) {
+			$images = $this->filterOutHidden($images);
+		}
+		
+		$images = $this->orderByPosition($images);
 		
 		return $images;
 	}
@@ -77,6 +94,50 @@ class GalleryManager {
 			$categoryItem->increasePosition();
 		}
 		rename("gallery/".$categoryFilename, "gallery/".$categoryItem->getFileName());
+	}
+	
+	public function moveImage($category, $imageFilename, $rightOrLeft) {
+		$images = $this->getImagesWithinCategory($category, true);
+		$imageItem = $this->getGalleryItemByFilename($images, $imageFilename);
+		if ($rightOrLeft == "left") {
+			$imageItem->decreasePosition();
+		} elseif ($rightOrLeft == "right") {
+			$imageItem->increasePosition();
+		}
+		
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/".$imageItem->getFileName());
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".$imageItem->getFileName());
+	}
+	
+	public function hideImage($category, $imageFilename) {
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/.".$imageFilename);
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/.".$imageFilename);
+	}
+	
+	public function showImage($category, $imageFilename) {
+		rename("gallery/".$category."/".$imageFilename, "gallery/".$category."/".substr($imageFilename, 1));
+		rename("gallery/".$category."/thumbs/".$imageFilename, "gallery/".$category."/thumbs/".substr($imageFilename, 1));
+	}
+	
+	public function deleteImage($category, $imageFilename) {
+		unlink("gallery/".$category."/".$imageFilename);
+		unlink("gallery/".$category."/thumbs/".$imageFilename);
+	}
+	
+	public function renameImage($category, $image, $newImageName) {
+		if ($image->getName() != $newImageName) {
+			$oldFilename = $image->getFilename();
+			$image->setName($newImageName);
+			rename('gallery/'.$category.'/'.$oldFilename, 'gallery/'.$category.'/'.$image->getFilename());
+			rename('gallery/'.$category.'/thumbs/'.$oldFilename, 'gallery/'.$category.'/thumbs/'.$image->getFilename());
+		}
+	}
+	
+	public function moveUploadedPhoto($tmpName, $category, $filename) {
+		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
+		$this->resizeImage('gallery/'.$category.'/'.$filename, 1200);
+		copy('gallery/'.$category.'/'.$filename, 'gallery/'.$category.'/thumbs/'.$filename);
+		$this->resizeImage('gallery/'.$category.'/thumbs/'.$filename, 180);
 	}
 	
 	public function addCategory($category) {
@@ -162,6 +223,20 @@ class GalleryManager {
 			if (!$this->deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) return false;
 		}
 		return rmdir($dir);
+	}
+	
+	private function resizeImage($imagePath, $maxWidth) {
+		require_once ("lib/Zebra_Image.php");
+		
+		$image = new Zebra_Image();
+		$image->source_path = $imagePath;
+		$image->target_path = $imagePath;
+		$image->jpeg_quality = 95;
+		$image->preserve_aspect_ratio = true;
+		$image->enlarge_smaller_images = true;
+		$image->preserve_time = true;
+		
+		$image->resize ($maxWidth, 0, ZEBRA_IMAGE_CROP_CENTER);
 	}
 }
 ?>

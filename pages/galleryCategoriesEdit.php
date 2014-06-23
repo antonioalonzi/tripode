@@ -13,9 +13,9 @@
 						<form action="?action=gallery" method="post">
 							<input type="hidden" name="galleryAction" value="renameCategory" />
 							<input type="hidden" name="oldFilename" value="<?= $categoryItem->getFilename() ?>" />
-							<input type="text" id="newCategoryName" name="newCategoryName" value="<?= $categoryItem->getName() ?>" required aria-required="true" />
+							<input type="text" name="newCategoryName" value="<?= $categoryItem->getName() ?>" required aria-required="true" />
 							<input type="submit" value="<?= Context::getInstance()->translator->translate("general.ok") ?>" class="btn btn-primary" />
-							<input type="reset" id="addCategoryCancelButton" value="<?= Context::getInstance()->translator->translate("general.cancel") ?>" class="btn btn-primary" />
+							<input type="reset" value="<?= Context::getInstance()->translator->translate("general.cancel") ?>" class="btn btn-primary" />
 						</form>
 					</div>
 				</td>
@@ -45,8 +45,8 @@
 					<?php } ?>
 					
 					<!-- Rename Icon -->
-					<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.actionRename") ?>">
-						<img alt="<?= Context::getInstance()->translator->translate("general.actionRename") ?>" src="img/icons/rename.png" />
+					<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+						<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
 					</a>
 					
 					<!-- Delete Icon -->
@@ -70,7 +70,7 @@
 						<div id="addCategoryForm" style="display: none">
 							<input type="hidden" name="position" value="[<?= $i ?>]" />
 							<input type="hidden" name="galleryAction" value="addCategory" />
-							<input type="text" id="categoryName" name="categoryName" value="" required aria-required="true" />
+							<input type="text" name="categoryName" value="" required aria-required="true" />
 							<input type="submit" value="<?= Context::getInstance()->translator->translate("general.ok") ?>" class="btn btn-primary" />
 							<input type="reset" id="addCategoryCancelButton" value="<?= Context::getInstance()->translator->translate("general.cancel") ?>" class="btn btn-primary" />
 						</div>

@@ -58,6 +58,16 @@ class Translator {
 						'it' => 'Sposta giù',
 						'es' => 'Mueve abajo'
 				),
+				'general.actionLeft' => array (
+						'en' => 'Move Left',
+						'it' => 'Sposta a sinistra',
+						'es' => 'Mueve hacia la izquierda'
+				),
+				'general.actionRight' => array (
+						'en' => 'Move right',
+						'it' => 'Sposta a destra',
+						'es' => 'Mueve hacia la derecha'
+				),
 				'general.add' => array (
 						'en' => 'Add',
 						'it' => 'Aggiungi',
@@ -128,6 +138,36 @@ class Translator {
 						'en' => 'Manage your categories:',
 						'it' => 'Gestisci le tue categorie:',
 						'es' => 'Administras tus categorías:'
+				),
+				'gallery.renameImage.rename' => array (
+						'en' => 'Rename',
+						'it' => 'Renomina',
+						'es' => 'Renombre'
+				),
+				'gallery.renameImage.to' => array (
+						'en' => 'to',
+						'it' => 'come',
+						'es' => 'a'
+				),
+				'gallery.renameImage.newName' => array (
+						'en' => 'New name:',
+						'it' => 'Nuovo nome:',
+						'es' => 'Nuevo nombre:'
+				),
+				'gallery.uploadPhotos.uploadAction' => array (
+						'en' => 'Upload photos',
+						'it' => 'Carica fotografie',
+						'es' => 'Subir fotos'
+				),
+				'gallery.uploadPhotos.uploadPhotosMessage' => array (
+						'en' => 'Choose photos to upload (multiple photos can be selected):',
+						'it' => 'Scegli le fotografie da caricare (può essere selezionata più di una foto):',
+						'es' => 'Eliges las fotos para subir (puedes selecionar mas de una foto):'
+				),
+				'gallery.uploadPhotos.uploadPhotosPhotoLabel' => array (
+						'en' => 'Photos:',
+						'it' => 'Fotos:',
+						'es' => 'Fotos:'
 				),
 				
 				// login

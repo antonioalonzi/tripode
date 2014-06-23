@@ -37,7 +37,7 @@
 				<div class="controls"><input type="text" name="contactMobile" id="contactMobile" value="<?= Context::getInstance()->configurationManager->getConfiguration()->contactMobile ?>" size="25" /></div>
 			</div>
 			
-			<div class="controls"><button type="submit" class="btn btn-primary"><? echo Context::getInstance()->translator->translate("action.save") ?></button></div>
+			<div class="controls"><button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button></div>
 		</fieldset>
 	</form>
 </div>

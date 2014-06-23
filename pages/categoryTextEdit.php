@@ -10,6 +10,6 @@
 		</div>
 	</div>
 	<div class="controls">
-		<button type="submit" class="btn btn-primary"><? echo Context::getInstance()->translator->translate("action.save") ?></button>
+		<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>
 	</div>
 </form>
