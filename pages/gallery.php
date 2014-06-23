@@ -95,7 +95,7 @@
 				
 				<div class="control-group">
 					<div class="control-label"><label id="renameNewName-lbl" for="renameNewName"><?= Context::getInstance()->translator->translate("gallery.renameImage.newName") ?></label></div>
-					<div class="controls"><input type="text" name="renameNewName" id="renameNewName" value="" size="25" /></div>
+					<div class="controls"><input type="text" name="renameNewName" id="renameNewName" value="" required aria-required="true" size="25" /></div>
 				</div>
 				
 				<div class="controls">
