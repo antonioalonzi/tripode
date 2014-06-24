@@ -68,7 +68,7 @@
 							<img alt="<?= Context::getInstance()->translator->translate("general.add") ?>" src="img/icons/add.png" />
 						</a>
 						<div id="addCategoryForm" style="display: none">
-							<input type="hidden" name="position" value="[<?= $i ?>]" />
+							<input type="hidden" name="position" value="<?= $i ?>" />
 							<input type="hidden" name="galleryAction" value="addCategory" />
 							<input type="text" name="categoryName" value="" required aria-required="true" />
 							<input type="submit" value="<?= Context::getInstance()->translator->translate("general.ok") ?>" class="btn btn-primary" />

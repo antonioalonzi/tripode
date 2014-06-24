@@ -42,7 +42,7 @@ class GalleryAction {
 	}
 	
 	public function addCategory() {
-		$category = new GalleryItem($_REQUEST['position'].$_REQUEST['categoryName']);
+		$category = new GalleryItem("[".$_REQUEST['position']."]".$_REQUEST['categoryName']);
 		Context::getInstance()->galleryManager->addCategory($category);
 		$this->reopenGalleryEditPopup();
 	}
