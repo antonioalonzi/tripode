@@ -108,8 +108,9 @@ class GalleryAction {
 	}
 	
 	public function uploadPhotos() {
+		$position = $_REQUEST['position'];
 		for($i = 0; $i < count($_FILES['uploadPhotos']['name']); $i++) {
-			Context::getInstance()->galleryManager->moveUploadedPhoto($_FILES['uploadPhotos']['tmp_name'][$i], $_REQUEST['category'], $_FILES["uploadPhotos"]['name'][$i]);
+			Context::getInstance()->galleryManager->moveUploadedPhoto($position++, $_FILES['uploadPhotos']['tmp_name'][$i], $_REQUEST['category'], $_FILES["uploadPhotos"]['name'][$i]);
 		}
 		
 		$_REQUEST['PAGE'] = "gallery";

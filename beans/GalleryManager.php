@@ -133,7 +133,8 @@ class GalleryManager {
 		}
 	}
 	
-	public function moveUploadedPhoto($tmpName, $category, $filename) {
+	public function moveUploadedPhoto($position, $tmpName, $category, $filename) {
+		$filename = '['.$position.']'.$filename;
 		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
 		$this->resizeImage('gallery/'.$category.'/'.$filename, 1200);
 		copy('gallery/'.$category.'/'.$filename, 'gallery/'.$category.'/thumbs/'.$filename);
