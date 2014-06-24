@@ -40,6 +40,10 @@ class GalleryItem {
 	}
 	
 	public function setName($name) {
+		$name = str_replace("[", "_", $name);
+		$name = str_replace("]", "_", $name);
+		$name = str_replace("|", "_", $name);
+		$name = preg_replace("/^\./", "_", $name);
 		$this->name = $name;
 	}
 	
