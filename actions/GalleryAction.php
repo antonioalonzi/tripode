@@ -42,7 +42,8 @@ class GalleryAction {
 	}
 	
 	public function addCategory() {
-		$category = new GalleryItem("[".$_REQUEST['position']."]".$_REQUEST['categoryName']);
+		$categoryName = GalleryItem::galleryItemName($_REQUEST['categoryName']);
+		$category = new GalleryItem("[".$_REQUEST['position']."]".$categoryName);
 		Context::getInstance()->galleryManager->addCategory($category);
 		$this->reopenGalleryEditPopup();
 	}
@@ -110,7 +111,8 @@ class GalleryAction {
 	public function uploadPhotos() {
 		$position = $_REQUEST['position'];
 		for($i = 0; $i < count($_FILES['uploadPhotos']['name']); $i++) {
-			Context::getInstance()->galleryManager->moveUploadedPhoto($position++, $_FILES['uploadPhotos']['tmp_name'][$i], $_REQUEST['category'], $_FILES["uploadPhotos"]['name'][$i]);
+			$imageName = GalleryItem::galleryItemName($_FILES["uploadPhotos"]['name'][$i]);
+			Context::getInstance()->galleryManager->moveUploadedPhoto($position++, $_FILES['uploadPhotos']['tmp_name'][$i], $_REQUEST['category'], $imageName);
 		}
 		
 		$_REQUEST['PAGE'] = "gallery";
