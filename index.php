@@ -1,4 +1,6 @@
 <?php
+	//ini_set('display_errors', 1);
+	
 	session_start();
 	
 	require_once("beans/Context.php");
@@ -64,10 +66,10 @@
 					</ul>
 				</nav>
 				
-				<?php if (Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
+				<?php if (Context::getInstance()->bannerManager->hasBanner() && Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
 					<div class="moduletable">
 						<div class="custom">
-							<p><img src="img/banners/blue-flower.jpg" alt="" width="100%"></p>
+							<p><img src="img/banners/<?= Context::getInstance()->bannerManager->getBanner() ?>" alt="" width="100%"></p>
 						</div>
 					</div>
 				<?php } ?>

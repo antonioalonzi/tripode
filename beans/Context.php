@@ -1,6 +1,7 @@
 <?php
 require_once("Configuration.php");
 require_once("beans/AuthenticationManager.php");
+require_once("beans/BannerManager.php");
 require_once("beans/ConfigurationManager.php");
 require_once("beans/Dispatcher.php");
 require_once("beans/GalleryManager.php");
@@ -15,6 +16,7 @@ class Context {
 	public static $instance;
 	
 	public $authenticationManager;
+	public $bannerManager;
 	public $configurationManager;
 	public $galleryManager;
 	public $pageService;
@@ -22,8 +24,12 @@ class Context {
 	public $translator;
 	
 	private function __construct() {
-		$this->authenticationManager = new AuthenticationManager();
+		// configuration is the first thing that needs to be created
 		$this->configurationManager = new ConfigurationManager();
+		
+		// then all other beans
+		$this->authenticationManager = new AuthenticationManager();
+		$this->bannerManager = new BannerManager($this->configurationManager->getConfiguration()->banner);
 		$this->galleryManager = new GalleryManager();
 		$this->pageService = new PageService();
 		$this->topMenuManager = new TopMenuManager();

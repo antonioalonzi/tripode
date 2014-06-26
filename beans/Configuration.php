@@ -19,5 +19,8 @@ class Configuration {
 	public $contactCountry;
 	public $contactTelephone;
 	public $contactMobile;
+	
+	// banners
+	public $banner = "blue-flower.jpg";
 }
 ?>
