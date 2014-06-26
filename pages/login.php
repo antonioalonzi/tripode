@@ -17,6 +17,4 @@
 	<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn() && Context::getInstance()->authenticationManager->isDefaultPassword()) { ?>
 		<strong><?= Context::getInstance()->translator->translate("login.adviceChangePassword") ?></strong>
 	<?php } ?>
-	
-	<?php Context::getInstance()->pageService->includePopup("loginEdit"); ?>
 </div>

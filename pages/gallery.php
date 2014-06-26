@@ -81,10 +81,6 @@
 
 
 
-<?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>
-
-
-
 <div id="popup-renameGalleryImage" class="editPopup" style="display: none">
 	<a href="#popup-renameGalleryImage" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
 	<div class="editPopupContainer">

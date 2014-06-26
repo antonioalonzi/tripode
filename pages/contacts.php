@@ -20,6 +20,4 @@
 			<dd><span class="contact-mobile"><?= Context::getInstance()->configurationManager->getConfiguration()->contactMobile ?></span></dd>
 		</dl>
 	</div>
-	
-	<?php Context::getInstance()->pageService->includePopup("contactsEdit"); ?> 
 </div>
