@@ -66,6 +66,7 @@
 					</ul>
 				</nav>
 				
+				<?php Context::getInstance()->pageService->sectionEditable("bannersEdit") ?>
 				<?php if (Context::getInstance()->bannerManager->hasBanner() && Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
 					<div class="moduletable">
 						<div class="custom">
@@ -106,6 +107,7 @@
 		
 		<?php Context::getInstance()->pageService->includePopup("websiteEdit"); ?>
 		<?php Context::getInstance()->pageService->includePopup("galleryCategoriesEdit"); ?>
+		<?php Context::getInstance()->pageService->includePopup("bannersEdit"); ?>
 		
 		<?php if (isset($_REQUEST['OPEN_DEFAULT_POPUP'])) { ?>
 			<a id="openDefaultPopup" style="display:none" href="#popup-<?= $_REQUEST['OPEN_DEFAULT_POPUP'] ?>"></a>

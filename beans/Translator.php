@@ -321,7 +321,14 @@ class Translator {
 						'en' => 'Contact successfully updated.',
 						'it' => 'Il tuo contatto è stato aggiornato con successo.',
 						'es' => 'Tu contacto ha sido actualizado correctamente.'
-				)
+				),
+				
+				'banners.title' => array (
+						'en' => 'Choose the banner to display on your home page:',
+						'it' => 'Scegli il banner da visualizzare sulla home page:',
+						'es' => 'Eliges el banner da mostrar en el pagina principal:'
+				),
+				
 		);
 	}
 	public function translate($word, $lang = null) {
