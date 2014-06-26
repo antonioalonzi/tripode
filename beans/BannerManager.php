@@ -3,18 +3,13 @@
 class BannerManager {
 	public static $NONE = "None";
 	
-	private $banner;
-	
-	public function __construct($banner) {
-		$this->banner = $banner;
-	}
-	
 	public function hasBanner() {
-		return isset($this->banner) && $this->banner != BannerManager::$NONE;
+		$banner = Context::getInstance()->configurationManager->getConfiguration()->banner;
+		return isset($banner) && $banner != BannerManager::$NONE;
 	}
 	
 	public function getBanner() {
-		return $this->banner;
+		return Context::getInstance()->configurationManager->getConfiguration()->banner;
 	}
 }
 ?>

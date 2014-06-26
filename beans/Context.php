@@ -24,12 +24,9 @@ class Context {
 	public $translator;
 	
 	private function __construct() {
-		// configuration is the first thing that needs to be created
-		$this->configurationManager = new ConfigurationManager();
-		
-		// then all other beans
 		$this->authenticationManager = new AuthenticationManager();
-		$this->bannerManager = new BannerManager($this->configurationManager->getConfiguration()->banner);
+		$this->bannerManager = new BannerManager();
+		$this->configurationManager = new ConfigurationManager();
 		$this->galleryManager = new GalleryManager();
 		$this->pageService = new PageService();
 		$this->topMenuManager = new TopMenuManager();
