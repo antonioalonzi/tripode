@@ -66,11 +66,15 @@
 					</ul>
 				</nav>
 				
-				<?php Context::getInstance()->pageService->sectionEditable("bannersEdit") ?>
-				<?php if (Context::getInstance()->bannerManager->hasBanner() && Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
+				
+				
+				<?php if (Context::getInstance()->topMenuManager->hasCurrentPage()) { ?>
 					<div class="moduletable">
 						<div class="custom">
-							<p><img src="img/banners/<?= Context::getInstance()->bannerManager->getBanner() ?>" alt="" width="100%"></p>
+							<?php Context::getInstance()->pageService->sectionEditable("bannersEdit") ?>
+							<?php if (Context::getInstance()->bannerManager->hasBanner()) { ?>
+								<p><img src="img/banners/<?= Context::getInstance()->bannerManager->getBanner() ?>" alt="" width="100%"></p>
+							<?php } ?>
 						</div>
 					</div>
 				<?php } ?>
