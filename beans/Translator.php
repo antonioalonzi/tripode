@@ -98,6 +98,11 @@ class Translator {
 						'it' => 'Sei sicuro?',
 						'es' => '¿Estás seguro?'
 				),
+				'general.none' => array (
+						'en' => 'None',
+						'it' => 'Nessuno',
+						'es' => 'Ninguno'
+				),
 				
 				// general messages
 				'error.permissionDenied' => array (

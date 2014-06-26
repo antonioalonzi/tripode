@@ -11,5 +11,22 @@ class BannerManager {
 	public function getBanner() {
 		return Context::getInstance()->configurationManager->getConfiguration()->banner;
 	}
+	
+	public function getAllBanners() {
+		$banners = array();
+		
+		// read all files
+		if ($handle = opendir('img/banners')) {
+			$blacklist = array('.', '..');
+			while (false !== ($file = readdir($handle))) {
+				if (!in_array($file, $blacklist)) {
+					$banners[] = $file;
+				}
+			}
+			$handle = closedir($handle);
+		}
+		
+		return $banners;
+	}
 }
 ?>
