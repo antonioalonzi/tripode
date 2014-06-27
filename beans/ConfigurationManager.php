@@ -17,8 +17,12 @@ class ConfigurationManager {
 	}
 
 	private function load() {
-		$datain = file_get_contents(ConfigurationManager::$FILENAME);
-		return unserialize($datain);
+		if (file_exists(ConfigurationManager::$FILENAME)) {
+			$datain = file_get_contents(ConfigurationManager::$FILENAME);
+			return unserialize($datain);
+		} else {
+			return new Configuration();
+		}
 	}
 }
 ?>

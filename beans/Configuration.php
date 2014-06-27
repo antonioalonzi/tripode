@@ -1,24 +1,24 @@
 <?php
 class Configuration {
 	// website info
-	public $websiteName;
-	public $websiteDescription;
-	public $websiteAuthor;
-	public $websiteLang;		// one of the following: "en-en", "it-it", "es-es"
+	public $websiteName = "Tripode";
+	public $websiteDescription = "A simple WebSite for your photos.";
+	public $websiteAuthor = "Antonio Alonzi";
+	public $websiteLang = "en-en";
 	
 	// account info
-	public $accountEmail;
-	public $accountPassword;
+	public $accountEmail = "admin";
+	public $accountPassword = "admin";
 	
 	// contact info
-	public $contactName;
-	public $contactSurname;
-	public $contactAddress;
-	public $contactCity;
-	public $contactPostcode;
-	public $contactCountry;
-	public $contactTelephone;
-	public $contactMobile;
+	public $contactName = "Site Owner Name";
+	public $contactSurname = "And Surname";
+	public $contactAddress = "Site Owner Address";
+	public $contactCity = "City";
+	public $contactPostcode = "Postcode";
+	public $contactCountry = "Country";
+	public $contactTelephone = "0123456789";
+	public $contactMobile = "00987654321";
 	
 	// banners
 	public $banner = "blue-flower.jpg";
