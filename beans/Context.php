@@ -1,5 +1,5 @@
 <?php
-require_once("Configuration.php");
+require_once("beans/Configuration.php");
 require_once("beans/AuthenticationManager.php");
 require_once("beans/BannerManager.php");
 require_once("beans/ConfigurationManager.php");
