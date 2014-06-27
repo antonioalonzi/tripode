@@ -2,7 +2,7 @@
 	<p><?= Context::getInstance()->translator->translate("banners.title") ?></p>
 	
 	<form action="?action=banner" method="post" class="form-vertical">
-		<input type="hidden" name="bannerAction" value="set" />
+		<input type="hidden" name="bannerAction" value="setBanner" />
 		<div class="control-group">
 			<div class="controls">
 				<select name="banner">

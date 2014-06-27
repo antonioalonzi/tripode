@@ -12,6 +12,11 @@ class BannerManager {
 		return Context::getInstance()->configurationManager->getConfiguration()->banner;
 	}
 	
+	public function setBanner($banner) {
+		Context::getInstance()->configurationManager->getConfiguration()->banner = $banner;
+		Context::getInstance()->configurationManager->save();
+	}
+	
 	public function getAllBanners() {
 		$banners = array();
 		
