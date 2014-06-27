@@ -118,6 +118,8 @@
 					<div class="controls"><input type="file" name="uploadPhotos[]" id="uploadPhotos" value="" multiple="multiple" /></div>
 				</div>
 				
+				<p><?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosInfo") ?></p>
+				
 				<div class="controls">
 					<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>
 				</div>

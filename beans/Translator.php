@@ -174,6 +174,11 @@ class Translator {
 						'it' => 'Fotos:',
 						'es' => 'Fotos:'
 				),
+				'gallery.uploadPhotos.uploadPhotosInfo' => array (
+						'en' => 'Photos will be resized with a width of '.GalleryManager::$IMAGE_WIDTH.'px.',
+						'it' => 'Le fotografie verranno ridimensionate ad una larghezza di '.GalleryManager::$IMAGE_WIDTH.'px.',
+						'es' => 'Las fotos seran redimensionada a un ancho de '.GalleryManager::$IMAGE_WIDTH.'px.'
+				),
 				
 				// login
 				'login.email' => array (
