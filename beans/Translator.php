@@ -280,6 +280,11 @@ class Translator {
 						'it' => 'La configurazione del sito è stata aggiornata con successo.',
 						'es' => 'Tu configuración de sitio web ha sido actualizado correctamente.'
 				),
+				'website.configurationError' => array (
+						'en' => 'There was an error while updating the configuration.<br/>Does the "data" folder exist and do you have permission to write into it?',
+						'it' => 'C\'è stato un errore durante il salvataggio della configurazione.<br/>La cartella "data" esiste e hai permessi per scriverci dentro?.',
+						'es' => 'Se ha encontrado un error al actualizar la configuración.<br/>¿existe la carpeta "data" y tienes permiso para escribir en ella?'
+				),
 				
 				// contacts
 				'contacts.name' => array (

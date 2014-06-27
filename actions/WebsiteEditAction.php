@@ -16,8 +16,6 @@ class WebsiteEditAction {
 		
 		// save configuration
 		Context::getInstance()->configurationManager->save();
-		
-		$_REQUEST['MESSAGE'] = "website.configurationChanged";
 	}
 	
 	public function doGet() {

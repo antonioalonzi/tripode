@@ -13,7 +13,13 @@ class ConfigurationManager {
 	}
 
 	public function save() {
-		file_put_contents(ConfigurationManager::$FILENAME, (serialize($this->configuration)));
+		$result = file_put_contents(ConfigurationManager::$FILENAME, (serialize($this->configuration)));
+		
+		if ($result) {
+			$_REQUEST['MESSAGE'] = "website.configurationChanged";
+		} else {
+			$_REQUEST['ERROR'] = "website.configurationError";
+		}
 	}
 
 	private function load() {
