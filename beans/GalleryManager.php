@@ -1,5 +1,6 @@
 <?php
 require_once('beans/GalleryItem.php');
+require_once('beans/ImagesManager.php');
 
 class GalleryManager {
 	
@@ -134,9 +135,9 @@ class GalleryManager {
 	public function moveUploadedPhoto($position, $tmpName, $category, $filename) {
 		$filename = '['.$position.']'.$filename;
 		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
-		$this->resizeImage('gallery/'.$category.'/'.$filename, GalleryManager::$IMAGE_WIDTH);
+		ImagesManager::resizeImage('gallery/'.$category.'/'.$filename, GalleryManager::$IMAGE_WIDTH);
 		copy('gallery/'.$category.'/'.$filename, 'gallery/'.$category.'/thumbs/'.$filename);
-		$this->resizeImage('gallery/'.$category.'/thumbs/'.$filename, GalleryManager::$THUMB_WIDTH);
+		ImagesManager::resizeImage('gallery/'.$category.'/thumbs/'.$filename, GalleryManager::$THUMB_WIDTH);
 	}
 	
 	public function addCategory($category) {
@@ -222,20 +223,6 @@ class GalleryManager {
 			if (!$this->deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) return false;
 		}
 		return rmdir($dir);
-	}
-	
-	private function resizeImage($imagePath, $maxWidth) {
-		require_once ("lib/Zebra_Image.php");
-		
-		$image = new Zebra_Image();
-		$image->source_path = $imagePath;
-		$image->target_path = $imagePath;
-		$image->jpeg_quality = 95;
-		$image->preserve_aspect_ratio = true;
-		$image->enlarge_smaller_images = true;
-		$image->preserve_time = true;
-		
-		$image->resize ($maxWidth, 0, ZEBRA_IMAGE_CROP_CENTER);
 	}
 }
 ?>
