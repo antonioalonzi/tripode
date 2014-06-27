@@ -1,10 +1,9 @@
 <?php
+require_once ("lib/Zebra_Image.php");
 
 class ImagesManager {
 	
 	public static function resizeImage($imagePath, $maxWidth) {
-		require_once ("lib/Zebra_Image.php");
-		
 		$image = new Zebra_Image();
 		$image->source_path = $imagePath;
 		$image->target_path = $imagePath;
