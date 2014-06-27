@@ -1,12 +1,10 @@
 <?php
 require_once('beans/GalleryItem.php');
 
-/**
- * The width of the image is no bigger than 1200px.
- * @author antonio
- *
- */
 class GalleryManager {
+	
+	public static $IMAGE_WIDTH = 1200;
+	public static $THUMB_WIDTH = 180;
 	
 	/**
 	 * returns a list of categories from the filesystem
@@ -136,9 +134,9 @@ class GalleryManager {
 	public function moveUploadedPhoto($position, $tmpName, $category, $filename) {
 		$filename = '['.$position.']'.$filename;
 		move_uploaded_file($tmpName, 'gallery/'.$category.'/'.$filename);
-		$this->resizeImage('gallery/'.$category.'/'.$filename, 1200);
+		$this->resizeImage('gallery/'.$category.'/'.$filename, GalleryManager::$IMAGE_WIDTH);
 		copy('gallery/'.$category.'/'.$filename, 'gallery/'.$category.'/thumbs/'.$filename);
-		$this->resizeImage('gallery/'.$category.'/thumbs/'.$filename, 180);
+		$this->resizeImage('gallery/'.$category.'/thumbs/'.$filename, GalleryManager::$THUMB_WIDTH);
 	}
 	
 	public function addCategory($category) {
