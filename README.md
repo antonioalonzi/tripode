@@ -41,7 +41,7 @@ By now getting the update is as easy as doing a
 git pull
 </pre>
 
-The problem that if there are conflicts the procedure gets more complicated:
+The problem that if there are conflicts the procedure gets more complicate:
 <pre>
 git update-index --no-assume-unchanged pages/home.html
 
