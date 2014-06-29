@@ -103,6 +103,16 @@ class Translator {
 						'it' => 'Nessuno',
 						'es' => 'Ninguno'
 				),
+				'general.yes' => array (
+						'en' => 'Yes',
+						'it' => 'Si',
+						'es' => 'Si'
+				),
+				'general.no' => array (
+						'en' => 'No',
+						'it' => 'No',
+						'es' => 'No'
+				),
 				
 				// general messages
 				'error.permissionDenied' => array (
@@ -344,6 +354,16 @@ class Translator {
 						'es' => 'Eliges el banner da mostrar en el pagina principal:'
 				),
 				
+				'footer.title' => array (
+						'en' => 'Footer configuration:',
+						'it' => 'Configurazione del footer:',
+						'es' => 'Configuración de footer:'
+				),
+				'footer.displayLinkToTripode' => array (
+						'en' => 'Display link to Tripode website:',
+						'it' => 'Mostra link al sito internet Tripode:',
+						'es' => 'Mostra link por el sito internet Tripode:'
+				),
 		);
 	}
 	public function translate($word, $lang = null) {
