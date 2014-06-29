@@ -92,14 +92,16 @@
 					
 					<div id="aside" class="span3">
 						<div class="well _menu">
-							<h3 class="page-header">
-								<?= Context::getInstance()->translator->translate("gallery") ?>
+							<div>
+								<h3 class="page-header" style="float:left"><?= Context::getInstance()->translator->translate("gallery") ?></h3>
 								<?php Context::getInstance()->pageService->sectionEditable("galleryCategoriesEdit") ?>
-							</h3>
+							</div>
+							<div class="clearfix"></div>
+							
 							<ul class="nav menu">
-							<?php foreach (Context::getInstance()->galleryManager->getGalleryCategories() as $categoryItem) { ?>
-								<li><a href="index.php?page=gallery&category=<?= $categoryItem->getFilename() ?>"><?= $categoryItem->getName() ?></a></li>
-							<?php } ?>
+								<?php foreach (Context::getInstance()->galleryManager->getGalleryCategories() as $categoryItem) { ?>
+									<li><a href="index.php?page=gallery&category=<?= $categoryItem->getFilename() ?>"><?= $categoryItem->getName() ?></a></li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
