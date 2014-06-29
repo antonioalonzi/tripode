@@ -116,8 +116,11 @@
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
-				<p class="pull-right"><?= Context::getInstance()->translator->translate("index.poweredBy") ?> <a href="https://github.com/antonioalonzi/tripode">Tripode</a></p>
-				<p>© <?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?> 2014</p>
+				<p class="pull-left">© <?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?> 2014</p>
+				<div class="pull-right">
+					<p class="pull-left"><?= Context::getInstance()->translator->translate("index.poweredBy") ?> <a href="https://github.com/antonioalonzi/tripode">Tripode</a></p>
+					<p class="pull-right"><?php Context::getInstance()->pageService->sectionEditable("footerEdit") ?></p>
+				</div>
 			</div>
 		</footer>
 
