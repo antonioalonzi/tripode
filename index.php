@@ -17,11 +17,9 @@
 		<title><?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?></title>
 		
 		<link rel="shortcut icon" href="img/favicons/tripode.ico">
-		
 		<link rel="stylesheet" type="text/css" href="css/template.css" />
 		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		
 		<script type="text/javascript" src="js/tripode.js"></script>
 		
 		<!-- gallery -->
@@ -116,8 +114,8 @@
 		<footer class="footer" role="contentinfo">
 			<div class="container">
 				<hr>
-				<p class="pull-right"><a href="#top" id="back-top"><?= Context::getInstance()->translator->translate("back_top") ?></a></p>
-				<p>© <?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?> <?= date("Y") ?></p>
+				<p class="pull-right"><?= Context::getInstance()->translator->translate("index.poweredBy") ?> <a href="https://github.com/antonioalonzi/tripode">Tripode</a></p>
+				<p>© <?= Context::getInstance()->configurationManager->getConfiguration()->websiteName ?> 2014</p>
 			</div>
 		</footer>
 

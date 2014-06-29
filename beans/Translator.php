@@ -26,10 +26,10 @@ class Translator {
 				),
 				
 				// index
-				'back_top' => array (
-						'en' => 'Back to Top',
-						'it' => 'Torna su',
-						'es' => 'Volve arriba' 
+				'index.poweredBy' => array (
+						'en' => 'Powered by',
+						'it' => 'Offerto da',
+						'es' => 'Impulsado por' 
 				),
 				
 				// general actions
