@@ -5,19 +5,51 @@
 		<input type="hidden" name="bannerAction" value="setBanner" />
 		<div class="control-group">
 			<div class="controls">
-				<select name="banner">
-					<?php $noneSelected = Context::getInstance()->bannerManager->hasBanner() ? '' : 'selected="Selected"' ?>
-					<option value="None" <?= $noneSelected ?>><?= Context::getInstance()->translator->translate("general.none") ?></option>
-					
-					<?php foreach (Context::getInstance()->bannerManager->getAllBanners() as $banner) { ?>
-						<?php $selected = Context::getInstance()->bannerManager->getBanner() == $banner ? 'selected="Selected"' : '' ?>
-						<option value="<?= $banner ?>" <?= $selected ?>><?= $banner ?></option>
-					<?php } ?>
-				</select> 
+				<table class="table table-striped table-bordered">
+					<tbody>
+						<tr>
+							<?php $bannerSelected = Context::getInstance()->bannerManager->hasBanner() ? '' : 'bannerSelected' ?>
+							<td width="*">
+								<?php if ($bannerSelected == 'bannerSelected') { ?>
+									<span class="<?= $bannerSelected ?>"><?= Context::getInstance()->translator->translate("general.none") ?></span>
+								<?php } else { ?>
+									<a class="methodPost <?= $bannerSelected ?>" href="?action=banner&bannerAction=setBanner&banner=None" class="<?= $bannerSelected ?>"><?= Context::getInstance()->translator->translate("general.none") ?></a>
+								<?php } ?>
+							</td>
+							<td width="120px"></td>
+						</tr>
+						<?php $i = 0 ?>
+						<?php foreach (Context::getInstance()->bannerManager->getAllBanners() as $banner) { ?>
+							<?php $bannerSelected = Context::getInstance()->bannerManager->getBanner() == $banner ? 'bannerSelected' : '' ?>
+							<tr>
+								<td width="*">
+									<?php if ($bannerSelected == 'bannerSelected') { ?>
+										<span class="<?= $bannerSelected ?>"><?= $banner ?></span>
+									<?php } else { ?>
+										<a class="methodPost" href="?action=banner&bannerAction=setBanner&banner=<?= urlencode($banner) ?>"><?= $banner ?></a>
+									<?php } ?>
+								</td>
+								<td width="120px">
+									<!-- Rename Icon -->
+									<!-- 
+									<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+										<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
+									</a>
+									 -->
+									
+									<!-- Delete Icon -->
+									<!-- 
+									<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
+										<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
+									</a>
+									 -->
+								</td>
+							</tr>
+							<?php $i++ ?>
+						<?php } ?>
+					</tbody>
+				</table>
 			</div>
-		</div>
-		<div class="controls">
-			<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>
 		</div>
 	</form>
 	
