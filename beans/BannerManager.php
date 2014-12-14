@@ -17,6 +17,10 @@ class BannerManager {
 		Context::getInstance()->configurationManager->save();
 	}
 	
+	public function deleteBanner($banner) {
+		unlink("img/banners/".$banner);
+	}
+	
 	public function getAllBanners() {
 		$banners = array();
 		

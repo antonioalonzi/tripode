@@ -23,6 +23,10 @@ class BannerAction {
 	public function setBanner() {
 		Context::getInstance()->bannerManager->setBanner($_REQUEST['banner']);
 	}
+	
+	public function deleteBanner() {
+		Context::getInstance()->bannerManager->deleteBanner($_REQUEST['banner']);
+	}
 }
 
 ?>

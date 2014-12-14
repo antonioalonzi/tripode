@@ -30,19 +30,19 @@
 									<?php } ?>
 								</td>
 								<td width="120px">
-									<!-- Rename Icon -->
-									<!-- 
-									<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
-										<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
-									</a>
-									 -->
-									
-									<!-- Delete Icon -->
-									<!-- 
-									<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
-										<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
-									</a>
-									 -->
+									<?php if ($banner != "tripod.jpg") { ?>
+										<!-- Rename Icon -->
+										<!-- 
+										<a class="renameCategoryButton" href="#<?= $i ?>" title="<?= Context::getInstance()->translator->translate("general.rename") ?>">
+											<img alt="<?= Context::getInstance()->translator->translate("general.rename") ?>" src="img/icons/rename.png" />
+										</a>
+										 -->
+										
+										<!-- Delete Icon -->
+										<a class="methodPostConfirm" confirmationMessage="<?= Context::getInstance()->translator->translate("general.confirmationMessage") ?>" href="?action=banner&bannerAction=deleteBanner&banner=<?= urlencode($banner) ?>" title="<?= Context::getInstance()->translator->translate("general.delete") ?>">
+											<img alt="<?= Context::getInstance()->translator->translate("general.delete") ?>" src="img/icons/delete.png" />
+										</a>
+									<?php } ?>
 								</td>
 							</tr>
 							<?php $i++ ?>
