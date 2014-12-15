@@ -21,6 +21,6 @@ class Configuration {
 	public $contactMobile = "00987654321";
 	
 	// banners
-	public $banner = "tripod.jpg";
+	public $banner = "blue-flower.jpg";
 }
 ?>
