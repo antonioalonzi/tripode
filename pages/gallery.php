@@ -10,7 +10,9 @@
 	
 	<?php $userLoggedIn = Context::getInstance()->authenticationManager->isAdminUserLoggedIn() ?>
 	<?php $images = Context::getInstance()->galleryManager->getImagesWithinCategory($_REQUEST['category'], $userLoggedIn) ?>
+	<?php $lastPosition = 0 ?>
 	<?php foreach ($images as $image) { ?>
+		<?php $lastPosition = $image->getPosition() ?>
 		<li class="sige_cont_0">
 			
 			<?php if (Context::getInstance()->authenticationManager->isAdminUserLoggedIn()) { ?>
@@ -79,10 +81,6 @@
 
 
 
-<?php Context::getInstance()->pageService->includePopup("categoryTextEdit"); ?>
-
-
-
 <div id="popup-renameGalleryImage" class="editPopup" style="display: none">
 	<a href="#popup-renameGalleryImage" class="closePopup"><img src="img/icons/close.png" class="pull-right" /></a>
 	<div class="editPopupContainer">
@@ -114,10 +112,13 @@
 		<?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosMessage") ?>
 		<form action="?action=gallery&galleryAction=uploadPhotos&category=<?= $_REQUEST['category']?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 			<fieldset class="well">
+				<input type="hidden" name="position" id="position" value="<?= $lastPosition + 1 ?>" />
 				<div class="control-group">
 					<div class="control-label"><label id="uploadPhotos-lbl" for="uploadPhotos"><?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosPhotoLabel") ?></label></div>
 					<div class="controls"><input type="file" name="uploadPhotos[]" id="uploadPhotos" value="" multiple="multiple" /></div>
 				</div>
+				
+				<p><?= Context::getInstance()->translator->translate("gallery.uploadPhotos.uploadPhotosInfo") ?></p>
 				
 				<div class="controls">
 					<button type="submit" class="btn btn-primary"><?= Context::getInstance()->translator->translate("action.save") ?></button>

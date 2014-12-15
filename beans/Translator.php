@@ -26,10 +26,10 @@ class Translator {
 				),
 				
 				// index
-				'back_top' => array (
-						'en' => 'Back to Top',
-						'it' => 'Torna su',
-						'es' => 'Volve arriba' 
+				'index.poweredBy' => array (
+						'en' => 'Powered by',
+						'it' => 'Offerto da',
+						'es' => 'Impulsado por' 
 				),
 				
 				// general actions
@@ -97,6 +97,21 @@ class Translator {
 						'en' => 'Are you sure?',
 						'it' => 'Sei sicuro?',
 						'es' => '¿Estás seguro?'
+				),
+				'general.none' => array (
+						'en' => 'None',
+						'it' => 'Nessuno',
+						'es' => 'Ninguno'
+				),
+				'general.yes' => array (
+						'en' => 'Yes',
+						'it' => 'Si',
+						'es' => 'Si'
+				),
+				'general.no' => array (
+						'en' => 'No',
+						'it' => 'No',
+						'es' => 'No'
 				),
 				
 				// general messages
@@ -168,6 +183,11 @@ class Translator {
 						'en' => 'Photos:',
 						'it' => 'Fotos:',
 						'es' => 'Fotos:'
+				),
+				'gallery.uploadPhotos.uploadPhotosInfo' => array (
+						'en' => 'Photos will be resized with a width of '.GalleryManager::$IMAGE_WIDTH.'px.',
+						'it' => 'Le fotografie verranno ridimensionate ad una larghezza di '.GalleryManager::$IMAGE_WIDTH.'px.',
+						'es' => 'Las fotos seran redimensionada a un ancho de '.GalleryManager::$IMAGE_WIDTH.'px.'
 				),
 				
 				// login
@@ -270,6 +290,11 @@ class Translator {
 						'it' => 'La configurazione del sito è stata aggiornata con successo.',
 						'es' => 'Tu configuración de sitio web ha sido actualizado correctamente.'
 				),
+				'website.configurationError' => array (
+						'en' => 'There was an error while updating the configuration.<br/>Does the "data" folder exist and do you have permission to write into it?',
+						'it' => 'C\'è stato un errore durante il salvataggio della configurazione.<br/>La cartella "data" esiste e hai permessi per scriverci dentro?.',
+						'es' => 'Se ha encontrado un error al actualizar la configuración.<br/>¿existe la carpeta "data" y tienes permiso para escribir en ella?'
+				),
 				
 				// contacts
 				'contacts.name' => array (
@@ -321,7 +346,24 @@ class Translator {
 						'en' => 'Contact successfully updated.',
 						'it' => 'Il tuo contatto è stato aggiornato con successo.',
 						'es' => 'Tu contacto ha sido actualizado correctamente.'
-				)
+				),
+				
+				'banners.title' => array (
+						'en' => 'Choose the banner to display on your home page:',
+						'it' => 'Scegli il banner da visualizzare sulla home page:',
+						'es' => 'Eliges el banner da mostrar en el pagina principal:'
+				),
+				
+				'footer.title' => array (
+						'en' => 'Footer configuration:',
+						'it' => 'Configurazione del footer:',
+						'es' => 'Configuración de footer:'
+				),
+				'footer.displayLinkToTripode' => array (
+						'en' => 'Display link to Tripode website:',
+						'it' => 'Mostra link al sito internet Tripode:',
+						'es' => 'Mostra link por el sito internet Tripode:'
+				),
 		);
 	}
 	public function translate($word, $lang = null) {

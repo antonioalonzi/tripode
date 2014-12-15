@@ -40,7 +40,7 @@ class GalleryItem {
 	}
 	
 	public function setName($name) {
-		$this->name = $name;
+		$this->name = GalleryItem::galleryItemName($name);
 	}
 	
 	public function getPosition() {
@@ -97,6 +97,14 @@ class GalleryItem {
 	
 	public static function positionComparator($a, $b) {
 		return strcmp($a->position, $b->position);
+	}
+	
+	public static function galleryItemName($name) {
+		$name = str_replace("[", "_", $name);
+		$name = str_replace("]", "_", $name);
+		$name = str_replace("|", "_", $name);
+		$name = preg_replace("/^\./", "_", $name);
+		return $name;
 	}
 }
 ?>

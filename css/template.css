@@ -7329,3 +7329,7 @@ div.editPopup div.editPopupContainer {
 		right: 10px;
 	}
 }
+
+.bannerSelected {
+	font-weight: bold;
+}

@@ -13,12 +13,22 @@ class ConfigurationManager {
 	}
 
 	public function save() {
-		file_put_contents(ConfigurationManager::$FILENAME, (serialize($this->configuration)));
+		$result = file_put_contents(ConfigurationManager::$FILENAME, (serialize($this->configuration)));
+		
+		if ($result) {
+			$_REQUEST['MESSAGE'] = "website.configurationChanged";
+		} else {
+			$_REQUEST['ERROR'] = "website.configurationError";
+		}
 	}
 
 	private function load() {
-		$datain = file_get_contents(ConfigurationManager::$FILENAME);
-		return unserialize($datain);
+		if (file_exists(ConfigurationManager::$FILENAME)) {
+			$datain = file_get_contents(ConfigurationManager::$FILENAME);
+			return unserialize($datain);
+		} else {
+			return new Configuration();
+		}
 	}
 }
 ?>
