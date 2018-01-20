@@ -52,7 +52,3 @@ git mergetool
 
 git update-index --assume-unchanged pages/home.html
 </pre>
-
-### Contact me
-For any query please feel free to contact me at antonioalonzi85@gmail.com.
-I'll try to answer as soon I have a bit of spare time.
