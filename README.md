@@ -12,8 +12,6 @@ The home page is as well customizable with custom html.
 
 Images can be uploaded within categories. They are resized with a width of 1200 pixels (a thumb as well is created)
 
-### Live-Demo:
-To see tripode in action see http://tripode.net46.net/
 
 ### Setup
 The beauty of this website is that it is extremely easy to setup.
