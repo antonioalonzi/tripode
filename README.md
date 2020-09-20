@@ -3,7 +3,7 @@ tripode
 
 ### What is it?
 Tripode is a very simple php website builder where you can upload your photos.
-The idea behind is having the simplest possible siteand reduce the configuration to minimum (of course this results in a little customizable site but easy to use and install).
+The idea behind is having the simplest possible site and reduce the configuration to minimum (of course this results in a little customizable site but easy to use and install).
 It is good for very small image galleries that you want to create in an instant with free hosting.
 
 Photos are divided into categories and may have a very short description.
